@@ -1,0 +1,294 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+    <main class="pt-[72px]">
+      <!-- Hero Section -->
+      <section
+        class="hero-gradient min-h-[819px] flex flex-col items-center justify-center px-gutter text-center py-xxl"
+      >
+        <div class="max-w-[800px] flex flex-col items-center gap-lg">
+          <div
+            class="inline-flex items-center gap-sm px-md py-xs rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps"
+          >
+            <span
+              class="material-symbols-outlined text-[16px]"
+              data-icon="bolt"
+              data-weight="fill"
+              style="font-variation-settings: &quot;FILL&quot; 1"
+              >bolt</span
+            >
+            PREMIUM HEALTH TRACKING
+          </div>
+          <h1
+            class="font-display text-display md:text-[64px] text-on-surface leading-tight"
+          >
+            Your Health, Unified
+          </h1>
+          <p
+            class="font-body-lg text-body-lg text-on-surface-variant max-w-[600px]"
+          >
+            Master your body metrics with precision. Real-time calorie tracking,
+            scientific BMR calculations, and fitness plans tailored to your
+            unique physiology.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-md mt-md">
+            <button
+              class="px-[32px] py-md bg-primary text-on-primary rounded-xl font-h2 text-h2 hover:shadow-lg active:scale-95 transition-all"
+            >
+              Start Your Journey
+            </button>
+            <button
+              class="px-[32px] py-md border border-outline text-primary rounded-xl font-h2 text-h2 hover:bg-surface-container-low active:scale-95 transition-all"
+            >
+              View Demo
+            </button>
+          </div>
+        </div>
+        <!-- Hero Image / Visual Element -->
+        <div class="mt-xxl w-full max-w-container-max px-lg">
+          <div
+            class="relative rounded-xxl overflow-hidden shadow-xl aspect-[21/9]"
+          >
+            <img
+              class="w-full h-full object-cover"
+              data-alt="A clean, high-key fitness studio with professional equipment in a bright, modern setting. Soft morning light streams through large windows, creating a serene and premium atmosphere that reflects health and vitality. The overall aesthetic is minimalist, focusing on high-quality textures and an airy, breathable environment."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBrGwibPDsorEuvmIwfXZOBxOiT7SrmAD78f2R8cK04DtocOonZsSbAY_2NnJ2oHLveJd-ukGQsVuK2W5dOt90MDjVfNao1c9-ISPjh0SlZsSpHbtp1VMJ23KwIBnYFaTy2f87LegGk57AyWqhgJMfjdohAHWBi0zh8slvu9FIfWfz-oA6JKBH6N5AsPmqUJPdjyWM4FHM-85ktpIb_zncO1szC9OvBUVs6L8puw4x81H2D-zRZKdhHV2XP2N401-L9fAdExEmeIRmE"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
+            ></div>
+          </div>
+        </div>
+      </section>
+      <!-- Features Bento Grid -->
+      <section class="py-xxl px-gutter max-w-container-max mx-auto">
+        <div class="text-center mb-xxl">
+          <h2 class="font-h1 text-h1 text-on-surface mb-md">
+            Precision Tools for Transformation
+          </h2>
+          <p class="text-on-surface-variant font-body-md max-w-[500px] mx-auto">
+            Sophisticated data visualization meets intuitive design to help you
+            reach your peak performance.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+          <!-- Calorie Tracker Card -->
+          <div
+            class="md:col-span-8 bg-surface-container-lowest p-xl rounded-xl shadow-[0px_4px_20px_rgba(15,23,42,0.05)] border border-surface-container flex flex-col md:flex-row gap-xl"
+          >
+            <div class="flex-1">
+              <span
+                class="material-symbols-outlined text-primary text-[40px] mb-md"
+                data-icon="restaurant"
+                >restaurant</span
+              >
+              <h3 class="font-h2 text-h2 text-on-surface mb-sm">
+                Calorie Tracker
+              </h3>
+              <p class="text-on-surface-variant font-body-md mb-lg">
+                Log meals instantly with our AI-powered database. Track macros
+                with professional-grade accuracy and visual daily summaries.
+              </p>
+              <ul class="space-y-sm text-on-surface-variant font-body-md">
+                <li class="flex items-center gap-sm">
+                  <span
+                    class="material-symbols-outlined text-primary text-[20px]"
+                    data-icon="check_circle"
+                    data-weight="fill"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >check_circle</span
+                  >
+                  500k+ Verified Food Items
+                </li>
+                <li class="flex items-center gap-sm">
+                  <span
+                    class="material-symbols-outlined text-primary text-[20px]"
+                    data-icon="check_circle"
+                    data-weight="fill"
+                    style="font-variation-settings: &quot;FILL&quot; 1"
+                    >check_circle</span
+                  >
+                  Macro-nutrient Breakdown
+                </li>
+              </ul>
+            </div>
+            <div class="flex-1 flex items-center justify-center">
+              <!-- Progress Ring Visual -->
+              <div class="relative w-48 h-48">
+                <svg class="w-full h-full" viewbox="0 0 100 100">
+                  <circle
+                    class="text-surface-container-highest stroke-current"
+                    cx="50"
+                    cy="50"
+                    fill="transparent"
+                    r="40"
+                    stroke-width="8"
+                  ></circle>
+                  <circle
+                    class="text-primary stroke-current"
+                    cx="50"
+                    cy="50"
+                    fill="transparent"
+                    r="40"
+                    stroke-dasharray="251.2"
+                    stroke-dashoffset="62.8"
+                    stroke-linecap="round"
+                    stroke-width="8"
+                    transform="rotate(-90 50 50)"
+                  ></circle>
+                </svg>
+                <div
+                  class="absolute inset-0 flex flex-col items-center justify-center"
+                >
+                  <span class="text-h1 font-h1 text-primary">1,840</span>
+                  <span
+                    class="text-label-caps font-label-caps text-on-surface-variant"
+                    >CALORIES</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- BMR Calculator Card -->
+          <div
+            class="md:col-span-4 bg-primary text-on-primary p-xl rounded-xl shadow-lg flex flex-col justify-between"
+          >
+            <div>
+              <span
+                class="material-symbols-outlined text-[40px] mb-md"
+                data-icon="calculate"
+                >calculate</span
+              >
+              <h3 class="font-h2 text-h2 mb-sm">BMR &amp; BMI Precision</h3>
+              <p class="opacity-90 font-body-md">
+                Scientific calculations based on the Mifflin-St Jeor equation to
+                provide your exact metabolic baseline.
+              </p>
+            </div>
+            <div class="mt-lg pt-lg border-t border-on-primary/20">
+              <div class="flex justify-between items-end">
+                <div>
+                  <div class="text-label-caps font-label-caps opacity-70 mb-xs">
+                    YOUR BASELINE
+                  </div>
+                  <div class="text-h1 font-h1">
+                    2,150 <span class="text-body-md font-normal">kcal</span>
+                  </div>
+                </div>
+                <span
+                  class="material-symbols-outlined text-[32px]"
+                  data-icon="trending_up"
+                  >trending_up</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Recommendations Card -->
+          <div
+            class="md:col-span-12 bg-surface-container-low p-xl rounded-xl border border-outline-variant grid grid-cols-1 md:grid-cols-3 gap-xl items-center"
+          >
+            <div class="md:col-span-2">
+              <div class="inline-flex items-center gap-xs text-tertiary mb-sm">
+                <span
+                  class="material-symbols-outlined"
+                  data-icon="auto_awesome"
+                  data-weight="fill"
+                  style="font-variation-settings: &quot;FILL&quot; 1"
+                  >auto_awesome</span
+                >
+                <span class="font-label-caps text-label-caps"
+                  >PERSONALIZED INSIGHTS</span
+                >
+              </div>
+              <h3 class="font-h1 text-h1 text-on-surface mb-md">
+                Tailored Fitness Ecosystem
+              </h3>
+              <p class="text-on-surface-variant font-body-lg mb-lg">
+                We analyze your data to suggest the perfect balance of Yoga,
+                HIIT Workouts, and Meal Plans that align with your specific
+                goals.
+              </p>
+              <div class="flex flex-wrap gap-md">
+                <div
+                  class="bg-surface p-md rounded-lg shadow-sm flex items-center gap-md"
+                >
+                  <span
+                    class="material-symbols-outlined text-tertiary"
+                    data-icon="self_improvement"
+                    >self_improvement</span
+                  >
+                  <div class="font-label-caps text-label-caps text-on-surface">
+                    MORNING YOGA
+                  </div>
+                </div>
+                <div
+                  class="bg-surface p-md rounded-lg shadow-sm flex items-center gap-md"
+                >
+                  <span
+                    class="material-symbols-outlined text-primary"
+                    data-icon="fitness_center"
+                    >fitness_center</span
+                  >
+                  <div class="font-label-caps text-label-caps text-on-surface">
+                    STRENGTH LAB
+                  </div>
+                </div>
+                <div
+                  class="bg-surface p-md rounded-lg shadow-sm flex items-center gap-md"
+                >
+                  <span
+                    class="material-symbols-outlined text-secondary"
+                    data-icon="skillet"
+                    >skillet</span
+                  >
+                  <div class="font-label-caps text-label-caps text-on-surface">
+                    KETO RECIPES
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rounded-xl overflow-hidden h-full min-h-[240px]">
+              <img
+                class="w-full h-full object-cover"
+                data-alt="A focused individual practicing yoga in a high-end, minimalist studio with warm wood flooring and soft ambient lighting. The scene captures a sense of balance, precision, and tranquility, consistent with a premium health and wellness brand. The color palette is composed of natural tones, soft purples, and clean whites."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvmmYnAUeeArldUTOK_yJWPaE5A6yAvdo96maEOYuHEAD-gMCTfQCuCxETwmEMuEVZWChC7gXQx6plzpE3YzmChFSIbMADEYzBuYVHPlY2PGW9b784hUJ0r78F7u8tG5cFQjcSkkubuqr8y48co31LdZIj6A7-N7Je3LsnJiDkuDuF-_qZav2IHyurH3MYHaIjJXNYuQS4fvK28x5VxVMRWKDpcq_3BM94bzWzQfT8Ajr28BpHV6sWWKtSM7MIsOYl6t9Ir9E_GWmU"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Call to Action -->
+      <section class="py-xxl px-gutter">
+        <div
+          class="max-w-container-max mx-auto bg-surface-container-high rounded-xxl p-xxl text-center relative overflow-hidden"
+        >
+          <div class="relative z-10">
+            <h2
+              class="font-display text-h1 md:text-[40px] text-on-surface mb-lg"
+            >
+              Ready to take control?
+            </h2>
+            <p
+              class="text-on-surface-variant font-body-lg max-w-[600px] mx-auto mb-xl"
+            >
+              Join 50,000+ fitness enthusiasts who have transformed their lives
+              through data-driven health tracking.
+            </p>
+            <button
+              class="px-xxl py-md bg-primary text-on-primary rounded-full font-h2 text-h2 hover:scale-105 transition-transform"
+            >
+              Get Started for Free
+            </button>
+          </div>
+          <!-- Subtle background shapes -->
+          <div
+            class="absolute -top-12 -right-12 w-48 h-48 bg-primary-container/20 rounded-full blur-3xl"
+          ></div>
+          <div
+            class="absolute -bottom-12 -left-12 w-48 h-48 bg-tertiary-container/20 rounded-full blur-3xl"
+          ></div>
+        </div>
+      </section>
+    </main>
+{% endblock %}
