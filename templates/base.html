@@ -2,288 +2,324 @@
 <!doctype html>
 
 <html class="light" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>CalTrack - Your Health, Unified</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-      rel="stylesheet"
-    />
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "on-secondary-container": "#645a7d",
-              "surface-container": "#f2ecf4",
-              "on-tertiary": "#ffffff",
-              "surface-container-lowest": "#ffffff",
-              "surface-dim": "#ded8e0",
-              "primary-container": "#6750a4",
-              "on-error": "#ffffff",
-              "secondary-fixed": "#e9ddff",
-              "surface-tint": "#6750a4",
-              "on-secondary-fixed-variant": "#4b4263",
-              "inverse-on-surface": "#f5eff7",
-              "secondary-fixed-dim": "#cdc0e9",
-              primary: "#4f378a",
-              "tertiary-fixed": "#ffdf93",
-              "secondary-container": "#e1d4fd",
-              secondary: "#63597c",
-              "surface-bright": "#fdf7ff",
-              "on-secondary": "#ffffff",
-              "on-tertiary-fixed-variant": "#594400",
-              "on-primary-fixed-variant": "#4f378a",
-              "surface-container-highest": "#e6e0e9",
-              "inverse-primary": "#cfbcff",
-              "on-tertiary-container": "#503d00",
-              "on-primary-fixed": "#22005d",
-              "on-tertiary-fixed": "#241a00",
-              "primary-fixed": "#e9ddff",
-              outline: "#7a7582",
-              "tertiary-fixed-dim": "#e7c365",
-              "inverse-surface": "#322f35",
-              "on-error-container": "#93000a",
-              "on-primary-container": "#e0d2ff",
-              background: "#fdf7ff",
-              "on-primary": "#ffffff",
-              "on-surface": "#1d1b20",
-              "primary-fixed-dim": "#cfbcff",
-              error: "#ba1a1a",
-              "surface-container-low": "#f8f2fa",
-              "surface-variant": "#e6e0e9",
-              surface: "#fdf7ff",
-              "error-container": "#ffdad6",
-              "on-background": "#1d1b20",
-              "on-surface-variant": "#494551",
-              "tertiary-container": "#c9a74d",
-              "on-secondary-fixed": "#1f1635",
-              tertiary: "#765b00",
-              "outline-variant": "#cbc4d2",
-              "surface-container-high": "#ece6ee",
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
-            spacing: {
-              xs: "4px",
-              sm: "8px",
-              md: "16px",
-              xxl: "64px",
-              gutter: "24px",
-              xl: "40px",
-              lg: "24px",
-              base: "4px",
-              "container-max": "1200px",
-            },
-            fontFamily: {
-              h1: ["Inter"],
-              display: ["Inter"],
-              h2: ["Inter"],
-              "body-lg": ["Inter"],
-              "h1-mobile": ["Inter"],
-              "body-md": ["Inter"],
-              "label-caps": ["Inter"],
-            },
-            fontSize: {
-              h1: [
-                "32px",
-                {
-                  lineHeight: "1.2",
-                  letterSpacing: "-0.01em",
-                  fontWeight: "700",
-                },
-              ],
-              display: [
-                "48px",
-                {
-                  lineHeight: "1.1",
-                  letterSpacing: "-0.02em",
-                  fontWeight: "700",
-                },
-              ],
-              h2: ["24px", { lineHeight: "1.3", fontWeight: "600" }],
-              "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
-              "h1-mobile": ["24px", { lineHeight: "1.2", fontWeight: "700" }],
-              "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
-              "label-caps": [
-                "12px",
-                { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" },
-              ],
-            },
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>CalTrack - Your Health, Unified</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-secondary-container": "#645a7d",
+            "surface-container": "#f2ecf4",
+            "on-tertiary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "surface-dim": "#ded8e0",
+            "primary-container": "#6750a4",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#e9ddff",
+            "surface-tint": "#6750a4",
+            "on-secondary-fixed-variant": "#4b4263",
+            "inverse-on-surface": "#f5eff7",
+            "secondary-fixed-dim": "#cdc0e9",
+            primary: "#4f378a",
+            "tertiary-fixed": "#ffdf93",
+            "secondary-container": "#e1d4fd",
+            secondary: "#63597c",
+            "surface-bright": "#fdf7ff",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed-variant": "#594400",
+            "on-primary-fixed-variant": "#4f378a",
+            "surface-container-highest": "#e6e0e9",
+            "inverse-primary": "#cfbcff",
+            "on-tertiary-container": "#503d00",
+            "on-primary-fixed": "#22005d",
+            "on-tertiary-fixed": "#241a00",
+            "primary-fixed": "#e9ddff",
+            outline: "#7a7582",
+            "tertiary-fixed-dim": "#e7c365",
+            "inverse-surface": "#322f35",
+            "on-error-container": "#93000a",
+            "on-primary-container": "#e0d2ff",
+            background: "#fdf7ff",
+            "on-primary": "#ffffff",
+            "on-surface": "#1d1b20",
+            "primary-fixed-dim": "#cfbcff",
+            error: "#ba1a1a",
+            "surface-container-low": "#f8f2fa",
+            "surface-variant": "#e6e0e9",
+            surface: "#fdf7ff",
+            "error-container": "#ffdad6",
+            "on-background": "#1d1b20",
+            "on-surface-variant": "#494551",
+            "tertiary-container": "#c9a74d",
+            "on-secondary-fixed": "#1f1635",
+            tertiary: "#765b00",
+            "outline-variant": "#cbc4d2",
+            "surface-container-high": "#ece6ee",
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
+          },
+          spacing: {
+            xs: "4px",
+            sm: "8px",
+            md: "16px",
+            xxl: "64px",
+            gutter: "24px",
+            xl: "40px",
+            lg: "24px",
+            base: "4px",
+            "container-max": "1200px",
+          },
+          fontFamily: {
+            h1: ["Inter"],
+            display: ["Inter"],
+            h2: ["Inter"],
+            "body-lg": ["Inter"],
+            "h1-mobile": ["Inter"],
+            "body-md": ["Inter"],
+            "label-caps": ["Inter"],
+          },
+          fontSize: {
+            h1: [
+              "32px",
+              {
+                lineHeight: "1.2",
+                letterSpacing: "-0.01em",
+                fontWeight: "700",
+              },
+            ],
+            display: [
+              "48px",
+              {
+                lineHeight: "1.1",
+                letterSpacing: "-0.02em",
+                fontWeight: "700",
+              },
+            ],
+            h2: ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+            "h1-mobile": ["24px", { lineHeight: "1.2", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }],
+            "label-caps": [
+              "12px",
+              { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" },
+            ],
           },
         },
-      };
-    </script>
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings:
-          "FILL" 0,
-          "wght" 400,
-          "GRAD" 0,
-          "opsz" 24;
-      }
-      .hero-gradient {
-        background:
-          radial-gradient(
-            circle at top right,
-            rgba(103, 80, 164, 0.08),
-            transparent 40%
-          ),
-          radial-gradient(
-            circle at bottom left,
-            rgba(118, 91, 0, 0.05),
-            transparent 40%
-          );
-      }
-    </style>
-  </head>
-  <body class="bg-surface text-on-surface font-body-md">
-    <!-- TopAppBar -->
-    <header class="fixed top-0 w-full z-50 bg-surface shadow-sm">
-      <div
-        class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto"
-      >
-        <div class="text-h2 font-h2 font-bold text-primary">CalTrack</div>
-        <nav class="hidden md:flex items-center gap-xl">
-          <a
-            class="text-primary font-bold border-b-2 border-primary font-body-md text-body-md transition-colors"
-            href="#"
-            >Dashboard</a
-          >
-          <a
-            class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md"
-            href="#"
-            >Food Log</a
-          >
-          <a
-            class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md"
-            href="#"
-            >Calculators</a
-          >
-          <a
-            class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md"
-            href="#"
-            >Workouts</a
-          >
-          <a
-            class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md"
-            href="#"
-            >Yoga</a
-          >
-        </nav>
-        <div class="flex items-center gap-md">
+      },
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings:
+        "FILL" 0,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
+    }
+
+    body {
+      background-color: #fdf7ff;
+      color: #1d1b20;
+      overflow-x: hidden;
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .hero-gradient {
+      background:
+        radial-gradient(circle at top right,
+          rgba(103, 80, 164, 0.08),
+          transparent 40%),
+        radial-gradient(circle at bottom left,
+          rgba(118, 91, 0, 0.05),
+          transparent 40%);
+    }
+
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  </style>
+</head>
+
+<body class="bg-surface text-on-surface font-body-md">
+  <!-- TopAppBar -->
+  <header class="fixed top-0 w-full z-50 bg-surface shadow-sm">
+    <div class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto">
+      <div class="text-h2 font-h2 font-bold text-primary" onclick="window.location.href='{% url 'home' %}'">
+        CalTrack
+      </div>
+      <nav class="hidden md:flex items-center gap-xl">
+        <a class="font-body-md text-body-md transition-colors
+                  {% if request.resolver_match.url_name == 'home' %}
+                    text-primary font-bold border-b-2 border-primary
+                  {% else %}
+                    text-on-surface-variant hover:text-primary
+                  {% endif %}" href={% url 'home' %}>Home</a>
+        <a class="transition-colors font-body-md text-body-md
+              {% if request.resolver_match.url_name == 'foodlog'%}
+              text-primary dont-bold border-b-2 border-primary
+              {% else %}
+              text-on-surface-variant hover:text-primary
+              {% endif %}" href={% url 'foodlog' %}>Food Log</a>
+        <a class="transition-colors font-body-md text-body-md
+              {% if request.resolver_match.url_name == 'calculator'%}
+              text-primary dont-bold border-b-2 border-primary
+              {% else %}
+              text-on-surface-variant hover:text-primary
+              {% endif %}" href={% url 'calculator' %}>Calculators</a>
+        <a class="transition-colors font-body-md text-body-md
+              {% if request.resolver_match.url_name == 'workout'%}
+              text-primary dont-bold border-b-2 border-primary
+              {% else %}
+              text-on-surface-variant hover:text-primary
+              {% endif %}" href={% url 'workout' %}>Workout</a>
+        <a class="transition-colors font-body-md text-body-md
+              {% if request.resolver_match.url_name == 'yoga'%}
+              text-primary dont-bold border-b-2 border-primary
+              {% else %}
+              text-on-surface-variant hover:text-primary
+              {% endif %}" href={% url 'yoga' %}>Yoga</a>
+      </nav>
+      <div class="flex items-center gap-md">
+        <button class="p-xs text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200">
+          <span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+        </button>
+
+        {% if user.is_authenticated %}
+        <div class="relative group inline-block">
+          <!-- Profile Button -->
           <button
-            class="p-xs text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200"
-          >
-            <span class="material-symbols-outlined" data-icon="notifications"
-              >notifications</span
-            >
+            class="flex items-center gap-xs px-md py-sm rounded-full bg-primary text-on-primary hover:opacity-90 active:scale-95 duration-200">
+            <span class="material-symbols-outlined text-[20px]" data-icon="person">
+              person
+            </span>
+
+            <span class="font-label-caps text-label-caps">
+              {{ request.user.username }}
+            </span>
+
+            <span class="material-symbols-outlined text-[18px]">
+              expand_more
+            </span>
           </button>
-          <button
-            class="flex items-center gap-xs px-md py-xs rounded-full bg-primary text-on-primary hover:opacity-90 active:scale-95 duration-200"
-          >
-            <span
-              class="material-symbols-outlined text-[20px]"
-              data-icon="person"
-              >person</span
-            >
-            <span class="font-label-caps text-label-caps">Profile</span>
-          </button>
-        </div>
-      </div>
-    </header>
 
-    {% block content %} {% endblock %}
+          <!-- Dropdown Menu -->
+          <div
+            class="absolute right-0 mt-2 w-48 bg-surface rounded-xl shadow-lg border border-outline-variant opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+            <a href={% url 'home' %}
+              class="flex items-center gap-2 px-4 py-3 hover:bg-surface-container-low transition-colors">
+              <span class="material-symbols-outlined text-[18px]">
+                dashboard
+              </span>
+              Dashboard
+            </a>
 
-    <!-- Footer -->
-    <footer class="w-full mt-xxl bg-surface-container-low">
-      <div
-        class="flex flex-col md:flex-row justify-between items-center px-lg py-xl max-w-container-max mx-auto gap-lg"
-      >
-        <div class="flex flex-col items-center md:items-start gap-sm">
-          <div class="font-h2 text-h2 text-primary font-bold">CalTrack</div>
-          <p class="font-body-md text-body-md text-on-surface-variant">
-            © 2024 CalTrack Premium Fitness. All rights reserved.
-          </p>
-        </div>
-        <div class="flex gap-lg flex-wrap justify-center">
-          <a
-            class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200 font-body-md text-body-md"
-            href="#"
-            >Privacy Policy</a
-          >
-          <a
-            class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200 font-body-md text-body-md"
-            href="#"
-            >Terms of Service</a
-          >
-          <a
-            class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200 font-body-md text-body-md"
-            href="#"
-            >Support</a
-          >
-          <a
-            class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200 font-body-md text-body-md"
-            href="#"
-            >Contact Us</a
-          >
-        </div>
-      </div>
-    </footer>
-    <!-- BottomNavBar (Mobile Only) -->
+            <a href={% url 'home' %}
+              class="flex items-center gap-2 px-4 py-3 hover:bg-surface-container-low transition-colors">
+              <span class="material-symbols-outlined text-[18px]">
+                person
+              </span>
+              Profile
+            </a>
 
-    <nav
-      class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-md py-sm bg-surface shadow-md z-50 rounded-t-xl border-t border-surface-variant"
-    >
-      <div
-        class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-md py-xs active:scale-90 transition-transform duration-150"
-      >
-        <span class="material-symbols-outlined" data-icon="dashboard"
-          >dashboard</span
-        >
-        <span class="font-label-caps text-label-caps">Home</span>
+            <hr class="border-outline-variant">
+
+            <a href={% url 'logout' %}
+              class="flex items-center gap-2 px-4 py-3 text-red-500 hover:bg-red-50 transition-colors">
+              <span class="material-symbols-outlined text-[18px]">
+                logout
+              </span>
+              Logout
+            </a>
+          </div>
+        </div>
+        {% else %}
+        <button
+          class="flex items-center gap-xs px-md py-sm rounded-full bg-primary text-on-primary hover:opacity-90 active:scale-95 duration-200"
+          onclick="window.location.href='{% url 'login' %}'">
+          <span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+          <span class="font-label-caps text-label-caps">Login/Signup</span>
+        </button>
+        {% endif %}
       </div>
-      <div
-        class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-transform duration-150"
-      >
-        <span class="material-symbols-outlined" data-icon="add_circle"
-          >add_circle</span
-        >
-        <span class="font-label-caps text-label-caps">Log</span>
+    </div>
+  </header>
+
+  {% block content %} {% endblock %}
+
+  <!-- Footer -->
+  <footer class="w-full mt-xxl bg-surface-container-low">
+    <div class="flex flex-col md:flex-row justify-between items-center px-lg py-xl max-w-container-max mx-auto gap-lg">
+      <div class="flex flex-col items-center md:items-start gap-sm">
+        <div class="font-h2 text-h2 text-primary font-bold">CalTrack</div>
+        <p class="font-body-md text-body-md text-on-surface-variant">
+          © 2024 CalTrack Premium Fitness. All rights reserved.
+        </p>
       </div>
-      <div
-        class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-transform duration-150"
-      >
-        <span class="material-symbols-outlined" data-icon="calculate"
-          >calculate</span
-        >
-        <span class="font-label-caps text-label-caps">Calculate</span>
+      <div class="flex gap-lg flex-wrap justify-center">
+        <a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200 font-body-md text-body-md"
+          href="#">Privacy Policy</a>
+        <a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200 font-body-md text-body-md"
+          href="#">Terms of Service</a>
+        <a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200 font-body-md text-body-md"
+          href="#">Support</a>
+        <a class="text-on-surface-variant hover:underline hover:text-primary transition-opacity duration-200 font-body-md text-body-md"
+          href="#">Contact Us</a>
       </div>
-      <div
-        class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-transform duration-150"
-      >
-        <span class="material-symbols-outlined" data-icon="fitness_center"
-          >fitness_center</span
-        >
-        <span class="font-label-caps text-label-caps">Fitness</span>
-      </div>
-      <div
-        class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-transform duration-150"
-      >
-        <span class="material-symbols-outlined" data-icon="person">person</span>
-        <span class="font-label-caps text-label-caps">Profile</span>
-      </div>
-    </nav>
-  </body>
+    </div>
+  </footer>
+  <!-- BottomNavBar (Mobile Only) -->
+
+  <nav
+    class="md:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-md py-sm bg-surface shadow-md z-50 rounded-t-xl border-t border-surface-variant">
+    <div
+      class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-md py-xs active:scale-90 transition-transform duration-150">
+      <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+      <span class="font-label-caps text-label-caps">Home</span>
+    </div>
+    <div
+      class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-transform duration-150">
+      <span class="material-symbols-outlined" data-icon="add_circle">add_circle</span>
+      <span class="font-label-caps text-label-caps">Log</span>
+    </div>
+    <div
+      class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-transform duration-150">
+      <span class="material-symbols-outlined" data-icon="calculate">calculate</span>
+      <span class="font-label-caps text-label-caps">Calculate</span>
+    </div>
+    <div
+      class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-transform duration-150">
+      <span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+      <span class="font-label-caps text-label-caps">Fitness</span>
+    </div>
+    <div
+      class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-container-highest active:scale-90 transition-transform duration-150">
+      <span class="material-symbols-outlined" data-icon="person">person</span>
+      <span class="font-label-caps text-label-caps">Profile</span>
+    </div>
+  </nav>
+</body>
+
 </html>

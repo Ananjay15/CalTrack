@@ -61,16 +61,24 @@
               Join 50,000+ members achieving their fitness goals with precision.
             </p>
           </div>
-          <form class="space-y-md">
+          {% if error %}
+          <div class="bg-red-100 border border-red-300 text-red-700 px-4 py-3 rounded-lg">
+              {{ error }}
+          </div>
+          {% endif %}
+          <form class="space-y-md" name="signup" method="POST">
+            {% csrf_token %}
             <div class="space-y-xs">
               <label
                 class="font-label-caps text-label-caps text-on-surface-variant block ml-xs"
-                >Full Name</label
+                >Userame</label
               >
               <input
                 class="w-full px-md py-md rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline-variant transition-all"
                 placeholder="Alex Rivera"
                 type="text"
+                name="username"
+                required
               />
             </div>
             <div class="space-y-xs">
@@ -82,6 +90,8 @@
                 class="w-full px-md py-md rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline-variant transition-all"
                 placeholder="alex@example.com"
                 type="email"
+                name="email"
+                required
               />
             </div>
             <div class="space-y-xs">
@@ -93,6 +103,21 @@
                 class="w-full px-md py-md rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline-variant transition-all"
                 placeholder="••••••••"
                 type="password"
+                name="password"
+                required
+              />
+            </div>
+            <div class="space-y-xs">
+              <label
+                class="font-label-caps text-label-caps text-on-surface-variant block ml-xs"
+                >Confirm Password</label
+              >
+              <input
+                class="w-full px-md py-md rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-on-surface placeholder:text-outline-variant transition-all"
+                placeholder="confirm password"
+                type="text"
+                name="confirm_password"
+                required
               />
             </div>
             <div class="space-y-xs">
@@ -102,6 +127,8 @@
               >
               <select
                 class="w-full px-md py-md rounded-xl bg-surface-container-low border-none focus:ring-2 focus:ring-primary text-on-surface transition-all appearance-none"
+                name="goal"
+                required
               >
                 <option>Weight Loss</option>
                 <option>Muscle Gain</option>
@@ -111,10 +138,12 @@
             </div>
             <button
               class="w-full bg-primary text-on-primary font-h2 text-body-lg py-md rounded-xl shadow-md hover:bg-primary-container hover:text-on-primary-container active:scale-[0.98] transition-all duration-200 mt-md"
-            >
+            
+              type="submit">
               Create Account
             </button>
           </form>
+          
           <div class="mt-xl text-center">
             <div class="relative flex items-center mb-xl">
               <div class="flex-grow border-t border-outline-variant"></div>
@@ -151,7 +180,7 @@
             </button>
             <p class="mt-xl font-body-md text-body-md text-on-surface-variant">
               Already have an account?
-              <a class="text-primary font-bold hover:underline" href="#"
+              <a class="text-primary font-bold hover:underline" href={% url 'login' %}
                 >Log in</a
               >
             </p>

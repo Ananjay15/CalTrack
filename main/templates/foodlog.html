@@ -1,0 +1,510 @@
+{% extends "base.html" %} {% block content %}
+<main class="pt-[80px] pb-xxl px-gutter max-w-container-max mx-auto">
+  <!-- Hero Section with Toggle -->
+  <section class="mt-xl mb-xxl text-center">
+    <h1 class="font-display text-display mb-md">Your Personalized Path</h1>
+    <p class="text-on-surface-variant mb-xl max-w-2xl mx-auto">
+      Science-backed recommendations tailored to your metabolic profile and
+      fitness aspirations. Choose your focus to refine your journey.
+    </p>
+    <div
+      class="inline-flex bg-surface-container-high p-xs rounded-full shadow-sm"
+    >
+      <button
+        class="px-xl py-sm rounded-full bg-primary text-on-primary font-h2 text-body-md transition-all"
+      >
+        Weight Loss
+      </button>
+      <button
+        class="px-xl py-sm rounded-full text-on-surface-variant font-h2 text-body-md hover:bg-surface-variant transition-all"
+      >
+        Maintenance
+      </button>
+      <button
+        class="px-xl py-sm rounded-full text-on-surface-variant font-h2 text-body-md hover:bg-surface-variant transition-all"
+      >
+        Muscle Gain
+      </button>
+    </div>
+  </section>
+  <!-- Diet & Meal Plans (Bento Style) -->
+  <section class="mb-xxl">
+    <div class="flex items-end justify-between mb-lg">
+      <div>
+        <h2 class="font-h1 text-h1 text-primary">Diet &amp; Meal Plans</h2>
+        <p class="text-on-surface-variant">
+          Fuel your body with precision-calculated nutrition.
+        </p>
+      </div>
+      <button class="text-primary font-bold flex items-center gap-xs">
+        View All <span class="material-symbols-outlined">arrow_forward</span>
+      </button>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-lg">
+      <!-- Main Breakfast Card -->
+      <div
+        class="md:col-span-8 bg-surface rounded-xl overflow-hidden shadow-sm border border-surface-container"
+      >
+        <div class="flex flex-col md:flex-row h-full">
+          <div
+            class="md:w-1/2 h-64 md:h-auto bg-cover bg-center"
+            data-alt="A bright and vibrant breakfast bowl featuring colorful fresh berries, crunchy granola, and creamy Greek yogurt. The scene is shot in high-key natural lighting on a clean white marble tabletop, evoking a premium and healthy morning atmosphere. The colors are crisp and saturated, emphasizing freshness and vitality."
+            style="
+              background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuCzPGZNGlKZFM3EUL9EiIdl3fHZ0w0HCIzQ_eiamC1L8_iyh-WJuVjilKkMMfdfItPRgSG3sa9SLP-_Ac9Pgf_VGTB7T-bbl422WwIHPpA1Mwy9dNNmT7wRvxNQXzS7jFBpUvm4XUWIjYLiFCeaZquVpsdrRCTkr-8Ty_5Bf7i8NIcVupfhGESrUpY3udIS5eQVfxKCZqKComvXMCTLclXXSHF6ITcxbsS9tfgsCgG4gzRVhTMe7zlW24QtYUlbjNijQC6vRyF4hH0N&quot;);
+            "
+          ></div>
+          <div class="md:w-1/2 p-lg flex flex-col justify-center">
+            <span class="text-label-caps font-label-caps text-tertiary mb-xs"
+              >RECOMMENDED BREAKFAST</span
+            >
+            <h3 class="font-h2 text-h2 mb-sm">Berry Protein Power Bowl</h3>
+            <p class="text-on-surface-variant mb-lg">
+              A balanced start with high-fiber antioxidants and lean protein to
+              sustain energy levels.
+            </p>
+            <div
+              class="grid grid-cols-3 gap-md border-t border-surface-container pt-md"
+            >
+              <div>
+                <div class="font-bold text-primary">420</div>
+                <div class="text-label-caps text-on-surface-variant">KCAL</div>
+              </div>
+              <div>
+                <div class="font-bold text-primary">32g</div>
+                <div class="text-label-caps text-on-surface-variant">PRO</div>
+              </div>
+              <div>
+                <div class="font-bold text-primary">12g</div>
+                <div class="text-label-caps text-on-surface-variant">FAT</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Side Lunch Card -->
+      <div
+        class="md:col-span-4 bg-surface rounded-xl overflow-hidden shadow-sm border border-surface-container flex flex-col"
+      >
+        <div
+          class="h-48 bg-cover bg-center"
+          data-alt="A gourmet grilled salmon salad with vibrant green spinach, avocado slices, and cherry tomatoes. The lighting is soft and ambient, highlighting the textures of the perfectly seared fish and fresh vegetables. The overall style is minimalist and high-end, fitting a premium health app aesthetic."
+          style="
+            background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuAvEfwvqXCpr8tZmm37CwZuerXg8WeVkfM4QqxZhO8nFYqAlL9Ss0Om2XQ--OBmbU7GKKfbcW4MwzSfh4AYwguYTVHjT_gPCGZamzkM6dz_IkRhqmgKu9QcAeUHAxu4ADZtU8QvFeg3o_hCwKut1nT7fa0x3Xt37wzjjHLFTkV8hszILmfS0PsnGnpOvKFoo7UWRQ0TAyRRkJcBWpN5cmBqSpDFbVQt9ajCp14fxS-Vo2Cr3U-Ormvh_9cwMdc5ZJpJfsCKJSWR_iqk&quot;);
+          "
+        ></div>
+        <div class="p-lg">
+          <h3 class="font-h2 text-h2 mb-xs">Atlantic Salmon Salad</h3>
+          <p class="text-on-surface-variant text-body-md mb-md">
+            Omega-3 rich lunch for cognitive focus.
+          </p>
+          <div class="flex justify-between items-center text-primary font-bold">
+            <span>510 kcal</span>
+            <span class="material-symbols-outlined">add_circle</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section & Plan Toggle -->
+  <section
+    class="py-xl flex flex-col md:flex-row md:items-end justify-between gap-lg"
+  >
+    <div class="max-w-2xl">
+      <h2 class="font-h1 text-h1 mb-sm">Your Personalized Diet Chart</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant">
+        7-Day structured plan optimized for
+        <span class="text-primary font-bold">Weight Loss</span>. Precision
+        macros for maximum performance.
+      </p>
+    </div>
+    <div class="flex flex-wrap gap-sm">
+      <div class="inline-flex p-1 bg-surface-container-high rounded-xl">
+        <button
+          class="px-md py-sm bg-primary text-on-primary rounded-lg font-label-caps text-label-caps"
+        >
+          Balanced
+        </button>
+        <button
+          class="px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-caps text-label-caps transition-colors"
+        >
+          Keto
+        </button>
+        <button
+          class="px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-caps text-label-caps transition-colors"
+        >
+          High Protein
+        </button>
+      </div>
+      <div class="inline-flex p-1 bg-surface-container-high rounded-xl">
+        <button
+          class="px-md py-sm bg-primary text-on-primary rounded-lg font-label-caps text-label-caps"
+        >
+          All
+        </button>
+        <button
+          class="px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-caps text-label-caps transition-colors"
+        >
+          Veg
+        </button>
+        <button
+          class="px-md py-sm text-on-surface-variant hover:bg-surface-container-highest rounded-lg font-label-caps text-label-caps transition-colors"
+        >
+          Non-Veg
+        </button>
+      </div>
+      <button
+        class="flex items-center gap-xs px-md py-sm bg-surface-container-lowest border border-outline-variant text-primary rounded-xl font-label-caps text-label-caps active:scale-95 transition-transform"
+      >
+        <span class="material-symbols-outlined text-[18px]" data-icon="print"
+          >print</span
+        >
+        Print Chart
+      </button>
+    </div>
+  </section>
+  <!-- Bento Grid Meal Plan -->
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+    <!-- Day 1: Monday -->
+    <div
+      class="md:col-span-12 bg-surface-container-low rounded-xl p-lg border border-surface-container-high"
+    >
+      <div class="flex items-center justify-between mb-lg">
+        <div class="flex items-center gap-sm">
+          <div
+            class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container"
+          >
+            <span class="font-h2 text-h2">1</span>
+          </div>
+          <div>
+            <h3 class="font-h2 text-h2">Monday</h3>
+            <p
+              class="font-label-caps text-label-caps text-outline uppercase tracking-wider"
+            >
+              Total: 1,850 kcal
+            </p>
+          </div>
+        </div>
+        <div class="flex gap-md text-center">
+          <div class="px-md py-xs bg-surface-container rounded-lg">
+            <span class="block font-label-caps text-[10px] text-outline"
+              >PROTEIN</span
+            >
+            <span class="font-bold text-primary">145g</span>
+          </div>
+          <div class="px-md py-xs bg-surface-container rounded-lg">
+            <span class="block font-label-caps text-[10px] text-outline"
+              >CARBS</span
+            >
+            <span class="font-bold text-secondary">160g</span>
+          </div>
+          <div class="px-md py-xs bg-surface-container rounded-lg">
+            <span class="block font-label-caps text-[10px] text-outline"
+              >FATS</span
+            >
+            <span class="font-bold text-tertiary">55g</span>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-md">
+        <!-- Breakfast -->
+        <div
+          class="meal-card-shadow bg-surface-container-lowest p-md rounded-xl border border-surface-container-high flex flex-col gap-sm"
+        >
+          <div class="h-32 rounded-lg overflow-hidden bg-surface-dim">
+            <img
+              class="w-full h-full object-cover"
+              data-alt="A delicious healthy breakfast bowl featuring poached eggs, sliced avocado, and toasted whole grain bread on a white ceramic plate. The scene is bathed in soft morning sunlight in a bright, minimalist kitchen setting with clean lines and a premium wellness aesthetic using soft white and green tones."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBshjzZ8YRU04tPmAXTbTaXd0ghll-Cdd-iEKTsLaIIjf92DmYdYQmujeuc-c6ImokhbG8ivCRempQC-0PoeOXvo-m6g9Aoxul1gM3MZUFsnhLEDK1-7CXBZ6nGnIdjhJSmxjoNdxyz0Me9z0EON9vbVh63rld5BfjpO7ox_XRjdw5YHa_dONV_TkAi2MuKNSbmMucPKF02fJ50hCLDYQyXDMm3Idj_KwIEvNNllQNRuUiJvcJYetck1iODOri5CVSGvhSB_cNjLEhT"
+            />
+          </div>
+          <div class="flex justify-between items-start">
+            <div class="flex gap-xs">
+              <span
+                class="font-label-caps text-label-caps text-primary bg-primary-container/20 px-sm py-xs rounded"
+                >BREAKFAST</span
+              >
+              <span
+                class="font-label-caps text-label-caps text-[#2e7d32] bg-[#e8f5e9] px-sm py-xs rounded"
+                >VEG</span
+              >
+            </div>
+            <span class="text-outline text-body-md">08:30 AM</span>
+          </div>
+          <h4 class="font-bold text-on-surface">Avocado Toast &amp; Eggs</h4>
+          <p class="text-on-surface-variant text-body-md">
+            2 eggs, 1/2 avocado, 2 slices sourdough.
+          </p>
+          <div
+            class="mt-auto pt-sm border-t border-surface-variant flex justify-between font-label-caps text-[11px]"
+          >
+            <span>420 Kcal</span>
+            <span class="text-primary">P: 22g</span>
+          </div>
+        </div>
+        <!-- Lunch -->
+        <div
+          class="meal-card-shadow bg-surface-container-lowest p-md rounded-xl border border-surface-container-high flex flex-col gap-sm"
+        >
+          <div class="h-32 rounded-lg overflow-hidden bg-surface-dim">
+            <img
+              class="w-full h-full object-cover"
+              data-alt="A vibrant gourmet salad bowl with grilled chicken breast strips, fresh quinoa, kale, and roasted sweet potato chunks. The image has a professional, high-end food photography style with soft bokeh backgrounds and natural textures, reflecting a clean and healthy lifestyle within a high-key, airy studio atmosphere."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzZYhyKJ_P_EsUuwbmF29zWW94ziDYr-iPBcXkKOu6o4c_SpqIM8aVVAI5cqQtwi5tZbEVZJTf3VbgHKQ7zs0a_8jUTmRQwRMc3Fd1FdWzAs9UZy-hi3nacfqJFpLdAkwb4lABtnZTUh1V8ZvT_MddxBruUzmWyrSU_nexp6q8viuoyncjpqiPAVmi7VNzGZJBHMOPw7CzFSelxPUwyL1ik8U83WiZ7EYlJc5b5rI_o19fgwN2TdEi8XhC_aUR_FuKDbLtsg7PL-NJ"
+            />
+          </div>
+          <div class="flex justify-between items-start">
+            <div class="flex gap-xs">
+              <span
+                class="font-label-caps text-label-caps text-primary bg-primary-container/20 px-sm py-xs rounded"
+                >LUNCH</span
+              >
+              <span
+                class="font-label-caps text-label-caps text-[#c62828] bg-[#ffebee] px-sm py-xs rounded"
+                >NON-VEG</span
+              >
+            </div>
+            <span class="text-outline text-body-md">01:00 PM</span>
+          </div>
+          <h4 class="font-bold text-on-surface">Grilled Chicken Quinoa</h4>
+          <p class="text-on-surface-variant text-body-md">
+            150g chicken, 1/2 cup quinoa, mixed greens.
+          </p>
+          <div
+            class="mt-auto pt-sm border-t border-surface-variant flex justify-between font-label-caps text-[11px]"
+          >
+            <span>550 Kcal</span>
+            <span class="text-primary">P: 45g</span>
+          </div>
+        </div>
+        <!-- Snack -->
+        <div
+          class="meal-card-shadow bg-surface-container-lowest p-md rounded-xl border border-surface-container-high flex flex-col gap-sm"
+        >
+          <div class="h-32 rounded-lg overflow-hidden bg-surface-dim">
+            <img
+              alt="Roasted Chickpeas &amp; Hummus"
+              class="w-full h-full object-cover"
+              src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"
+            />
+          </div>
+          <div class="flex justify-between items-start">
+            <div class="flex gap-xs">
+              <span
+                class="font-label-caps text-label-caps text-primary bg-primary-container/20 px-sm py-xs rounded"
+                >SNACK</span
+              >
+              <span
+                class="font-label-caps text-label-caps text-[#2e7d32] bg-[#e8f5e9] px-sm py-xs rounded"
+                >VEG</span
+              >
+            </div>
+            <span class="text-outline text-body-md">04:30 PM</span>
+          </div>
+          <h4 class="font-bold text-on-surface">
+            Roasted Chickpeas &amp; Hummus
+          </h4>
+          <p class="text-on-surface-variant text-body-md">
+            Handful of roasted chickpeas, 2 tbsp hummus.
+          </p>
+          <div
+            class="mt-auto pt-sm border-t border-surface-variant flex justify-between font-label-caps text-[11px]"
+          >
+            <span>220 Kcal</span>
+            <span class="text-primary">P: 10g</span>
+          </div>
+        </div>
+        <!-- Dinner -->
+        <div
+          class="meal-card-shadow bg-surface-container-lowest p-md rounded-xl border border-surface-container-high flex flex-col gap-sm"
+        >
+          <div class="h-32 rounded-lg overflow-hidden bg-surface-dim">
+            <img
+              alt="Paneer Tikka &amp; Rice"
+              class="w-full h-full object-cover"
+              src="https://www.gstatic.com/labs-code/stitch/stitch-placeholder-300x300.svg"
+            />
+          </div>
+          <div class="flex justify-between items-start">
+            <div class="flex gap-xs">
+              <span
+                class="font-label-caps text-label-caps text-primary bg-primary-container/20 px-sm py-xs rounded"
+                >DINNER</span
+              >
+              <span
+                class="font-label-caps text-label-caps text-[#2e7d32] bg-[#e8f5e9] px-sm py-xs rounded"
+                >VEG</span
+              >
+            </div>
+            <span class="text-outline text-body-md">07:30 PM</span>
+          </div>
+          <h4 class="font-bold text-on-surface">Paneer Tikka &amp; Rice</h4>
+          <p class="text-on-surface-variant text-body-md">
+            150g grilled paneer, 1/2 cup basmati rice.
+          </p>
+          <div
+            class="mt-auto pt-sm border-t border-surface-variant flex justify-between font-label-caps text-[11px]"
+          >
+            <span>550 Kcal</span>
+            <span class="text-primary">P: 24g</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Summarized Days Grid -->
+    <div
+      class="md:col-span-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-gutter"
+    >
+      <!-- Day 2-7 placeholder cards for visual structure -->
+      <div
+        class="bg-surface-container p-lg rounded-xl border border-surface-container-high meal-card-shadow"
+      >
+        <div class="flex justify-between items-center mb-md">
+          <h3 class="font-h2 text-h2">Tuesday</h3>
+          <span
+            class="material-symbols-outlined text-outline"
+            data-icon="restaurant"
+            >restaurant</span
+          >
+        </div>
+        <ul class="space-y-sm text-body-md text-on-surface-variant mb-lg">
+          <li class="flex justify-between">
+            <span>Breakfast:</span>
+            <span class="font-bold text-on-surface">Oatmeal &amp; Fruit</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Lunch:</span>
+            <span class="font-bold text-on-surface">Turkey Wrap</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Dinner:</span>
+            <span class="font-bold text-on-surface">Lean Beef Stir-fry</span>
+          </li>
+        </ul>
+        <div
+          class="pt-md border-t border-outline-variant flex justify-between items-center"
+        >
+          <span class="font-bold text-primary">1,780 Kcal</span>
+          <button
+            class="text-primary font-bold hover:underline text-label-caps"
+          >
+            Details
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-surface-container p-lg rounded-xl border border-surface-container-high meal-card-shadow"
+      >
+        <div class="flex justify-between items-center mb-md">
+          <h3 class="font-h2 text-h2">Wednesday</h3>
+          <span
+            class="material-symbols-outlined text-outline"
+            data-icon="restaurant"
+            >restaurant</span
+          >
+        </div>
+        <ul class="space-y-sm text-body-md text-on-surface-variant mb-lg">
+          <li class="flex justify-between">
+            <span>Breakfast:</span>
+            <span class="font-bold text-on-surface">Protein Shake</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Lunch:</span>
+            <span class="font-bold text-on-surface">Tuna Salad Bowl</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Dinner:</span>
+            <span class="font-bold text-on-surface">Tofu &amp; Broccoli</span>
+          </li>
+        </ul>
+        <div
+          class="pt-md border-t border-outline-variant flex justify-between items-center"
+        >
+          <span class="font-bold text-primary">1,820 Kcal</span>
+          <button
+            class="text-primary font-bold hover:underline text-label-caps"
+          >
+            Details
+          </button>
+        </div>
+      </div>
+      <div
+        class="bg-surface-container p-lg rounded-xl border border-surface-container-high meal-card-shadow"
+      >
+        <div class="flex justify-between items-center mb-md">
+          <h3 class="font-h2 text-h2">Thursday</h3>
+          <span
+            class="material-symbols-outlined text-outline"
+            data-icon="restaurant"
+            >restaurant</span
+          >
+        </div>
+        <ul class="space-y-sm text-body-md text-on-surface-variant mb-lg">
+          <li class="flex justify-between">
+            <span>Breakfast:</span>
+            <span class="font-bold text-on-surface">Eggs &amp; Spinach</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Lunch:</span>
+            <span class="font-bold text-on-surface">Chicken Pasta</span>
+          </li>
+          <li class="flex justify-between">
+            <span>Dinner:</span>
+            <span class="font-bold text-on-surface">Grilled Shrimp</span>
+          </li>
+        </ul>
+        <div
+          class="pt-md border-t border-outline-variant flex justify-between items-center"
+        >
+          <span class="font-bold text-primary">1,900 Kcal</span>
+          <button
+            class="text-primary font-bold hover:underline text-label-caps"
+          >
+            Details
+          </button>
+        </div>
+      </div>
+      <!-- More days follow the same pattern... -->
+    </div>
+  </div>
+  <!-- Weekly Nutrition Overview -->
+  <section
+    class="mt-xxl bg-primary-container text-on-primary-container p-xl rounded-xxl flex flex-col md:flex-row gap-xl items-center"
+  >
+    <div class="flex-1">
+      <h2 class="font-h1 text-h1 mb-md">Weekly Summary</h2>
+      <p class="font-body-lg text-body-lg opacity-90">
+        Consistently following this 7-day plan will result in an estimated
+        weight loss of 0.5kg per week. Your nutritional balance is perfectly
+        tuned for muscle retention.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-lg w-full md:w-auto">
+      <div class="bg-primary/20 p-md rounded-xl text-center backdrop-blur-sm">
+        <span class="block font-label-caps text-on-primary-container/70 mb-xs"
+          >AVG KCAL</span
+        >
+        <span class="font-h2 text-h2">1,825</span>
+      </div>
+      <div class="bg-primary/20 p-md rounded-xl text-center backdrop-blur-sm">
+        <span class="block font-label-caps text-on-primary-container/70 mb-xs"
+          >PROTEIN</span
+        >
+        <span class="font-h2 text-h2">32%</span>
+      </div>
+      <div class="bg-primary/20 p-md rounded-xl text-center backdrop-blur-sm">
+        <span class="block font-label-caps text-on-primary-container/70 mb-xs"
+          >CARBS</span
+        >
+        <span class="font-h2 text-h2">40%</span>
+      </div>
+      <div class="bg-primary/20 p-md rounded-xl text-center backdrop-blur-sm">
+        <span class="block font-label-caps text-on-primary-container/70 mb-xs"
+          >FATS</span
+        >
+        <span class="font-h2 text-h2">28%</span>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

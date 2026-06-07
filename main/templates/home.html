@@ -1,0 +1,429 @@
+{% extends "base.html" %} {% block content %}
+<main>
+  <!-- Hero Section -->
+  <section class="relative min-h-[90vh] flex items-center pt-[72px]">
+    <div class="absolute inset-0 z-0">
+      <img
+        alt="Premium Home Gym"
+        class="w-full h-full object-cover"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4G-tnpeEUxlGY7EM115bEDk-v3p9Av42cu1LYjzPMUjXoQa7HWVAkk9jY7IFapoTzJCalroVJj6Y_gSBp5KKNQ0vJX96if5zci1j_N8hD_E6gsFFoTsLYpWjt_uWfVaSWQn7o0p1Tehxix5ow0bmW6uLi5VwOcwLdf61BG2MYsZcZtmcJSe-lIYqhimGU7F7ZzQUjnBx-vnyS4I2e0PnRLja3Asnrfzrp7II_IJVf3EE2OI0giRXY1e5jQZAgG8hOhnZ7SBPiLrMv"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-surface via-surface/80 to-transparent"
+      ></div>
+    </div>
+    <div class="relative z-10 max-w-container-max mx-auto px-lg w-full">
+      <div class="max-w-[650px] space-y-lg">
+        <div
+          class="inline-flex items-center gap-sm px-md py-xs rounded-full bg-secondary-container text-on-secondary-container font-label-caps text-label-caps animate-fade-in"
+        >
+          <span
+            class="material-symbols-outlined text-[16px]"
+            data-icon="auto_awesome"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >auto_awesome</span
+          >
+          EVOLVE YOUR HEALTH ECOSYSTEM
+        </div>
+        <h1
+          class="font-display text-[48px] md:text-[72px] text-on-surface leading-[1.1] font-bold"
+        >
+          The Smart Way to <span class="text-primary">Master Your Body.</span>
+        </h1>
+        <p
+          class="font-body-lg text-body-lg text-on-surface-variant max-w-[500px]"
+        >
+          Stop guessing. Start tracking with clinical precision. CalTrack
+          unifies your nutrition, metrics, and movement into one seamless
+          vitality dashboard.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-md pt-md">
+          <button
+            class="px-[40px] py-lg bg-primary text-on-primary rounded-xl font-h2 text-h2 hover:shadow-[0_20px_50px_rgba(79,55,138,0.3)] hover:-translate-y-1 transition-all duration-300"
+          >
+            Get Started Free
+          </button>
+          <button
+            class="px-[40px] py-lg bg-surface/50 backdrop-blur-md border border-outline text-primary rounded-xl font-h2 text-h2 hover:bg-surface transition-all"
+          >
+            Watch how it works
+          </button>
+        </div>
+        <!-- Stats Bar -->
+        <div
+          class="grid grid-cols-2 md:grid-cols-3 gap-lg mt-xxl pt-xl border-t border-outline-variant/30"
+        >
+          <div class="space-y-xs">
+            <div class="flex items-center gap-xs text-primary">
+              <span class="material-symbols-outlined" data-icon="groups"
+                >groups</span
+              >
+              <span class="text-h2 font-bold">50k+</span>
+            </div>
+            <p class="text-label-caps text-on-surface-variant">
+              Active Members
+            </p>
+          </div>
+          <div class="space-y-xs">
+            <div class="flex items-center gap-xs text-primary">
+              <span class="material-symbols-outlined" data-icon="verified"
+                >verified</span
+              >
+              <span class="text-h2 font-bold">99.8%</span>
+            </div>
+            <p class="text-label-caps text-on-surface-variant">Data Accuracy</p>
+          </div>
+          <div class="hidden md:block space-y-xs">
+            <div class="flex items-center gap-xs text-primary">
+              <span class="material-symbols-outlined" data-icon="star"
+                >star</span
+              >
+              <span class="text-h2 font-bold">4.9/5</span>
+            </div>
+            <p class="text-label-caps text-on-surface-variant">User Rating</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Interactive Widget / Daily Progress -->
+  <section class="py-xxl px-gutter bg-surface-container-low overflow-hidden">
+    <div class="max-w-container-max mx-auto">
+      <div
+        class="bg-surface rounded-[32px] border border-surface-container-highest p-xl md:p-xxl shadow-2xl relative"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-xxl items-center">
+          <div>
+            <h2 class="font-h1 text-h1 text-on-surface mb-lg">
+              Track Success in Real-Time
+            </h2>
+            <p class="text-on-surface-variant font-body-lg mb-xl">
+              Experience the power of visualization. Our interactive dashboard
+              gives you a complete view of your daily wins, from calories burned
+              to hydration levels.
+            </p>
+            <div class="space-y-md">
+              <div
+                class="flex items-center gap-md p-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer group"
+              >
+                <span
+                  class="p-sm rounded-lg bg-primary text-on-primary material-symbols-outlined"
+                  data-icon="restaurant"
+                  >restaurant</span
+                >
+                <div class="flex-1">
+                  <div class="font-h2 text-[18px]">Smart Food Logging</div>
+                  <p class="text-body-md text-on-surface-variant">
+                    AI-powered recognition for 1M+ items.
+                  </p>
+                </div>
+                <span
+                  class="material-symbols-outlined text-outline group-hover:text-primary transition-colors"
+                  data-icon="arrow_forward"
+                  >arrow_forward</span
+                >
+              </div>
+              <div
+                class="flex items-center gap-md p-md rounded-xl bg-surface-container hover:bg-surface-container-high transition-colors cursor-pointer group"
+              >
+                <span
+                  class="p-sm rounded-lg bg-tertiary text-on-tertiary material-symbols-outlined"
+                  data-icon="water_drop"
+                  >water_drop</span
+                >
+                <div class="flex-1">
+                  <div class="font-h2 text-[18px]">Hydration Analytics</div>
+                  <p class="text-body-md text-on-surface-variant">
+                    Smart reminders based on your activity.
+                  </p>
+                </div>
+                <span
+                  class="material-symbols-outlined text-outline group-hover:text-tertiary transition-colors"
+                  data-icon="arrow_forward"
+                  >arrow_forward</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Simulating Tracking Success Widget -->
+          <div
+            class="bg-surface-container-highest rounded-2xl p-lg md:p-xl shadow-inner"
+          >
+            <div class="flex justify-between items-center mb-xl">
+              <div>
+                <div class="text-label-caps text-on-surface-variant mb-xs">
+                  DAILY GOAL PROGRESS
+                </div>
+                <div class="text-h2 font-bold text-primary">82% Complete</div>
+              </div>
+              <div class="flex -space-x-2">
+                <div
+                  class="w-10 h-10 rounded-full border-2 border-surface bg-primary-fixed text-primary flex items-center justify-center text-xs font-bold"
+                >
+                  M
+                </div>
+                <div
+                  class="w-10 h-10 rounded-full border-2 border-surface bg-primary-fixed text-primary flex items-center justify-center text-xs font-bold"
+                >
+                  T
+                </div>
+                <div
+                  class="w-10 h-10 rounded-full border-2 border-surface bg-primary text-on-primary flex items-center justify-center text-xs font-bold"
+                >
+                  W
+                </div>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-lg mb-xl">
+              <div
+                class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant"
+              >
+                <div class="flex justify-between items-center mb-md">
+                  <span
+                    class="material-symbols-outlined text-primary"
+                    data-icon="local_fire_department"
+                    >local_fire_department</span
+                  >
+                  <span class="text-label-caps text-green-600"
+                    >+12% vs yesterday</span
+                  >
+                </div>
+                <div class="text-h1 font-bold">1,840</div>
+                <div class="text-body-md text-on-surface-variant">
+                  Calories Consumed
+                </div>
+                <div
+                  class="w-full bg-surface-container mt-md h-2 rounded-full overflow-hidden"
+                >
+                  <div class="bg-primary h-full w-[75%] rounded-full"></div>
+                </div>
+              </div>
+              <div
+                class="bg-surface p-md rounded-xl shadow-sm border border-outline-variant"
+              >
+                <div class="flex justify-between items-center mb-md">
+                  <span
+                    class="material-symbols-outlined text-tertiary"
+                    data-icon="steps"
+                    >steps</span
+                  >
+                  <span class="text-label-caps text-on-surface-variant"
+                    >2,450 left</span
+                  >
+                </div>
+                <div class="text-h1 font-bold">7,550</div>
+                <div class="text-body-md text-on-surface-variant">
+                  Steps Walked
+                </div>
+                <div
+                  class="w-full bg-surface-container mt-md h-2 rounded-full overflow-hidden"
+                >
+                  <div class="bg-tertiary h-full w-[60%] rounded-full"></div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-md p-md bg-primary-container text-on-primary-container rounded-xl"
+            >
+              <span class="material-symbols-outlined" data-icon="info"
+                >info</span
+              >
+              <p class="text-body-md">
+                You're just <strong>250 steps</strong> away from your daily
+                streak bonus!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Alternating Feature Breakdown -->
+  <section class="py-xxl">
+    <!-- Feature 1 -->
+    <div class="max-w-container-max mx-auto px-lg mb-xxl">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-xxl items-center">
+        <div class="order-2 lg:order-1">
+          <img
+            alt="Nutrition Tracking"
+            class="rounded-[40px] shadow-2xl w-full object-cover aspect-[4/3] transform hover:scale-[1.02] transition-transform duration-500"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvhRbcbhpQuLa_rgkDSLQXAm4Pn_ekPyFvKllTXyjnxgWnCG6ItNFs51tzAOa58FQKJAeKL7JQZpabNybEHxHPCNppX_Lm7pX3By4MluezAi5JxxfvmrSRIwomFsC6XIU2pOal0t1PLBmsfC4hcRtF1eU77C2QsJ6MuWa0Fs6xJDgW5zohRxbKvJ9gfewSjrCPYjXCb3qHDPLxvPLOlKFFHLDvoa_R8qr-LeIxF0-88YdRWYghd0kontW1o8yaa1_V8bHgy7t9t3Jt"
+          />
+        </div>
+        <div class="order-1 lg:order-2 space-y-lg">
+          <span class="text-primary font-label-caps tracking-widest"
+            >NUTRITION MASTERY</span
+          >
+          <h2 class="font-h1 text-[40px] leading-tight">
+            Gourmet Nutrition, <br />Quantified Effortlessly.
+          </h2>
+          <p class="text-body-lg text-on-surface-variant">
+            Log your meals with a snap. Our advanced vision system identifies
+            food items instantly, providing deep macro-nutrient analysis so you
+            can eat what you love while hitting your goals.
+          </p>
+          <ul class="space-y-md">
+            <li class="flex items-start gap-md">
+              <div class="bg-primary/10 p-xs rounded-full">
+                <span
+                  class="material-symbols-outlined text-primary"
+                  data-icon="done_all"
+                  >done_all</span
+                >
+              </div>
+              <div>
+                <div class="font-bold">AI Photo Recognition</div>
+                <p class="text-body-md text-on-surface-variant">
+                  Identify complex meals from a single photo.
+                </p>
+              </div>
+            </li>
+            <li class="flex items-start gap-md">
+              <div class="bg-primary/10 p-xs rounded-full">
+                <span
+                  class="material-symbols-outlined text-primary"
+                  data-icon="done_all"
+                  >done_all</span
+                >
+              </div>
+              <div>
+                <div class="font-bold">Meal Planning &amp; Prepping</div>
+                <p class="text-body-md text-on-surface-variant">
+                  Custom plans based on your metabolic rate.
+                </p>
+              </div>
+            </li>
+          </ul>
+          <button class="text-primary font-bold flex items-center gap-sm group">
+            Explore Nutrition Features
+            <span
+              class="material-symbols-outlined group-hover:translate-x-1 transition-transform"
+              data-icon="trending_flat"
+              >trending_flat</span
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- Feature 2 -->
+    <div class="bg-surface-container-low py-xxl">
+      <div class="max-w-container-max mx-auto px-lg">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-xxl items-center">
+          <div class="space-y-lg">
+            <span class="text-tertiary font-label-caps tracking-widest"
+              >BIOMETRIC SYNC</span
+            >
+            <h2 class="font-h1 text-[40px] leading-tight">
+              Your Vitals, <br />Always in Sync.
+            </h2>
+            <p class="text-body-lg text-on-surface-variant">
+              Connect your favorite wearable and watch the magic happen.
+              CalTrack pulls data from Apple Health, Garmin, and Fitbit to
+              calibrate your activity levels and BMR in real-time.
+            </p>
+            <div class="grid grid-cols-2 gap-lg">
+              <div
+                class="p-md rounded-2xl bg-surface border border-outline-variant shadow-sm"
+              >
+                <span
+                  class="material-symbols-outlined text-tertiary mb-sm"
+                  data-icon="favorite"
+                  >favorite</span
+                >
+                <div class="font-bold">Heart Rate</div>
+                <p class="text-xs text-on-surface-variant">
+                  Stress &amp; Recovery analysis
+                </p>
+              </div>
+              <div
+                class="p-md rounded-2xl bg-surface border border-outline-variant shadow-sm"
+              >
+                <span
+                  class="material-symbols-outlined text-tertiary mb-sm"
+                  data-icon="bedtime"
+                  >bedtime</span
+                >
+                <div class="font-bold">Sleep Quality</div>
+                <p class="text-xs text-on-surface-variant">
+                  Restorative sleep insights
+                </p>
+              </div>
+            </div>
+            <button
+              class="text-tertiary font-bold flex items-center gap-sm group"
+            >
+              Check Compatibility
+              <span
+                class="material-symbols-outlined group-hover:translate-x-1 transition-transform"
+                data-icon="trending_flat"
+                >trending_flat</span
+              >
+            </button>
+          </div>
+          <div>
+            <img
+              alt="Wearable Sync"
+              class="rounded-[40px] shadow-2xl w-full object-cover aspect-[4/3] transform hover:scale-[1.02] transition-transform duration-500"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrcyFYmatwNUZPSzunA41T90bZTx0vaF-aztIK2hK6MimcMXluXMFG4nNjNqYgpSn9yF7a5AK_TXWh0h9XjKtk1rizzqXy0O04pGDD9bRditmkoehMz9hH-D6tQrK8zxFcHy5Cb8OayHTZ0XOJFaLILUjZXSzRrz86HotugwDFU2wE51u7m5wNwp6WuXIJMrN4RhMYv8oLpWKHzflOeSdbaEnHS7xeRHgua9vVkZsUlk6yLH_Ur3gcDSplpqPlWQHK4PETzgb6RhjN"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Immersive Final CTA Section -->
+  <section class="py-xxl px-gutter">
+    <div
+      class="max-w-container-max mx-auto relative rounded-[48px] overflow-hidden bg-primary text-on-primary p-xxl text-center min-h-[500px] flex flex-col items-center justify-center"
+    >
+      <div class="absolute inset-0 opacity-20 pointer-events-none">
+        <div
+          class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2"
+        ></div>
+        <div
+          class="absolute bottom-0 right-0 w-96 h-96 bg-tertiary rounded-full blur-[120px] translate-x-1/2 translate-y-1/2"
+        ></div>
+      </div>
+      <div class="relative z-10 max-w-[700px] space-y-xl">
+        <h2 class="font-display text-[40px] md:text-[56px] leading-tight">
+          Ready to rewrite your <br />health story?
+        </h2>
+        <p class="text-on-primary/80 font-body-lg text-body-lg mx-auto">
+          Join thousands of others who have simplified their fitness journey.
+          Start your 14-day premium trial today. No credit card required.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-lg justify-center pt-md">
+          <button
+            class="px-xxl py-lg bg-surface text-primary rounded-full font-h2 text-h2 hover:scale-105 hover:shadow-2xl transition-all"
+          >
+            Create Free Account
+          </button>
+          <button
+            class="px-xxl py-lg border-2 border-on-primary/30 text-on-primary rounded-full font-h2 text-h2 hover:bg-white/10 transition-all"
+          >
+            View Pricing
+          </button>
+        </div>
+        <div class="pt-xl flex flex-wrap justify-center gap-xxl opacity-60">
+          <div class="flex items-center gap-xs">
+            <span class="material-symbols-outlined" data-icon="shield_check"
+              >shield_check</span
+            >
+            <span class="text-label-caps">GDPR Compliant</span>
+          </div>
+          <div class="flex items-center gap-xs">
+            <span class="material-symbols-outlined" data-icon="lock">lock</span>
+            <span class="text-label-caps">Encrypted Data</span>
+          </div>
+          <div class="flex items-center gap-xs">
+            <span class="material-symbols-outlined" data-icon="no_accounts"
+              >no_accounts</span
+            >
+            <span class="text-label-caps">Cancel Anytime</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock %}

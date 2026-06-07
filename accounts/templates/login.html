@@ -1,134 +1,89 @@
-
 {% extends "base.html" %}
 
 {% block content %}
-   
-    <!-- Main Content Area: Login Screen -->
-    <main
-      class="flex-grow flex items-center justify-center pt-xxl pb-xxl px-gutter"
-    >
-      <div
-        class="w-full max-w-[440px] bg-surface border border-outline-variant/30 rounded-xl shadow-md p-xl"
-      >
-        <!-- Header Section -->
-        <div class="text-center mb-xl">
-          <h1 class="font-h1 text-h1 text-on-surface mb-xs">Welcome Back</h1>
-          <p class="font-body-md text-body-md text-on-surface-variant">
-            Access your premium fitness dashboard
-          </p>
+
+<!-- Main Content Area: Login Screen -->
+<main class="flex-grow flex items-center justify-center pt-xxl pb-xxl px-gutter">
+  <div class="w-full max-w-[440px] bg-surface border border-outline-variant/30 rounded-xl shadow-md p-xl my-xl">
+    <!-- Header Section -->
+    <div class="text-center mb-xl">
+      <h1 class="font-h1 text-h1 text-on-surface mb-xs">Welcome Back</h1>
+      <p class="font-body-md text-body-md text-on-surface-variant">
+        Access your premium fitness dashboard
+      </p>
+    </div>
+    <!-- Social Logins -->
+    <div class="flex gap-md mb-xl">
+      <button
+        class="flex-1 flex items-center justify-center gap-sm py-sm border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors active:scale-95 duration-150">
+        <img alt="Google" class="w-5 h-5"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIu9kPUx3NJlhuCiGXMRHx_2yGfXj2EvYgDK-3oMDEvwvbsFbhaFoClJU9R4VSaZPyQHlA4xJvhBlXrotbmhba3CoE44hsrpNw6u7h9O2eLyf3ZJZM0m9LRuYXnYSkV-Gw2ais28A8_iRIziRxHDp-t51QVK_5KhHisfghuerMBK4Os5V8pmZOU9heuNJrGHxSb3u7QUeZvTXyjJOyG8zRq8zrjVY4fMaUywrJ76pVf7oBTyTkno0gnFchT---XVTqXMOPXbULrHmy" />
+        <span class="font-label-caps text-label-caps text-on-surface">Google</span>
+      </button>
+      <button
+        class="flex-1 flex items-center justify-center gap-sm py-sm border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors active:scale-95 duration-150">
+        <span class="material-symbols-outlined text-blue-600" data-icon="facebook"
+          style="font-variation-settings: &quot;FILL&quot; 1">social_leaderboard</span>
+        <span class="font-label-caps text-label-caps text-on-surface">Facebook</span>
+      </button>
+    </div>
+    <div class="relative flex py-md items-center mb-md">
+      <div class="flex-grow border-t border-outline-variant"></div>
+      <span class="flex-shrink mx-md font-label-caps text-label-caps text-on-surface-variant">OR EMAIL</span>
+      <div class="flex-grow border-t border-outline-variant"></div>
+    </div>
+    <!-- Login Form -->
+    <form class="space-y-lg" name="login" method="POST">
+      {% csrf_token %}
+      <div class="space-y-xs">
+        <label class="font-label-caps text-label-caps text-on-surface-variant px-xs" for="email">EMAIL ADDRESS</label>
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant"
+            data-icon="mail">mail</span>
+          <input
+            class="w-full pl-xl pr-md py-md bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-body-md placeholder:text-outline"
+            id="email" name="identifier" placeholder="name@example.com" type="email" />
         </div>
-        <!-- Social Logins -->
-        <div class="flex gap-md mb-xl">
-          <button
-            class="flex-1 flex items-center justify-center gap-sm py-sm border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors active:scale-95 duration-150"
-          >
-            <img
-              alt="Google"
-              class="w-5 h-5"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIu9kPUx3NJlhuCiGXMRHx_2yGfXj2EvYgDK-3oMDEvwvbsFbhaFoClJU9R4VSaZPyQHlA4xJvhBlXrotbmhba3CoE44hsrpNw6u7h9O2eLyf3ZJZM0m9LRuYXnYSkV-Gw2ais28A8_iRIziRxHDp-t51QVK_5KhHisfghuerMBK4Os5V8pmZOU9heuNJrGHxSb3u7QUeZvTXyjJOyG8zRq8zrjVY4fMaUywrJ76pVf7oBTyTkno0gnFchT---XVTqXMOPXbULrHmy"
-            />
-            <span class="font-label-caps text-label-caps text-on-surface"
-              >Google</span
-            >
-          </button>
-          <button
-            class="flex-1 flex items-center justify-center gap-sm py-sm border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors active:scale-95 duration-150"
-          >
-            <span
-              class="material-symbols-outlined text-blue-600"
-              data-icon="facebook"
-              style="font-variation-settings: &quot;FILL&quot; 1"
-              >social_leaderboard</span
-            >
-            <span class="font-label-caps text-label-caps text-on-surface"
-              >Facebook</span
-            >
-          </button>
-        </div>
-        <div class="relative flex py-md items-center mb-md">
-          <div class="flex-grow border-t border-outline-variant"></div>
-          <span
-            class="flex-shrink mx-md font-label-caps text-label-caps text-on-surface-variant"
-            >OR EMAIL</span
-          >
-          <div class="flex-grow border-t border-outline-variant"></div>
-        </div>
-        <!-- Login Form -->
-        <form action="#" class="space-y-lg">
-          <div class="space-y-xs">
-            <label
-              class="font-label-caps text-label-caps text-on-surface-variant px-xs"
-              for="email"
-              >EMAIL ADDRESS</label
-            >
-            <div class="relative">
-              <span
-                class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant"
-                data-icon="mail"
-                >mail</span
-              >
-              <input
-                class="w-full pl-xl pr-md py-md bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-body-md placeholder:text-outline"
-                id="email"
-                placeholder="name@example.com"
-                type="email"
-              />
-            </div>
-          </div>
-          <div class="space-y-xs">
-            <label
-              class="font-label-caps text-label-caps text-on-surface-variant px-xs"
-              for="password"
-              >PASSWORD</label
-            >
-            <div class="relative">
-              <span
-                class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant"
-                data-icon="lock"
-                >lock</span
-              >
-              <input
-                class="w-full pl-xl pr-md py-md bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-body-md placeholder:text-outline"
-                id="password"
-                placeholder="••••••••"
-                type="password"
-              />
-            </div>
-          </div>
-          <div class="flex items-center justify-between py-xs">
-            <label class="flex items-center gap-sm cursor-pointer group">
-              <div class="relative flex items-center">
-                <input
-                  class="peer h-5 w-5 rounded border-outline-variant text-primary focus:ring-primary/20 transition-all cursor-pointer"
-                  type="checkbox"
-                />
-              </div>
-              <span
-                class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors"
-                >Remember me</span
-              >
-            </label>
-            <a
-              class="font-body-md text-body-md text-primary font-semibold hover:underline"
-              href="#"
-              >Forgot Password?</a
-            >
-          </div>
-          <button
-            class="w-full py-md bg-primary text-on-primary font-h2 text-h2 rounded-xl shadow-sm hover:opacity-90 active:scale-[0.98] transition-all duration-200"
-            type="submit"
-          >
-            Login
-          </button>
-        </form>
-        <p
-          class="text-center mt-xl font-body-md text-body-md text-on-surface-variant"
-        >
-          Don't have an account?
-          <a class="text-primary font-semibold hover:underline" href="#"
-            >Sign up for free</a
-          >
-        </p>
       </div>
-    </main>
+      <div class="space-y-xs">
+        <label class="font-label-caps text-label-caps text-on-surface-variant px-xs" for="password">PASSWORD</label>
+        <div class="relative">
+          <span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant"
+            data-icon="lock">lock</span>
+          <input
+            class="w-full pl-xl pr-md py-md bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/20 text-body-md placeholder:text-outline"
+            id="password" placeholder="••••••••" type="password" name="password" />
+        </div>
+      </div>
+
+      {% if error %}
+      <div class="bg-red-100 border border-red-300 text-red-700 px-4 py-3 rounded-lg">
+        {{ error }}
+      </div>
+      {% endif %}
+      <div class="flex items-center justify-between py-xs">
+        <label class="flex items-center gap-sm cursor-pointer group">
+          <div class="relative flex items-center">
+            <input
+              class="peer h-5 w-5 rounded border-outline-variant text-primary focus:ring-primary/20 transition-all cursor-pointer"
+              type="checkbox" />
+          </div>
+          <span
+            class="font-body-md text-body-md text-on-surface-variant group-hover:text-on-surface transition-colors">Remember
+            me</span>
+        </label>
+        <a class="font-body-md text-body-md text-primary font-semibold hover:underline" href="#">Forgot Password?</a>
+      </div>
+      <button
+        class="w-full py-md bg-primary text-on-primary font-h2 text-h2 rounded-xl shadow-sm hover:opacity-90 active:scale-[0.98] transition-all duration-200"
+        type="submit">
+        Login
+      </button>
+    </form>
+    <p class="text-center mt-xl font-body-md text-body-md text-on-surface-variant">
+      Don't have an account?
+      <a class="text-primary font-semibold hover:underline" href={% url 'signup' %}>Sign up for free</a>
+    </p>
+  </div>
+</main>
 {% endblock %}

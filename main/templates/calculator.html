@@ -1,0 +1,199 @@
+{% extends "base.html"%} {% block content %}
+<main class="flex-grow pt-xxl pb-xxl px-gutter max-w-container-max mx-auto w-full">
+  <!-- Hero Section -->
+  <section class="mt-xl mb-xxl text-center max-w-3xl mx-auto">
+    <h1 class="font-display text-display text-on-background mb-md">
+      Precision Metrics for Your Vitality
+    </h1>
+    <p class="font-body-lg text-body-lg text-on-surface-variant">
+      Understand your body's energy requirements with scientific accuracy.
+      Calculate your BMR and BMI to unlock personalized nutrition paths.
+    </p>
+  </section>
+  <!-- Bento Grid Layout -->
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg">
+    <!-- Calculator Form (Col 1-5) -->
+    <div
+      class="lg:col-span-5 bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(15,23,42,0.05)] p-lg border border-outline-variant/30">
+      <div class="flex items-center gap-sm mb-lg">
+        <span class="material-symbols-outlined text-primary">analytics</span>
+        <h2 class="font-h2 text-h2 text-on-surface">Health Profile</h2>
+      </div>
+      <form class="space-y-md" method="POST">
+        {% csrf_token %}
+        <div class="grid grid-cols-2 gap-md">
+          <div class="flex flex-col gap-xs">
+            <label class="font-label-caps text-label-caps text-on-surface-variant">AGE (YEARS)</label>
+            <input
+              class="w-full rounded-lg border-outline-variant bg-surface-bright focus:ring-primary focus:border-primary px-md py-sm"
+              placeholder="28" type="number" name="age" required/>
+          </div>
+          <div class="flex flex-col gap-xs">
+            <label class="font-label-caps text-label-caps text-on-surface-variant">GENDER</label>
+            <select name="gender"
+              class="w-full rounded-lg border-outline-variant bg-surface-bright focus:ring-primary focus:border-primary px-md py-sm"
+              required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-md">
+          <div class="flex flex-col gap-xs">
+            <label class="font-label-caps text-label-caps text-on-surface-variant">HEIGHT (CM)</label>
+            <input
+              class="w-full rounded-lg border-outline-variant bg-surface-bright focus:ring-primary focus:border-primary px-md py-sm"
+              placeholder="180" type="number" name="height" 
+              required/>
+          </div>
+          <div class="flex flex-col gap-xs">
+            <label class="font-label-caps text-label-caps text-on-surface-variant">WEIGHT (KG)</label>
+            <input
+              class="w-full rounded-lg border-outline-variant bg-surface-bright focus:ring-primary focus:border-primary px-md py-sm"
+              placeholder="75" type="number" name="weight" required />
+          </div>
+        </div>
+        <div class="flex flex-col gap-xs">
+          <label class="font-label-caps text-label-caps text-on-surface-variant">ACTIVITY LEVEL</label>
+          <select name="activity_level"
+            class="w-full rounded-lg border-outline-variant bg-surface-bright focus:ring-primary focus:border-primary px-md py-sm"
+            required>
+            <option value="1.2">
+              Sedentary (Office job, little exercise)
+            </option>
+
+            <option value="1.375">
+              Lightly Active (1-3 days/week)
+            </option>
+
+            <option value="1.55">
+              Moderately Active (3-5 days/week)
+            </option>
+
+            <option value="1.725">
+              Very Active (6-7 days/week)
+            </option>
+
+            <option value="1.9">
+              Extra Active (Physical job &amp; intense training)
+            </option>
+          </select>
+        </div>
+        <button
+          class="w-full bg-primary-container text-on-primary-container font-h2 py-md rounded-xl hover:opacity-90 active:scale-95 transition-all mt-lg flex items-center justify-center gap-sm"
+          type="submit">
+          <span>Calculate My Metrics</span>
+          <span class="material-symbols-outlined">calculate</span>
+        </button>
+      </form>
+    </div>
+    <!-- Results Section (Col 6-12) -->
+    <div class="lg:col-span-7 flex flex-col gap-lg">
+      <!-- BMI and BMR Cards Row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+        <!-- BMI Display -->
+        <div
+          class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(15,23,42,0.05)] p-lg flex flex-col items-center text-center">
+          <span class="font-label-caps text-label-caps text-on-surface-variant mb-xs">BODY MASS INDEX</span>
+          <div class="text-display font-display text-primary mb-xs">{{ result.bmi|default:'--' }}</div>
+          <span
+            class="px-md py-xs rounded-full bg-on-tertiary-container text-on-tertiary font-label-caps text-[10px] mb-lg">
+            {{ result.bmi_status|default:'Awaiting Calculation'}}
+          </span>
+          <!-- Gauge -->
+          <div class="w-full h-2 rounded-full bmi-gauge-gradient relative mt-md">
+            <div
+              class="absolute top-[-8px] left-[35%] w-4 h-4 bg-primary border-2 border-surface rounded-full shadow-md">
+            </div>
+          </div>
+          <div class="flex justify-between w-full mt-sm font-label-caps text-[10px] text-outline">
+            <span>18.5</span>
+            <span>25.0</span>
+            <span>30.0</span>
+          </div>
+        </div>
+        <!-- BMR Display -->
+        <div
+          class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(15,23,42,0.05)] p-lg flex flex-col items-center text-center relative overflow-hidden">
+          <!-- <div class="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full -mr-10 -mt-10"></div> -->
+          <span class="font-label-caps text-label-caps text-on-surface-variant mb-xs">BASAL METABOLIC RATE</span>
+          <div class="text-display font-display text-primary mb-xs">{{result.bmr|default:'--'}}</div>
+          <span class="font-body-md text-body-md text-on-surface-variant">Calories/day</span>
+          <p class="text-[11px] text-outline mt-lg">
+            This is the energy your body requires to function at rest.
+          </p>
+        </div>
+      </div>
+      <!-- Personal Paths / Goal Setting -->
+      <div class="bg-surface-container-lowest rounded-xl shadow-[0px_4px_20px_rgba(15,23,42,0.05)] p-lg">
+        <h3 class="font-h2 text-h2 text-on-surface mb-lg">Recommended Paths</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+          <!-- Path 1 -->
+          <div
+            class="group p-md border border-outline-variant/30 rounded-xl hover:bg-primary-container/5 transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-error mb-sm" data-weight="fill">trending_down</span>
+            <h4 class="font-h2 text-body-lg font-bold mb-xs">Weight Loss</h4>
+            <p class="text-[12px] text-on-surface-variant mb-md">
+              Gradual fat loss with muscle retention.
+            </p>
+            <div class="text-primary font-bold font-h2">
+              1,542 <span class="text-[10px] font-normal uppercase">kcal</span>
+            </div>
+          </div>
+          <!-- Path 2 -->
+          <div class="group p-md border border-primary/40 bg-primary/5 rounded-xl transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-on-tertiary-container mb-sm" data-weight="fill">balance</span>
+            <h4 class="font-h2 text-body-lg font-bold mb-xs">Maintenance</h4>
+            <p class="text-[12px] text-on-surface-variant mb-md">
+              Perfect for sustaining current physique.
+            </p>
+            <div class="text-primary font-bold font-h2">
+              1,842 <span class="text-[10px] font-normal uppercase">kcal</span>
+            </div>
+          </div>
+          <!-- Path 3 -->
+          <div
+            class="group p-md border border-outline-variant/30 rounded-xl hover:bg-primary-container/5 transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-primary mb-sm" data-weight="fill">fitness_center</span>
+            <h4 class="font-h2 text-body-lg font-bold mb-xs">Muscle Gain</h4>
+            <p class="text-[12px] text-on-surface-variant mb-md">
+              Hypertrophy focus with caloric surplus.
+            </p>
+            <div class="text-primary font-bold font-h2">
+              2,142 <span class="text-[10px] font-normal uppercase">kcal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Decorative Image Section -->
+  <div class="mt-xxl grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
+    <div class="rounded-xl overflow-hidden shadow-md">
+      <img alt="Fitness Training" class="w-full h-64 object-cover"
+        data-alt="A professional athlete in high-performance athletic wear performing a focused strength exercise in a minimalist, sun-drenched modern gym. The setting features clean white walls and polished concrete floors, creating a premium light-mode aesthetic. Soft, natural morning light highlights the athlete's form and determination. The overall atmosphere is one of energetic motivation and clinical precision."
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnonmNw-s_0n0E9VmfWc8jNNQT6RkUitPPWJQ3_xfAQOo7mwPDHrLpm2Ic250SiG1JiQVBfmYUsY17uMaNEWlwUI5r8d7hOInc8p23ddS5zM06FHT9nEqZhQZ_bAr78ofPTSXyh6d-6QTcvMfuNs2DfhI1UNu2O7KU7vvjFFtgabUJp3uehBhPlXDpb3HBs7x81GDWoHAYJgzIuoyjidbrCJU2fNC3Noat27wx8CqSaT4NzN8HjYQV6GZQNoy9njpprAYzwFccX3cS" />
+    </div>
+    <div class="space-y-md">
+      <h2 class="font-h1 text-h1 text-on-surface">Science-Backed Tracking</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant">
+        CalTrack uses the Mifflin-St Jeor equation, considered the most accurate
+        standard for predicting energy expenditure in healthy adults. Our tools
+        provide the foundation you need to build a sustainable lifestyle based
+        on biological reality.
+      </p>
+      <div class="flex gap-md">
+        <button
+          class="bg-primary text-on-primary px-lg py-sm rounded-full font-label-caps text-label-caps hover:shadow-lg transition-shadow">
+          Explore Research
+        </button>
+        <button
+          class="border border-outline-variant text-on-surface-variant px-lg py-sm rounded-full font-label-caps text-label-caps hover:bg-surface-variant/20">
+          Learn More
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}
