@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from accounts.models import Profile
-from .calculate import calculate_calories
+from django.contrib import messages
+from apps.accounts.models import Profile
+from .services.nutrition.calculate import calculate_calories
 
 # Create your views here.
 def home(request):
@@ -17,16 +18,30 @@ def calculator(request):
         weight = float(request.POST.get('weight'))
         activity = float(request.POST.get('activity_level'))
         
-        goal = request.user.profile.goal
+        if not request.user.is_authenticated:
+            messages.error(request,"Plese Login First.")
+            return render(request,"calculator.html")
+        
+        profile = Profile.objects.filter(user=request.user).first()
+        
+        if not profile:
+            messages.warning(request, "Please complete your profile first.")
+            return render(request, "calculator.html")
+        
+        
+        goal = profile.goal
         
         
         
         result = calculate_calories(age, gender, height, weight, activity, goal)
-        print(result)
+        print("result:",result)
+        context = {
+            'result':result
+            }
         return render(
             request,
             'calculator.html',
-            result
+            context
         )
     
     return render(request, 'calculator.html')

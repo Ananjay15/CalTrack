@@ -161,6 +161,7 @@
       -webkit-backdrop-filter: blur(10px);
     }
   </style>
+  
 </head>
 
 <body class="bg-surface text-on-surface font-body-md">
@@ -170,6 +171,7 @@
       <div class="text-h2 font-h2 font-bold text-primary" onclick="window.location.href='{% url 'home' %}'">
         CalTrack
       </div>
+
       <nav class="hidden md:flex items-center gap-xl">
         <a class="font-body-md text-body-md transition-colors
                   {% if request.resolver_match.url_name == 'home' %}
@@ -260,7 +262,7 @@
           class="flex items-center gap-xs px-md py-sm rounded-full bg-primary text-on-primary hover:opacity-90 active:scale-95 duration-200"
           onclick="window.location.href='{% url 'login' %}'">
           <span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
-          <span class="font-label-caps text-label-caps">Login/Signup</span>
+          <span class="hidden lg:flex font-label-caps text-label-caps">Login/Signup</span>
         </button>
         {% endif %}
       </div>
@@ -320,6 +322,32 @@
       <span class="font-label-caps text-label-caps">Profile</span>
     </div>
   </nav>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  {% if messages %}
+  <script>
+    {% for message in messages %}
+    toastr.options = {
+      "closeButton": true,
+      "progressBar": true,
+      "positionClass": "toast-top-right",
+      "timeOut": "3000"
+    };
+
+    {% if message.tags == "success" %}
+    toastr.success("{{ message }}");
+    {% elif message.tags == "error" %}
+    toastr.error("{{ message }}");
+    {% elif message.tags == "warning" %}
+    toastr.warning("{{ message }}");
+    {% else %}
+    toastr.info("{{ message }}");
+    {% endif %}
+    {% endfor %}
+  </script>
+  {% endif %}
 </body>
 
 </html>

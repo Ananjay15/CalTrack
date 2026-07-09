@@ -29,6 +29,7 @@ def calculate_calories(
         recommendation = "Weight Loss"
     elif goal == "muscle_gain":
         target_calories = maintenance + 300 
+        recommendation = "Muscle Gain"
     else:
         target_calories = maintenance
         recommendation = "Maintenance"
