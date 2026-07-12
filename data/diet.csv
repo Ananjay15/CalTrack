@@ -1,0 +1,51 @@
+name,description,total_calories,protein_g,carbs_g,fats_g,goal_slug,meal_type_slug,category
+ Poha & Tea,"Poha (1 cup), 1 cup tea without sugar",280,6,45,6,weight_loss,breakfast,veg
+Egg Bhurji & Roti,"2 eggs bhurji, 1 whole wheat roti, tomato slices",350,22,30,16,muscle_gain,breakfast,non-veg
+Idli Sambar (3 pieces),"3 medium idlis, 1 bowl sambar, coconut chutney (1 tbsp)",380,12,55,10,general_fitness,breakfast,veg
+Oats Upma with Veggies,"Oats cooked with peas, carrots, onions (1 bowl)",290,8,40,10,weight_loss,breakfast,veg
+Moong Dal Chilla with Curd,"2 gram flour crepes, 100g curd, mint chutney",340,18,38,12,muscle_gain,breakfast,veg
+Mixed Fruit & Yogurt Bowl,"1 apple, 1 banana, 100g yogurt, 1 tbsp seeds",310,9,50,8,general_fitness,breakfast,veg
+Besan Cheela with Paneer Stuffing,2 besan crepes stuffed with crumbled paneer & onions,420,24,35,20,muscle_gain,breakfast,veg
+Vegetable Upma,"Semolina cooked with vegetables, coconut garnish",320,7,48,10,general_fitness,breakfast,veg
+Ragi Porridge with Nuts,"Ragi (finger millet) cooked with milk, almonds, walnuts",380,12,50,14,weight_loss,breakfast,veg
+Paratha (Aloo) with Curd & Pickle,"1 aloo paratha (no extra oil), 1 bowl curd, pickle",400,9,52,14,general_fitness,breakfast,veg
+Roti + Dal + Bhindi Sabzi + Salad,"2 wheat rotis, 1 bowl toor dal, 1 bowl bhindi sabzi, cucumber salad",520,18,75,14,weight_loss,lunch,veg
+Brown Rice + Rajma + Salad,"1 cup brown rice, 1 bowl rajma, onion-tomato salad",560,22,80,12,muscle_gain,lunch,veg
+Plain Rice + Sambar + Papad,"1 cup steamed rice, 1 bowl sambar, roasted papad, pickle",580,14,90,10,general_fitness,lunch,veg
+Quinoa Pulao with Paneer Tikka,"1 bowl quinoa pulao with veggies, 4 paneer tikka pieces",530,28,55,20,muscle_gain,lunch,veg
+Jowar Roti + Baingan Bharta + Sprouts,"2 jowar rotis, 1 bowl baingan bharta, 1 cup mixed sprouts salad",480,18,65,12,weight_loss,lunch,veg
+Chicken Biryani (light) with Raita,"1 cup chicken biryani (less oil), 1 bowl cucumber raita",620,35,70,18,muscle_gain,lunch,non-veg
+Dal Khichdi with Kadhi,"1 bowl moong dal khichdi, 1 bowl kadhi (yogurt curry)",560,20,78,14,weight_loss,lunch,veg
+"Veg Thali – Roti, Dal, Palak Paneer, Curd","2 rotis, 1 bowl dal, 1 bowl palak paneer, 100g curd",650,25,68,25,muscle_gain,lunch,veg
+Chana Masala with Rice & Salad,"1 cup chana masala, 1 cup rice, mixed green salad",590,20,85,14,general_fitness,lunch,veg
+Fish Curry with Steamed Rice,"1 bowl Bengali fish curry, 1 cup rice, green beans",550,35,60,15,muscle_gain,lunch,non-veg
+Roti + Mix Veg + Dal Makhani (small),"1 roti, 1 bowl mix veg, ½ bowl dal makhani, salad",510,16,70,18,general_fitness,lunch,veg
+Lemon Rice with Peanuts & Curd,"1 bowl lemon rice, 30g peanuts, 1 bowl curd",520,15,68,20,weight_loss,lunch,veg
+Paneer Bhurji with Roti & Green Chutney,"2 rotis, 150g paneer bhurji, mint chutney",580,32,48,28,muscle_gain,lunch,veg
+Soya Chunks Curry with Rice,"1 bowl soya curry, 1 cup rice, sliced cucumber",560,30,70,14,muscle_gain,lunch,veg
+Masala Dosa with Sambar,"1 medium masala dosa, 1 bowl sambar, chutney",580,14,88,14,general_fitness,lunch,veg
+Evening Snack – Sprouts Chaat,"1 bowl mixed sprouts, onion, tomato, chaat masala",160,10,25,2,weight_loss,snack,veg
+Fruit Chaat with Yogurt,"1 plate mixed fruits, 50g hung curd",180,5,35,3,general_fitness,snack,veg
+Dhokla (4 pieces) with Green Chutney,"4 pieces khaman dhokla, coriander chutney",200,8,30,6,weight_loss,snack,veg
+Paneer Tikka (4 pieces) with Salad,"4 grilled paneer cubes, bell pepper, onion",260,18,10,16,muscle_gain,snack,veg
+Roasted Chana with Jaggery,"1 bowl roasted black chana, small piece jaggery",220,10,38,3,general_fitness,snack,veg
+Bhel Puri (minimal chutney),"1 plate bhel puri (puffed rice, veggies)",230,5,42,7,weight_loss,snack,veg
+Egg White Omelette with Toast,"3 egg white omelette, 1 whole wheat toast",200,18,18,5,muscle_gain,snack,non-veg
+Makhana (Fox Nuts) Roasted,1 bowl roasted makhana with spices,180,6,28,5,weight_loss,snack,veg
+Peanut Butter Banana Toast,"2 brown bread slices, 1 tbsp peanut butter, 1 banana",350,12,48,14,general_fitness,snack,veg
+Vegetable Soup with Bread Stick,"1 bowl mixed vegetable soup, 1 bread stick",180,5,30,4,weight_loss,snack,veg
+Roti + Dal + Seasonal Sabzi (Lauki),"2 rotis, 1 bowl masoor dal, 1 bowl lauki sabzi",460,18,68,10,weight_loss,dinner,veg
+Chicken Curry with Brown Rice,"1 bowl chicken curry, 1 cup brown rice, salad",580,38,55,18,muscle_gain,dinner,non-veg
+Palak Paneer with Missi Roti,"2 missi rotis, 1 bowl palak paneer, onion slices",540,24,55,24,muscle_gain,dinner,veg
+Vegetable Khichdi with Raita,"1 bowl veg khichdi (light ghee), 1 bowl raita",480,14,70,12,weight_loss,dinner,veg
+Fish Tikka with Jowar Roti & Salad,"4 fish tikka pieces, 1 jowar roti, salad",520,40,45,15,muscle_gain,dinner,non-veg
+Kadhi Pakora with Steamed Rice,"1 bowl kadhi with 2 pakoras, 1 cup rice, salad",560,16,82,18,general_fitness,dinner,veg
+Stuffed Baingan with Roti,"1 small stuffed brinjal, 2 wheat rotis",440,12,65,14,weight_loss,dinner,veg
+Moong Dal Khichdi with Curd,"1 bowl moong dal khichdi, 150g curd",500,20,68,10,weight_loss,dinner,veg
+Butter Chicken with Naan (1 piece),"1 small bowl butter chicken, 1 butter naan, onion salad",680,35,55,30,muscle_gain,dinner,non-veg
+Paneer Lababdar with Roti,"1 bowl paneer lababdar, 2 wheat rotis",620,28,55,30,muscle_gain,dinner,veg
+Veg Pulao with Boondi Raita,"1 bowl vegetable pulao, 1 bowl boondi raita",550,14,75,18,general_fitness,dinner,veg
+Roti + Lauki Kofta Curry,"2 rotis, 1 bowl lauki kofta (gravy base)",480,14,60,18,weight_loss,dinner,veg
+Egg Curry with Rice,"2 egg curry, 1 cup rice, sliced cucumber",560,25,62,20,muscle_gain,dinner,non-veg
+Dal Fry with Jeera Rice & Salad,"1 bowl dal fry, 1 cup jeera rice, salad",530,16,78,12,general_fitness,dinner,veg
+Chole with Bhature (small),"Small bhatura, 1 bowl chole, onion slices",620,18,80,22,general_fitness,dinner,veg

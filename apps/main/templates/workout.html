@@ -74,142 +74,124 @@
     <div
       class="flex flex-col md:flex-row justify-between items-end gap-lg mb-lg"
     >
+      <!-- Level Filter (Button Group) -->
       <div class="w-full md:w-auto">
         <h2 class="text-h2 font-h2 mb-md">Explore Library</h2>
-        <div class="flex gap-sm overflow-x-auto pb-sm no-scrollbar">
+        <div
+          class="flex gap-sm overflow-x-auto pb-sm no-scrollbar"
+          id="level-buttons"
+        >
           <button
-            class="bg-primary text-white px-lg py-sm rounded-full whitespace-nowrap font-label-caps"
+            class="level-btn bg-primary text-white px-lg py-sm rounded-full whitespace-nowrap font-label-caps"
+            data-level="all"
           >
-            All Workouts
+            All Levels
           </button>
           <button
-            class="bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full whitespace-nowrap hover:bg-outline-variant font-label-caps"
+            class="level-btn bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full whitespace-nowrap hover:bg-outline-variant font-label-caps"
+            data-level="beginner"
           >
-            HIIT
+            Beginner
           </button>
           <button
-            class="bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full whitespace-nowrap hover:bg-outline-variant font-label-caps"
+            class="level-btn bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full whitespace-nowrap hover:bg-outline-variant font-label-caps"
+            data-level="intermediate"
           >
-            Strength
+            Intermediate
           </button>
           <button
-            class="bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full whitespace-nowrap hover:bg-outline-variant font-label-caps"
+            class="level-btn bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full whitespace-nowrap hover:bg-outline-variant font-label-caps"
+            data-level="advanced"
           >
-            Yoga
-          </button>
-          <button
-            class="bg-surface-container-high text-on-surface-variant px-lg py-sm rounded-full whitespace-nowrap hover:bg-outline-variant font-label-caps"
-          >
-            Cardio
+            Advanced
           </button>
         </div>
       </div>
+
+      <!-- Equipment & Duration Filters -->
       <div
         class="flex gap-md w-full md:w-auto overflow-x-auto pb-sm no-scrollbar"
       >
+        <!-- Equipment -->
         <div class="relative min-w-[160px]">
           <span
             class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant"
             >fitness_center</span
           >
           <select
+            id="equipment-filter"
             class="w-full pl-xl pr-lg py-sm bg-surface-container border-none rounded-xl text-body-md focus:ring-2 focus:ring-primary appearance-none"
+            onchange="filterWorkouts()"
           >
-            <option>Equipment</option>
-            <option>Dumbbells</option>
-            <option>Resistance Bands</option>
-            <option>Bodyweight Only</option>
+            <option value="all">All Equipment</option>
+            <option value="home">Home (No Equipment)</option>
+            <option value="gym">Gym Equipment</option>
+            <option value="both">Home &amp; Gym</option>
           </select>
         </div>
+        <!-- Duration -->
         <div class="relative min-w-[160px]">
           <span
             class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant"
             >timer</span
           >
           <select
+            id="duration-filter"
             class="w-full pl-xl pr-lg py-sm bg-surface-container border-none rounded-xl text-body-md focus:ring-2 focus:ring-primary appearance-none"
+            onchange="filterWorkouts()"
           >
-            <option>Duration</option>
-            <option>&lt; 15 mins</option>
-            <option>15-30 mins</option>
-            <option>30-45 mins</option>
-            <option>45+ mins</option>
+            <option value="all">All Durations</option>
+            <option value="0-15">&lt; 15 mins</option>
+            <option value="15-30">15-30 mins</option>
+            <option value="30-45">30-45 mins</option>
+            <option value="45-1000">45+ mins</option>
           </select>
         </div>
       </div>
     </div>
+
     <!-- Video Grid -->
-    <div class="bento-grid">
-      <!-- Video Card 1 -->
+    <div class="bento-grid" id="workout-grid">
+      {% for workout in workouts %}
       <div
-        class="bg-surface rounded-xl shadow-sm hover:shadow-md transition-shadow group"
+        class="workout-card bg-surface rounded-xl shadow-sm hover:shadow-md transition-shadow group"
+        data-level="{{ workout.level.slug|lower }}"
+        data-home-gym="{{ workout.home_gym }}"
+        data-duration="{{ workout.duration_minutes }}"
       >
         <div class="relative h-48 rounded-t-xl overflow-hidden">
+          {% if workout.thumbnail %}
           <img
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            data-alt="A serene yoga instructor performing a complex balance pose on a thin rubber mat within a bright, airy studio filled with soft natural light and lush indoor plants. The atmosphere is peaceful and focused, utilizing a clean white and soft lavender color palette that emphasizes clarity and premium wellness. High-resolution photography captures the subtle textures of the studio and the professional attire."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCma3qT8_sa9BcLbHkRxizJ_KvJ2iTNqjGesTegjpKD29x5agKQbd_pAEtpC9qlpPygGxhb9arCAdTomhcTHOnNTeHN52CnT6zOqSKJiz4974xNUjC0-B6zMY6UtJBI5tF2bFI2GP9NqvaXTRLMiDZBQor5Mjqyhk1qjkc4ksbSa74erg4WoXBf3VTEYntbkTZmQF3VknG5_ccxWO-X50Wx8I7M3EFY5D9GnsIL0yddTX6xykf9VnCCsmTIeR4YohYBDsMscL_hpfJK"
+            src="{{ workout.thumbnail.url }}"
+            alt="{{ workout.name }}"
           />
+          {% else %}
+          <div
+            class="w-full h-full bg-gray-200 flex items-center justify-center"
+          >
+            <span class="material-symbols-outlined text-4xl text-gray-400"
+              >fitness_center</span
+            >
+          </div>
+          {% endif %}
           <div
             class="absolute bottom-sm right-sm bg-black/60 text-white px-sm py-1 rounded-md text-xs"
           >
-            25:00
+            {{ workout.duration_minutes }}:00
           </div>
         </div>
         <div class="p-md">
           <div class="flex justify-between items-start mb-sm">
-            <h3 class="font-bold text-body-lg">Morning Flow Vinyasa</h3>
+            <h3 class="font-bold text-body-lg">{{ workout.name }}</h3>
             <span
               class="text-xs font-bold text-primary px-sm py-0.5 bg-primary-container/20 rounded"
-              >Beginner</span
             >
-          </div>
-          <p class="text-on-surface-variant text-sm mb-md line-clamp-2">
-            Start your day with gentle mobility and core engagement to wake up
-            your body and mind.
-          </p>
-          <div
-            class="flex justify-between items-center border-t border-outline-variant pt-md"
-          >
-            <span
-              class="text-xs text-on-surface-variant flex items-center gap-1"
-            >
-              <span class="material-symbols-outlined text-sm">bolt</span>
-              Intensity: Low
+              {{ workout.level.name }}
             </span>
-            <button class="text-primary font-bold text-sm hover:underline">
-              Watch Now
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- Video Card 2 -->
-      <div
-        class="bg-surface rounded-xl shadow-sm hover:shadow-md transition-shadow group"
-      >
-        <div class="relative h-48 rounded-t-xl overflow-hidden">
-          <img
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            data-alt="A male athlete performing heavy kettlebell swings in a gritty but polished high-end functional fitness center. Dramatic overhead lighting creates sharp shadows and highlights his concentrated expression and muscular form. The setting is modern and high-energy, with a palette of deep slates and vibrant green accents that pulse with intensity and professional-grade reliability."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqRFhzP3YwCifjEYbqYS9g3xvjyIzQ8CkBpn8P_h0Ch8p_A7XMKWvlDWxVmQmwzc4db_7v_lFmKDBI9xChIOZy4BNxYjh5wkhDROVDxkzbCxHIVnvWITiZ1xwzelZ7oJxY059Eo-L_J3mCHF20s9lf1aGgzxmOnIaDTNC_sP8Lc8aO13XjKtVg89RtTOWa3-xWXN92-XlVOot_7053lu0eyJ62BHCNAPTkyf1GzdD6HXRrjp0zJRuv_lHRMBlQ2A47RUtB8aOUnD8U"
-          />
-          <div
-            class="absolute bottom-sm right-sm bg-black/60 text-white px-sm py-1 rounded-md text-xs"
-          >
-            40:00
-          </div>
-        </div>
-        <div class="p-md">
-          <div class="flex justify-between items-start mb-sm">
-            <h3 class="font-bold text-body-lg">Power Strength Pro</h3>
-            <span
-              class="text-xs font-bold text-tertiary px-sm py-0.5 bg-tertiary-container/20 rounded"
-              >Advanced</span
-            >
           </div>
           <p class="text-on-surface-variant text-sm mb-md line-clamp-2">
-            Heavy resistance training focused on compound movements to maximize
-            strength gains.
+            {{ workout.description|truncatewords:20 }}
           </p>
           <div
             class="flex justify-between items-center border-t border-outline-variant pt-md"
@@ -217,191 +199,35 @@
             <span
               class="text-xs text-on-surface-variant flex items-center gap-1"
             >
+              {% if workout.home_gym == 'home' %}
+              <span class="material-symbols-outlined text-sm">home</span> No
+              Equipment {% elif workout.home_gym == 'gym' %}
               <span class="material-symbols-outlined text-sm"
                 >fitness_center</span
               >
-              Equipment: Weights
+              Gym Equipment {% else %}
+              <span class="material-symbols-outlined text-sm">swap_horiz</span>
+              Home &amp; Gym {% endif %}
             </span>
-            <button class="text-primary font-bold text-sm hover:underline">
+            {% if workout.youtube_link %}
+            <a
+              href="{{ workout.youtube_link }}"
+              target="_blank"
+              class="text-primary font-bold text-sm hover:underline"
+            >
               Watch Now
-            </button>
+            </a>
+            {% else %}
+            <span class="text-outline text-sm">No Video</span>
+            {% endif %}
           </div>
         </div>
       </div>
-      <!-- Video Card 3 -->
-      <div
-        class="bg-surface rounded-xl shadow-sm hover:shadow-md transition-shadow group"
-      >
-        <div class="relative h-48 rounded-t-xl overflow-hidden">
-          <img
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            data-alt="A woman in vibrant fitness apparel sprinting on a modern treadmill against a blurred background of a busy, high-end gym floor. The image conveys a sense of speed and high-energy motion with light trails and bright, natural sunlight pouring through large windows. The visual style is crisp and commercial, emphasizing active living and premium fitness technology."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNlO3ckWLoldn0bj4UsdSR6hDNvriuEBv5HCUYcUcUEDQHvKCjnPsHlVWrsdlv7L2KpQ3SHy12GM3_iY3_73VAP5GdaqiNWVeTtbDgrUyOXlixXbV9-xVIy6A6A7P7yihYXdpvSDNV91zm0GOTB27BBqBkMqQdK1m5PE1mjDbApjCM9gc7zD2KCfbLftnb7vW7CvQD2mmVYl-P7BLj8OSL990GrnnOHQtuiPTVMvEtxScwxNoWbPd4jTcMY1hc10QslC-2JrDCh7bs"
-          />
-          <div
-            class="absolute bottom-sm right-sm bg-black/60 text-white px-sm py-1 rounded-md text-xs"
-          >
-            15:00
-          </div>
-        </div>
-        <div class="p-md">
-          <div class="flex justify-between items-start mb-sm">
-            <h3 class="font-bold text-body-lg">Express Cardio Blast</h3>
-            <span
-              class="text-xs font-bold text-primary px-sm py-0.5 bg-primary-container/20 rounded"
-              >Intermediate</span
-            >
-          </div>
-          <p class="text-on-surface-variant text-sm mb-md line-clamp-2">
-            Short on time? Get your heart racing with this quick but intense
-            cardio burnout.
-          </p>
-          <div
-            class="flex justify-between items-center border-t border-outline-variant pt-md"
-          >
-            <span
-              class="text-xs text-on-surface-variant flex items-center gap-1"
-            >
-              <span class="material-symbols-outlined text-sm">speed</span>
-              Intensity: High
-            </span>
-            <button class="text-primary font-bold text-sm hover:underline">
-              Watch Now
-            </button>
-          </div>
-        </div>
+      {% empty %}
+      <div class="col-span-full text-center py-lg text-on-surface-variant">
+        No workouts available yet.
       </div>
-      <!-- Video Card 4 -->
-      <div
-        class="bg-surface rounded-xl shadow-sm hover:shadow-md transition-shadow group"
-      >
-        <div class="relative h-48 rounded-t-xl overflow-hidden">
-          <img
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            data-alt="A professional trainer demonstrating a perfect plank position on a rubberized gym floor. The camera angle is low and powerful, highlighting the technical form and core stability. The gym environment is clean, professional, and features a refined palette of greys, whites, and brand-specific purples. Soft bokeh in the background keeps the focus sharp on the athlete."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6aWB1wiJXTJIDNWy9qLFqAFhDqbDymdhnCNsD_XKeD_Gz2D7X1Aaw6Xb7XXoocMg6CER0OMxtJYquf0jPFu086X2AyQE01m2axpbk5aXRkVX4qsAZmqYoCuAc5yGSJ7QqFJbmGX-q8iHXJ4CRLkyWRTcHs2kyzN1drpaKp7QpFqlN1mAnQd2VRl6uStNuH-81MQ4p8EYAh9_QaFuQLAoRJ6wfsKMnTxdrxGQRcAeMBvhIXt1ZLpKVPaNGVFHP8x6zHOmItneiXx6-"
-          />
-          <div
-            class="absolute bottom-sm right-sm bg-black/60 text-white px-sm py-1 rounded-md text-xs"
-          >
-            20:00
-          </div>
-        </div>
-        <div class="p-md">
-          <div class="flex justify-between items-start mb-sm">
-            <h3 class="font-bold text-body-lg">Core Foundation</h3>
-            <span
-              class="text-xs font-bold text-primary px-sm py-0.5 bg-primary-container/20 rounded"
-              >Beginner</span
-            >
-          </div>
-          <p class="text-on-surface-variant text-sm mb-md line-clamp-2">
-            Master the basics of core stability to improve your performance in
-            every other workout.
-          </p>
-          <div
-            class="flex justify-between items-center border-t border-outline-variant pt-md"
-          >
-            <span
-              class="text-xs text-on-surface-variant flex items-center gap-1"
-            >
-              <span class="material-symbols-outlined text-sm">home</span> No
-              Equipment
-            </span>
-            <button class="text-primary font-bold text-sm hover:underline">
-              Watch Now
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- Video Card 5 -->
-      <div
-        class="bg-surface rounded-xl shadow-sm hover:shadow-md transition-shadow group"
-      >
-        <div class="relative h-48 rounded-t-xl overflow-hidden">
-          <img
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            data-alt="An energetic group fitness class session with people using medicine balls. The scene is full of movement and community, shot with a wide-angle lens in a bright, modern studio. The high-key lighting creates a positive and welcoming atmosphere. The color scheme is consistent with a professional health app, using subtle tones of slate and vibrant pops of primary purple."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOtKEBwIXnARaGuwieTXJDueTAIE-PViYMmJ4URdLGCabhg2cDg-2awoWcND2udd7K1uk-46I9bPJqhBuexon06eTTWokXaM6tExJUJjoKoyt2uxQfEl4tQIyiTG5tvAZAcSxkfysbS7Z5hNr1i6Jgr8vvl6kDkxAGXsWXPnYxqDS4u5vpWW5ry4WRHJQ37AycB0uH5EklNLkifUo2hgasrZD5BrFbC6Svkv91xcezZa2b9ZdLmxH8HsQcP3-4PLJF9T8IQ45pygH-"
-          />
-          <div
-            class="absolute bottom-sm right-sm bg-black/60 text-white px-sm py-1 rounded-md text-xs"
-          >
-            50:00
-          </div>
-        </div>
-        <div class="p-md">
-          <div class="flex justify-between items-start mb-sm">
-            <h3 class="font-bold text-body-lg">Endurance Circuit</h3>
-            <span
-              class="text-xs font-bold text-tertiary px-sm py-0.5 bg-tertiary-container/20 rounded"
-              >Advanced</span
-            >
-          </div>
-          <p class="text-on-surface-variant text-sm mb-md line-clamp-2">
-            Push your limits with a sustained circuit designed to improve your
-            VO2 max and mental grit.
-          </p>
-          <div
-            class="flex justify-between items-center border-t border-outline-variant pt-md"
-          >
-            <span
-              class="text-xs text-on-surface-variant flex items-center gap-1"
-            >
-              <span class="material-symbols-outlined text-sm">monitoring</span>
-              Intensity: Extreme
-            </span>
-            <button class="text-primary font-bold text-sm hover:underline">
-              Watch Now
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- Video Card 6 -->
-      <div
-        class="bg-surface rounded-xl shadow-sm hover:shadow-md transition-shadow group"
-      >
-        <div class="relative h-48 rounded-t-xl overflow-hidden">
-          <img
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            data-alt="A focused female athlete in sleek athletic wear performing explosive box jumps in a minimalist, modern gym space. The lighting is crisp and cool-toned, emphasizing professional focus and clean design. The background is uncluttered, reinforcing the minimalist and premium brand aesthetic of CalTrack. Every detail is sharp, conveying high energy and functional performance."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuClo3qJ0jWG2XnE2AqhcN-La9vexjwzVrcPUn40SBWi_B_sBjxwnfuHArwkHarIcEdQoRKQhTvNGIJYWzbZLfBsRMq4k3GqqxXf9GoomD8LG7TtV4eUsQUQfyl8W-t7Jv7BDUM-kAlcLrbLC58cdrAMH7Ha6EN1CEmgukjDRwNIxj2KhgqWI5MtxxHlRtlZTlNE3S2oF9IJ9rYck_H7b_27bwWcWcUvuRHlTH01DFA_nQE7Zy7xSjiiiK0x3f7z6LLJ1ZhUw_A_yya1"
-          />
-          <div
-            class="absolute bottom-sm right-sm bg-black/60 text-white px-sm py-1 rounded-md text-xs"
-          >
-            30:00
-          </div>
-        </div>
-        <div class="p-md">
-          <div class="flex justify-between items-start mb-sm">
-            <h3 class="font-bold text-body-lg">Plyometric Power</h3>
-            <span
-              class="text-xs font-bold text-primary px-sm py-0.5 bg-primary-container/20 rounded"
-              >Intermediate</span
-            >
-          </div>
-          <p class="text-on-surface-variant text-sm mb-md line-clamp-2">
-            Improve your vertical and explosive speed with jump training and
-            reactive movements.
-          </p>
-          <div
-            class="flex justify-between items-center border-t border-outline-variant pt-md"
-          >
-            <span
-              class="text-xs text-on-surface-variant flex items-center gap-1"
-            >
-              <span class="material-symbols-outlined text-sm"
-                >settings_input_component</span
-              >
-              Box Required
-            </span>
-            <button class="text-primary font-bold text-sm hover:underline">
-              Watch Now
-            </button>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </section>
   <!-- Motivation Banner -->
@@ -435,6 +261,57 @@
       class="absolute right-20 -bottom-40 w-96 h-96 bg-secondary-container/20 rounded-full blur-3xl"
     ></div>
   </section>
+
+  <script>
+    let currentLevel = "all";
+
+    // Level filter (button group)
+    document.querySelectorAll(".level-btn").forEach((btn) => {
+      btn.addEventListener("click", function () {
+        currentLevel = this.dataset.level;
+        // Update active style
+        document.querySelectorAll(".level-btn").forEach((b) => {
+          b.classList.remove("bg-primary", "text-white");
+          b.classList.add(
+            "bg-surface-container-high",
+            "text-on-surface-variant",
+          );
+        });
+        this.classList.add("bg-primary", "text-white");
+        this.classList.remove(
+          "bg-surface-container-high",
+          "text-on-surface-variant",
+        );
+        filterWorkouts();
+      });
+    });
+
+    function filterWorkouts() {
+      const equipment = document.getElementById("equipment-filter").value;
+      const durationRange = document.getElementById("duration-filter").value;
+
+      document.querySelectorAll(".workout-card").forEach((card) => {
+        const level = card.dataset.level;
+        const homeGym = card.dataset.homeGym;
+        const duration = parseInt(card.dataset.duration);
+
+        // Level filter
+        let levelMatch = currentLevel === "all" || level === currentLevel;
+
+        // Equipment filter
+        let equipMatch = equipment === "all" || homeGym === equipment;
+
+        // Duration filter
+        let durMatch = true;
+        if (durationRange !== "all") {
+          const [min, max] = durationRange.split("-").map(Number);
+          durMatch = duration >= min && duration <= max;
+        }
+
+        card.style.display = levelMatch && equipMatch && durMatch ? "" : "none";
+      });
+    }
+  </script>
 </main>
 
 {% endblock content %}

@@ -1,0 +1,90 @@
+<main class="p-lg md:p-xl max-w-container-max mx-auto">
+  <!-- Hero Header -->
+  <section class="mb-xxl">
+    <h2 class="font-display text-display mb-sm text-primary">Fitness Hub</h2>
+    <p class="text-body-lg text-on-surface-variant max-w-2xl">
+      Precision training for peak performance. A balanced mix of workouts and yoga.
+    </p>
+  </section>
+
+  <!-- Category Filter Buttons -->
+  <div class="mb-xl">
+    <h3 class="font-h2 text-h2 text-on-surface mb-lg">Recommended Videos</h3>
+    <div class="flex gap-sm overflow-x-auto hide-scrollbar pb-2" id="category-buttons">
+      <button class="category-btn px-lg py-sm bg-primary text-on-primary rounded-full text-sm font-semibold transition-all"
+              data-category="all">All</button>
+      <button class="category-btn px-lg py-sm bg-surface-container-high text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-highest transition-all"
+              data-category="workout">Workouts</button>
+      <button class="category-btn px-lg py-sm bg-surface-container-high text-on-surface-variant rounded-full text-sm font-semibold hover:bg-surface-container-highest transition-all"
+              data-category="yoga">Yoga</button>
+    </div>
+  </div>
+
+  <!-- Video Grid (combined) -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-lg mb-xxl" id="video-grid">
+    {% for item in fitness_data.combined %}
+      <div class="video-card group cursor-pointer"
+           data-category="{{ item.type }}">
+        <div class="relative h-44 rounded-xl overflow-hidden mb-md shadow-sm">
+          {% if item.data.thumbnail_url %}
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                 src="{{ item.data.thumbnail_url }}" alt="{{ item.data.name }}">
+          {% else %}
+            <div class="w-full h-full bg-surface-container-high flex items-center justify-center">
+              <span class="material-symbols-outlined text-4xl text-outline">
+                {% if item.type == 'workout' %}fitness_center{% else %}self_improvement{% endif %}
+              </span>
+            </div>
+          {% endif %}
+          <div class="absolute bottom-2 right-2 bg-black/60 text-white text-[10px] px-2 py-1 rounded font-bold">
+            {{ item.data.duration_minutes }}:00
+          </div>
+          {% if item.data.youtube_link %}
+            <a href="{{ item.data.youtube_link }}" target="_blank"
+               class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <span class="material-symbols-outlined text-white text-4xl"
+                    style="font-variation-settings: 'FILL' 1">play_arrow</span>
+            </a>
+          {% endif %}
+        </div>
+        <h4 class="font-bold text-on-surface mb-xs">{{ item.data.name }}</h4>
+        <div class="flex items-center gap-sm text-xs text-on-surface-variant">
+          <span>{% if item.type == 'workout' %}Workout{% else %}Yoga{% endif %}</span>
+          <span class="w-1 h-1 bg-outline rounded-full"></span>
+          <span class="text-primary font-bold">{{ item.data.burn }} kcal</span>
+        </div>
+      </div>
+    {% endfor %}
+    {% if not fitness_data.combined %}
+      <div class="col-span-full text-center py-xl text-on-surface-variant">
+        No fitness videos available yet. Update your profile or check back later.
+      </div>
+    {% endif %}
+  </div>
+</main>
+
+<script>
+  // Category filter (unchanged, but now filters by data-category)
+  const buttons = document.querySelectorAll('#category-buttons .category-btn');
+  const cards = document.querySelectorAll('#video-grid .video-card');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary');
+        b.classList.add('bg-surface-container-high', 'text-on-surface-variant');
+      });
+      btn.classList.add('bg-primary', 'text-on-primary');
+      btn.classList.remove('bg-surface-container-high', 'text-on-surface-variant');
+
+      const category = btn.dataset.category;
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

@@ -168,41 +168,41 @@
   <!-- TopAppBar -->
   <header class="fixed top-0 w-full z-50 bg-surface shadow-sm">
     <div class="flex justify-between items-center px-lg py-md max-w-container-max mx-auto">
-      <div class="text-h2 font-h2 font-bold text-primary" onclick="window.location.href='{% url 'home' %}'">
+      <div class="text-h2 font-h2 font-bold text-primary" onclick="window.location.href='{% url 'main:home' %}'">
         CalTrack
       </div>
 
       <nav class="hidden md:flex items-center gap-xl">
         <a class="font-body-md text-body-md transition-colors
-                  {% if request.resolver_match.url_name == 'home' %}
+                  {% if request.resolver_match.url_name == 'main:home' %}
                     text-primary font-bold border-b-2 border-primary
                   {% else %}
                     text-on-surface-variant hover:text-primary
-                  {% endif %}" href={% url 'home' %}>Home</a>
+                  {% endif %}" href={% url 'main:home' %}>Home</a>
         <a class="transition-colors font-body-md text-body-md
-              {% if request.resolver_match.url_name == 'foodlog'%}
+              {% if request.resolver_match.url_name == 'main:diet'%}
               text-primary dont-bold border-b-2 border-primary
               {% else %}
               text-on-surface-variant hover:text-primary
-              {% endif %}" href={% url 'foodlog' %}>Food Log</a>
+              {% endif %}" href={% url 'main:diet' %}>Food Log</a>
         <a class="transition-colors font-body-md text-body-md
-              {% if request.resolver_match.url_name == 'calculator'%}
+              {% if request.resolver_match.url_name == 'main:calculator'%}
               text-primary dont-bold border-b-2 border-primary
               {% else %}
               text-on-surface-variant hover:text-primary
-              {% endif %}" href={% url 'calculator' %}>Calculators</a>
+              {% endif %}" href={% url 'main:calculator' %}>Calculators</a>
         <a class="transition-colors font-body-md text-body-md
-              {% if request.resolver_match.url_name == 'workout'%}
+              {% if request.resolver_match.url_name == 'main:workout'%}
               text-primary dont-bold border-b-2 border-primary
               {% else %}
               text-on-surface-variant hover:text-primary
-              {% endif %}" href={% url 'workout' %}>Workout</a>
+              {% endif %}" href={% url 'main:workout' %}>Workout</a>
         <a class="transition-colors font-body-md text-body-md
-              {% if request.resolver_match.url_name == 'yoga'%}
+              {% if request.resolver_match.url_name == 'main:yoga'%}
               text-primary dont-bold border-b-2 border-primary
               {% else %}
               text-on-surface-variant hover:text-primary
-              {% endif %}" href={% url 'yoga' %}>Yoga</a>
+              {% endif %}" href={% url 'main:yoga' %}>Yoga</a>
       </nav>
       <div class="flex items-center gap-md">
         <button class="p-xs text-on-surface-variant hover:text-primary transition-colors active:scale-95 duration-200">
@@ -230,15 +230,15 @@
           <!-- Dropdown Menu -->
           <div
             class="absolute right-0 mt-2 w-48 bg-surface rounded-xl shadow-lg border border-outline-variant opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-            <a href={% url 'home' %}
+            <a href={% url 'dashboard:dashboard' %}
               class="flex items-center gap-2 px-4 py-3 hover:bg-surface-container-low transition-colors">
               <span class="material-symbols-outlined text-[18px]">
-                dashboard
+                Dashboard
               </span>
               Dashboard
             </a>
 
-            <a href={% url 'home' %}
+            <a href={% url 'main:home' %}
               class="flex items-center gap-2 px-4 py-3 hover:bg-surface-container-low transition-colors">
               <span class="material-symbols-outlined text-[18px]">
                 person
@@ -248,7 +248,7 @@
 
             <hr class="border-outline-variant">
 
-            <a href={% url 'logout' %}
+            <a href={% url 'accounts:logout' %}
               class="flex items-center gap-2 px-4 py-3 text-red-500 hover:bg-red-50 transition-colors">
               <span class="material-symbols-outlined text-[18px]">
                 logout
@@ -260,7 +260,7 @@
         {% else %}
         <button
           class="flex items-center gap-xs px-md py-sm rounded-full bg-primary text-on-primary hover:opacity-90 active:scale-95 duration-200"
-          onclick="window.location.href='{% url 'login' %}'">
+          onclick="window.location.href='{% url 'accounts:login' %}'">
           <span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
           <span class="hidden lg:flex font-label-caps text-label-caps">Login/Signup</span>
         </button>

@@ -1,0 +1,163 @@
+<main class="max-w-container-max mx-auto px-lg py-lg">
+  <!-- Page Header -->
+  <section class="mb-xl">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-lg mb-lg">
+      <div>
+        <h1 class="font-h1 text-h1 text-on-surface">Today's Meal Plan</h1>
+        <p class="font-body-md text-on-surface-variant">
+          Your personalised nutrition for {{ today|date:"l, F j" }}.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Macro Summary + Main Energy Card -->
+  <section class="grid grid-cols-1 md:grid-cols-12 gap-lg mb-xl">
+    <!-- Main Energy Card -->
+    <div class="md:col-span-8 p-lg rounded-[24px] bg-primary text-on-primary flex flex-col md:flex-row items-center gap-xl shadow-lg relative overflow-hidden">
+      <div class="relative z-10 text-center md:text-left">
+        <p class="text-label-caps opacity-80 mb-sm">DAILY SUMMARY - TODAY</p>
+        <h2 class="font-display text-display leading-none mb-md">
+          {% if diet_data.daily_macros.calories %}
+            {{ diet_data.daily_macros.calories }} <span class="text-h2 font-normal opacity-70">kcal</span>
+          {% else %}
+            -- kcal
+          {% endif %}
+        </h2>
+        <div class="flex gap-md items-center justify-center md:justify-start">
+          {% if calorie_data %}
+            <span class="flex items-center gap-xs px-md py-xs bg-white/20 rounded-full font-semibold">
+              <span class="material-symbols-outlined text-[18px]">trending_down</span>
+              Target: {{ calorie_data.target_calories }} kcal
+            </span>
+          {% endif %}
+          <span class="text-on-primary/70 font-body-md italic">
+            {{ diet_data.daily_macros.protein_g }}g protein · {{ diet_data.daily_macros.carbs_g }}g carbs · {{ diet_data.daily_macros.fats_g }}g fats
+          </span>
+        </div>
+      </div>
+      <!-- Decorative bars -->
+      <div class="relative flex-1 w-full h-32 flex items-end justify-between px-md opacity-30">
+        <div class="w-6 bg-white rounded-t-lg h-[60%]"></div>
+        <div class="w-6 bg-white rounded-t-lg h-[80%]"></div>
+        <div class="w-6 bg-white rounded-t-lg h-[40%]"></div>
+        <div class="w-6 bg-white rounded-t-lg h-[90%]"></div>
+        <div class="w-6 bg-white rounded-t-lg h-[55%]"></div>
+        <div class="w-6 bg-white rounded-t-lg h-[75%]"></div>
+      </div>
+    </div>
+
+    <!-- Macro Breakdown -->
+    <div class="md:col-span-4 p-lg rounded-[24px] bg-white shadow-sm border border-outline-variant/30 flex flex-col justify-between gap-md">
+      <div class="flex justify-between items-center">
+        <h3 class="font-h2 text-h2 text-on-surface">Macros</h3>
+        <span class="text-primary font-bold">Target</span>
+      </div>
+      <div class="space-y-sm">
+        <div>
+          <div class="flex justify-between mb-xs">
+            <span class="font-semibold text-on-surface-variant">Protein</span>
+            <span class="text-on-surface">{{ diet_data.daily_macros.protein_g }}g</span>
+          </div>
+          <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+            <div class="h-full bg-primary rounded-full" style="width:{% widthratio diet_data.daily_macros.protein_g protein_target 100 %}%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-xs">
+            <span class="font-semibold text-on-surface-variant">Carbs</span>
+            <span class="text-on-surface">{{ diet_data.daily_macros.carbs_g }}g</span>
+          </div>
+          <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+            <div class="h-full bg-secondary rounded-full" style="width:{% if calorie_data %}{% widthratio diet_data.daily_macros.carbs_g calorie_data.target_calories 100 %}{% else %}50{% endif %}%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-xs">
+            <span class="font-semibold text-on-surface-variant">Fats</span>
+            <span class="text-on-surface">{{ diet_data.daily_macros.fats_g }}g</span>
+          </div>
+          <div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+            <div class="h-full bg-tertiary-container rounded-full" style="width:{% if calorie_data %}{% widthratio diet_data.daily_macros.fats_g calorie_data.target_calories 100 %}{% else %}50{% endif %}%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Today's Meal Plan (DAY-WISE – exactly one food card per meal type) -->
+  <section>
+    <h3 class="font-h2 text-h2 text-on-surface flex items-center gap-sm px-xs mb-lg">
+      <span class="material-symbols-outlined">event_note</span>Your Meals Today
+    </h3>
+
+    <div class="bg-surface-container-low rounded-[32px] p-lg shadow-sm border border-outline-variant/20">
+      <!-- Day Header -->
+      <div class="flex flex-col md:flex-row justify-between items-center mb-lg gap-md">
+        <div class="flex items-center gap-md">
+          <div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center font-display text-h2">1</div>
+          <div>
+            <h4 class="font-h2 text-h2 text-on-surface">Today</h4>
+            <p class="text-label-caps text-outline">
+              TOTAL: {{ diet_data.daily_macros.calories }} kcal
+            </p>
+          </div>
+        </div>
+        <!-- Daily Macro Boxes -->
+        <div class="flex gap-sm">
+          <div class="bg-surface-container-high px-md py-sm rounded-xl text-center">
+            <p class="text-[10px] text-outline uppercase font-bold">Protein</p>
+            <p class="font-bold text-on-surface">{{ diet_data.daily_macros.protein_g }}g</p>
+          </div>
+          <div class="bg-surface-container-high px-md py-sm rounded-xl text-center">
+            <p class="text-[10px] text-outline uppercase font-bold">Carbs</p>
+            <p class="font-bold text-on-surface">{{ diet_data.daily_macros.carbs_g }}g</p>
+          </div>
+          <div class="bg-surface-container-high px-md py-sm rounded-xl text-center">
+            <p class="text-[10px] text-outline uppercase font-bold">Fats</p>
+            <p class="font-bold text-on-surface">{{ diet_data.daily_macros.fats_g }}g</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Exactly 4 meal cards (one per meal type) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-md">
+        {% for meal_type, data in diet_data.items %}
+          {% if meal_type != 'daily_macros' %}
+            {# Use only the first food from each meal type #}
+            {% with food=data.foods.0 %}
+              {% if food %}
+                <div class="bg-white rounded-xl p-sm shadow-sm border border-outline-variant/10 flex flex-col">
+                  <div class="aspect-video rounded-lg overflow-hidden mb-sm bg-surface-container flex items-center justify-center">
+                    {% if food.thumbnail_url %}
+                      <img src="{{ food.thumbnail_url }}" alt="{{ food.name }}" class="w-full h-full object-cover">
+                    {% else %}
+                      <span class="material-symbols-outlined text-outline opacity-30 text-display">image</span>
+                    {% endif %}
+                  </div>
+                  <div class="flex gap-xs mb-sm">
+                    <span class="bg-primary/10 text-primary text-[10px] font-bold px-xs py-0.5 rounded uppercase">{{ meal_type }}</span>
+                    <span class="{% if food.category == 'veg' %}bg-tertiary-container/20 text-on-tertiary-container{% else %}bg-error-container/20 text-on-error-container{% endif %} text-[10px] font-bold px-xs py-0.5 rounded uppercase">
+                      {% if food.category == 'veg' %}Veg{% else %}Non-Veg{% endif %}
+                    </span>
+                  </div>
+                  <h5 class="font-bold text-on-surface mb-xs">{{ food.name }}</h5>
+                  <p class="text-xs text-on-surface-variant flex-1 mb-md">{{ food.description }}</p>
+                  <div class="flex justify-between items-center pt-sm border-t border-outline-variant/10">
+                    <span class="text-xs font-semibold text-outline">{{ food.calories }} Kcal</span>
+                    <span class="text-xs font-semibold text-outline">P: {{ food.protein_g }}g</span>
+                  </div>
+                </div>
+              {% else %}
+                <div class="bg-white rounded-xl p-sm shadow-sm border border-outline-variant/10 flex flex-col items-center justify-center py-lg">
+                  <span class="material-symbols-outlined text-outline text-3xl">restaurant</span>
+                  <p class="text-xs text-on-surface-variant mt-2">{{ meal_type|capfirst }} not set</p>
+                </div>
+              {% endif %}
+            {% endwith %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>

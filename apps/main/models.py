@@ -40,7 +40,7 @@ class MealType(models.Model):
     
     class Meta:
         verbose_name = "Meal Type"
-        verbose_name_plural = "Meat Types"
+        verbose_name_plural = "Meal Types"
 
     def __str__(self):
         return self.name

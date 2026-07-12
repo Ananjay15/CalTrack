@@ -43,84 +43,7 @@
       </div>
     </div>
   </section>
-  <!-- Yoga Styles Section -->
-  <section class="space-y-lg">
-    <div class="flex justify-between items-end">
-      <div class="space-y-xs">
-        <h2 class="font-h2 text-h2 text-primary">Explore Yoga Styles</h2>
-        <p class="text-on-surface-variant">
-          Find the practice that resonates with your current energy.
-        </p>
-      </div>
-      <button
-        class="text-primary font-bold hover:underline flex items-center gap-xs"
-      >
-        View All <span class="material-symbols-outlined">chevron_right</span>
-      </button>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-lg">
-      <!-- Style Card: Vinyasa -->
-      <div
-        class="bg-surface p-xl rounded-[24px] shadow-sm border border-outline-variant/30 hover:shadow-md transition-all group cursor-pointer"
-      >
-        <div
-          class="w-12 h-12 bg-primary-fixed rounded-xl flex items-center justify-center text-primary mb-md group-hover:scale-110 transition-transform"
-        >
-          <span class="material-symbols-outlined text-[32px]">air</span>
-        </div>
-        <h3 class="font-h2 text-[20px] mb-xs">Vinyasa</h3>
-        <p class="text-sm text-on-surface-variant leading-relaxed">
-          Continuous movement synchronized with the breath for a rhythmic,
-          flowing practice.
-        </p>
-      </div>
-      <!-- Style Card: Hatha -->
-      <div
-        class="bg-surface p-xl rounded-[24px] shadow-sm border border-outline-variant/30 hover:shadow-md transition-all group cursor-pointer"
-      >
-        <div
-          class="w-12 h-12 bg-secondary-fixed rounded-xl flex items-center justify-center text-secondary mb-md group-hover:scale-110 transition-transform"
-        >
-          <span class="material-symbols-outlined text-[32px]">balance</span>
-        </div>
-        <h3 class="font-h2 text-[20px] mb-xs">Hatha</h3>
-        <p class="text-sm text-on-surface-variant leading-relaxed">
-          Gentle movements focused on posture and breathing, perfect for
-          beginners and alignment.
-        </p>
-      </div>
-      <!-- Style Card: Yin Yoga -->
-      <div
-        class="bg-surface p-xl rounded-[24px] shadow-sm border border-outline-variant/30 hover:shadow-md transition-all group cursor-pointer"
-      >
-        <div
-          class="w-12 h-12 bg-tertiary-fixed rounded-xl flex items-center justify-center text-tertiary mb-md group-hover:scale-110 transition-transform"
-        >
-          <span class="material-symbols-outlined text-[32px]">spa</span>
-        </div>
-        <h3 class="font-h2 text-[20px] mb-xs">Yin Yoga</h3>
-        <p class="text-sm text-on-surface-variant leading-relaxed">
-          Slow-paced restorative style targeting deep connective tissues and
-          mindfulness.
-        </p>
-      </div>
-      <!-- Style Card: Power Yoga -->
-      <div
-        class="bg-surface p-xl rounded-[24px] shadow-sm border border-outline-variant/30 hover:shadow-md transition-all group cursor-pointer"
-      >
-        <div
-          class="w-12 h-12 bg-error-container rounded-xl flex items-center justify-center text-error mb-md group-hover:scale-110 transition-transform"
-        >
-          <span class="material-symbols-outlined text-[32px]">bolt</span>
-        </div>
-        <h3 class="font-h2 text-[20px] mb-xs">Power Yoga</h3>
-        <p class="text-sm text-on-surface-variant leading-relaxed">
-          High-intensity fitness-based vinyasa that builds heat, strength, and
-          stamina.
-        </p>
-      </div>
-    </div>
-  </section>
+  
   <!-- Pose Library Section -->
   <section class="space-y-lg">
     <div class="flex justify-between items-end">
@@ -144,152 +67,41 @@
       </div>
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-lg">
-      <!-- Pose: Downward Dog -->
-      <div
-        class="bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-outline-variant/20"
-      >
+      {% for yoga in yogas %}
+      <div class="bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-outline-variant/20">
         <div class="aspect-square relative">
-          <img
-            class="w-full h-full object-cover"
-            data-alt="A clean, minimalist studio shot of a yoga instructor performing the Downward-Facing Dog pose. The background is a soft, off-white wall with bright natural lighting and elegant shadows. The composition is professional and crisp, utilizing the CalTrack brand's minimalist aesthetic with neutral tones."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9EkMy8DnHyTgo4LJF1MZCeeAMtrkKh0TUDCD4KnUUxTWEEHENSJ8NVU0qHeY_9jktOSSP32A-fs7I3k5COvEA3ZvK1ar5yjUlvw03zboJtBCxECZtPVOJCmBiq2A-FV2fsL8MCnM2RJs_UynUoQLG7K1qbGHSNHjno9Gr0vmQkpe0_a1tcHVI1IG9WBS3WRAzP1NT2LQ749JnS0NDHaoCAkzNgd7H5_hd9Bn7mgwGVpdYxB9CGjyb4J8pLhV7itsdjm7Oiq4zJfYV"
-          />
-          <div
-            class="absolute top-md right-md px-sm py-1 bg-white/90 backdrop-blur-sm rounded-full text-[10px] font-bold text-primary uppercase tracking-wider shadow-sm"
-          >
-            Foundation
+          {% if yoga.thumbnail %}
+            <img class="w-full h-full object-cover" src="{{ yoga.thumbnail.url }}" alt="{{ yoga.name }}">
+          {% else %}
+            <div class="w-full h-full bg-gray-200 flex items-center justify-center text-sm text-gray-500">
+              {{ yoga.name }}
+            </div>
+          {% endif %}
+          <div class="absolute top-md right-md px-sm py-1 bg-white/90 backdrop-blur-sm rounded-full text-[10px] font-bold text-primary uppercase tracking-wider shadow-sm">
+            {{ yoga.style.name|default:yoga.level.name }}
           </div>
         </div>
         <div class="p-md space-y-sm">
-          <h4 class="font-bold text-on-surface">Downward Dog</h4>
+          <h4 class="font-bold text-on-surface">{{ yoga.name }}</h4>
           <div class="flex items-center gap-xs text-primary font-label-caps">
-            <span class="material-symbols-outlined text-[16px]"
-              >trending_up</span
-            >
-            Improves Flexibility
+            <span class="material-symbols-outlined text-[16px]">self_improvement</span>
+            {{ yoga.description|truncatewords:10 }}
+          </div>
+          <div class="flex justify-between items-center mt-auto pt-2 border-t border-surface-variant text-xs text-on-surface-variant">
+            <span>{{ yoga.duration_minutes }} min</span>
+            {% if yoga.youtube_link %}
+              <a href="{{ yoga.youtube_link }}" target="_blank" class="text-primary font-bold hover:underline">Watch</a>
+            {% endif %}
           </div>
         </div>
       </div>
-      <!-- Pose: Warrior II -->
-      <div
-        class="bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-outline-variant/20"
-      >
-        <div class="aspect-square relative">
-          <img
-            class="w-full h-full object-cover"
-            data-alt="A high-contrast photography of a yogi in Warrior II pose. The setting is a modern, sun-drenched loft with concrete floors and large windows. The lighting is bright and high-key, creating a premium fitness atmosphere that feels energetic and disciplined. Dominant colors are white, light grey, and subtle purple accents."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbHTk91n8YhSUWTitoye_0IU_mc1gBpuvgJFdKWBB21mSoi-cHgoIOuITqvRa4SJh5GAxR_bqDPGgR0_lsyKYffKI2rnfjtHrc7-GQ-ks31sJaH8UIy2oL5EGXuFq2vGlOgW421Ovt03xxVPn3vwsaX7PIiw8MZOdDsu0QSZ4p3Kq8JHcpdLachY-09N8waUTFBglfpevQ9wN2FV1gI7VayUZ9PpIavJKRlus0uhYa2iENJIb4hCkeOyHlaGYUyjcVgEVEt3vRFQmr"
-          />
-          <div
-            class="absolute top-md right-md px-sm py-1 bg-white/90 backdrop-blur-sm rounded-full text-[10px] font-bold text-tertiary uppercase tracking-wider shadow-sm"
-          >
-            Strength
-          </div>
-        </div>
-        <div class="p-md space-y-sm">
-          <h4 class="font-bold text-on-surface">Warrior II</h4>
-          <div class="flex items-center gap-xs text-tertiary font-label-caps">
-            <span class="material-symbols-outlined text-[16px]"
-              >fitness_center</span
-            >
-            Builds Core Strength
-          </div>
-        </div>
+      {% empty %}
+      <div class="col-span-full text-center py-lg text-on-surface-variant">
+        No yoga sessions available yet.
       </div>
-      <!-- Pose: Cobra Pose -->
-      <div
-        class="bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-outline-variant/20"
-      >
-        <div class="aspect-square relative">
-          <img
-            class="w-full h-full object-cover"
-            data-alt="A serene outdoor image of a person practicing the Cobra pose on a high-end yoga mat. The location is a peaceful garden with soft focus greenery in the background. The lighting is warm golden hour, conveying calm and relaxation. The aesthetic is professional, clean, and health-focused."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuACU7kFtJ6JmA6x9XaprRQr-T5_19Ha3rFWqSC7zLp2ce37oSIZwzNWtJyf3N32_6CqGLhUqBkWXc5LE1JxmuFKl2WP0cxlO_Q9ShCwcyIBKMONbHmsUnMA-JTkFCL8-OtRo6z7wPWrvuV1rUjqv-mUkoFh6h72rjbzW_nfc5pKk4Iim-8l_gwjc6u9mmOCzIZFSXGBKI1Libs5wJIrtY1yzICTridJv0-3OSWtkeOKiYIyyta_MnzCAZ0zucX37gYBpRYbIje0gbjT"
-          />
-          <div
-            class="absolute top-md right-md px-sm py-1 bg-white/90 backdrop-blur-sm rounded-full text-[10px] font-bold text-secondary uppercase tracking-wider shadow-sm"
-          >
-            Stamina
-          </div>
-        </div>
-        <div class="p-md space-y-sm">
-          <h4 class="font-bold text-on-surface">Cobra Pose</h4>
-          <div class="flex items-center gap-xs text-secondary font-label-caps">
-            <span class="material-symbols-outlined text-[16px]"
-              >sentiment_satisfied</span
-            >
-            Relieves Stress
-          </div>
-        </div>
-      </div>
-      <!-- Pose: Tree Pose -->
-      <div
-        class="bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow border border-outline-variant/20"
-      >
-        <div class="aspect-square relative">
-          <img
-            class="w-full h-full object-cover"
-            data-alt="Minimalist architectural photography of a person in Tree Pose centered in a white marble studio. The lighting is extremely soft and diffused, creating a zen-like, premium atmosphere. The style is ultra-modern and clean, reflecting the high-end CalTrack brand identity with a focus on balance and precision."
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkYO_1zoHdyMzLwsKapIprfUBIB0lyHU4ZI2PhgyAKj3oSv4KNDWmiKHEv-VEjdpv6_7mqCqgeF2e8JQusSMhs5fiuiF-V5sVoyM73A6w05dbUZy4pvBCtXMRuSwLar5yY6rHImOQuf8uFV8xXBdCK_oFf4esPCXYZaYSrlQSZcqd4qeQvCjmwem5T6vvtu_w4Z900nuX44S2HlgByyl8-hODPgtmMAieG6oDeOGK4eyYX-qK7Fm1-xRQw55N-_mo8-Y5NgVqRll4g"
-          />
-          <div
-            class="absolute top-md right-md px-sm py-1 bg-white/90 backdrop-blur-sm rounded-full text-[10px] font-bold text-primary uppercase tracking-wider shadow-sm"
-          >
-            Balance
-          </div>
-        </div>
-        <div class="p-md space-y-sm">
-          <h4 class="font-bold text-on-surface">Tree Pose</h4>
-          <div class="flex items-center gap-xs text-primary font-label-caps">
-            <span class="material-symbols-outlined text-[16px]"
-              >self_improvement</span
-            >
-            Enhances Focus
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </section>
-  <!-- Recommended Collection -->
-  <section
-    class="bg-surface-container rounded-[32px] p-xl flex flex-col md:flex-row items-center gap-xl mb-xxl"
-  >
-    <div
-      class="w-full md:w-1/3 aspect-video md:aspect-square rounded-2xl overflow-hidden shadow-lg"
-    >
-      <img
-        class="w-full h-full object-cover"
-        data-alt="A curated arrangement of premium yoga equipment: a high-density purple mat, two cork blocks, and a woven strap on a white floor. The shot is overhead and symmetrically balanced. The lighting is bright and clean, emphasizing the quality and serenity of a professional yoga setup in a minimalist light-mode environment."
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYi-r-cPxOMCMOog8Joyn5lXqPE_C-ZSVACBFM2gCaG0dUr52JKS1GSB27dv3bg5jI21C3stpW0p4ffrubg24gZcRUdFSvDtZOTCaKjyGTZOoKoNWPPb2TPUJItL9R34Ps02DZnbeq7c2AWwCzXDhV5C_6J-2AMOLImaY2TrMG6Yc_iQcUEU6uGIz7Q1I4b25oMap3MGqdJ2OCVA-uYjfUS2MGJGXo3BEcGIhot7IwFYBar2pHdQIk_cfVbMFVZeGes51Wldiudct0"
-      />
-    </div>
-    <div class="flex-1 space-y-md">
-      <h2 class="font-h2 text-h2 text-primary">Mindful Recovery Series</h2>
-      <p class="font-body-lg text-on-surface-variant">
-        A 7-day program specifically curated for athletes and high-performance
-        individuals to improve recovery times and mental clarity through
-        targeted stretches and meditation.
-      </p>
-      <div class="flex items-center gap-xl py-md">
-        <div class="text-center">
-          <p class="font-bold text-h2 text-primary">7</p>
-          <p class="text-xs text-on-surface-variant uppercase">Sessions</p>
-        </div>
-        <div class="text-center border-x border-outline-variant px-xl">
-          <p class="font-bold text-h2 text-primary">20</p>
-          <p class="text-xs text-on-surface-variant uppercase">Mins Avg</p>
-        </div>
-        <div class="text-center">
-          <p class="font-bold text-h2 text-primary">15k</p>
-          <p class="text-xs text-on-surface-variant uppercase">Enrolled</p>
-        </div>
-      </div>
-      <button
-        class="bg-primary text-white px-xl py-md rounded-xl font-bold hover:bg-primary-container transition-all active:scale-95 shadow-md"
-      >
-        Join Series
-      </button>
-    </div>
-  </section>
+ 
 </main>
 {% endblock content %}

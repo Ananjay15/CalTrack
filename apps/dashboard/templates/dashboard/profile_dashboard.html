@@ -1,0 +1,195 @@
+<main class="p-lg md:p-xl max-w-container-max mx-auto">
+  <!-- Bento Header Section -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+    <!-- User Core Info Card -->
+    <div class="md:col-span-2 bg-surface-container-lowest rounded-xl p-lg ambient-shadow flex flex-col md:flex-row gap-xl items-center relative overflow-hidden">
+      <div class="absolute top-0 right-0 p-lg">
+        <span class="material-symbols-outlined text-outline-variant opacity-50 text-[120px] select-none">monitoring</span>
+      </div>
+      <div class="z-10 flex-1 space-y-md">
+        <div class="space-y-xs">
+          <p class="font-label-caps text-on-surface-variant uppercase tracking-widest">Active Goal</p>
+          <h1 class="font-h1 text-h1 text-primary">{{ profile.goal.name|default:"Not set" }}</h1>
+        </div>
+        <div class="grid grid-cols-3 gap-md">
+          <div class="p-sm bg-surface-container rounded-lg text-center">
+            <p class="text-xs text-on-surface-variant">Height</p>
+            <p class="font-bold text-primary">{% if profile.height_cm %}{{ profile.height_cm }} cm{% else %}—{% endif %}</p>
+          </div>
+          <div class="p-sm bg-surface-container rounded-lg text-center">
+            <p class="text-xs text-on-surface-variant">Weight</p>
+            <p class="font-bold text-primary">{% if profile.current_weight_kg %}{{ profile.current_weight_kg }} kg{% else %}—{% endif %}</p>
+          </div>
+          <div class="p-sm bg-surface-container rounded-lg text-center">
+            <p class="text-xs text-on-surface-variant">Age</p>
+            <p class="font-bold text-primary">{% if profile.age %}{{ profile.age }} yr{% else %}—{% endif %}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Daily Quick Macro Ring -->
+    <div class="bg-surface-container-lowest rounded-xl p-lg ambient-shadow flex flex-col items-center justify-center text-center space-y-md">
+      <div class="relative w-32 h-32 flex items-center justify-center">
+        <svg class="w-full h-full -rotate-90">
+          <circle class="text-surface-container-high" cx="64" cy="64" fill="transparent" r="56" stroke="currentColor" stroke-width="12"></circle>
+          <circle class="text-primary" cx="64" cy="64" fill="transparent" r="56"
+                  stroke="currentColor"
+                  stroke-dasharray="351.8"
+                  stroke-dashoffset="{% if calorie_data and protein_target %} {{ 351.8|floatformat:1|add:-351.8|floatformat:1 }} {% else %} 351.8 {% endif %}"
+                  stroke-linecap="round" stroke-width="12"></circle>
+        </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-center">
+          <span class="text-h2 font-bold text-primary">{% if protein_target %}{{ protein_target|floatformat:0 }}{% else %}—{% endif %}%</span>
+          <span class="text-[10px] text-on-surface-variant uppercase">Daily Goal</span>
+        </div>
+      </div>
+      <div>
+        <h4 class="font-bold text-primary">Protein Target</h4>
+        <p class="text-body-md text-on-surface-variant">
+          {% if calorie_data and protein_target %}
+            {{ protein_target }}g / {{ protein_target }}g
+          {% else %}
+            No target set
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nutrition 7-Day Analytics (placeholder – dynamic when logging is implemented) -->
+  <section class="space-y-md mt-xxl">
+    <div class="flex justify-between items-end">
+      <h2 class="font-h2 text-h2 text-on-surface">Nutrition Trends</h2>
+      <span class="text-sm text-on-surface-variant">Last 7 Days</span>
+    </div>
+    <div class="bg-surface-container-lowest rounded-xl p-lg ambient-shadow grid grid-cols-1 md:grid-cols-4 gap-xl">
+      <div class="md:col-span-3 h-64 flex items-end justify-between px-md">
+        <!-- Simulated Bar Chart (static for now – replace with real data when available) -->
+        <div class="flex flex-col items-center gap-xs w-8 group">
+          <div class="w-full bg-secondary-fixed h-40 rounded-t-lg group-hover:bg-primary transition-colors" style="height: 160px"></div>
+          <span class="text-[10px] text-on-surface-variant">Mon</span>
+        </div>
+        <div class="flex flex-col items-center gap-xs w-8 group">
+          <div class="w-full bg-secondary-fixed h-32 rounded-t-lg group-hover:bg-primary transition-colors" style="height: 128px"></div>
+          <span class="text-[10px] text-on-surface-variant">Tue</span>
+        </div>
+        <div class="flex flex-col items-center gap-xs w-8 group">
+          <div class="w-full bg-secondary-fixed h-48 rounded-t-lg group-hover:bg-primary transition-colors" style="height: 192px"></div>
+          <span class="text-[10px] text-on-surface-variant">Wed</span>
+        </div>
+        <div class="flex flex-col items-center gap-xs w-8 group">
+          <div class="w-full bg-secondary-fixed h-36 rounded-t-lg group-hover:bg-primary transition-colors" style="height: 144px"></div>
+          <span class="text-[10px] text-on-surface-variant">Thu</span>
+        </div>
+        <div class="flex flex-col items-center gap-xs w-8 group">
+          <div class="w-full bg-secondary-fixed h-52 rounded-t-lg group-hover:bg-primary transition-colors" style="height: 208px"></div>
+          <span class="text-[10px] text-on-surface-variant">Fri</span>
+        </div>
+        <div class="flex flex-col items-center gap-xs w-8 group">
+          <div class="w-full bg-secondary-fixed h-44 rounded-t-lg group-hover:bg-primary transition-colors" style="height: 176px"></div>
+          <span class="text-[10px] text-on-surface-variant">Sat</span>
+        </div>
+        <div class="flex flex-col items-center gap-xs w-8 group">
+          <div class="w-full bg-secondary-fixed h-28 rounded-t-lg group-hover:bg-primary transition-colors" style="height: 112px"></div>
+          <span class="text-[10px] text-on-surface-variant">Sun</span>
+        </div>
+      </div>
+      <div class="space-y-lg flex flex-col justify-center">
+        <div class="flex items-center gap-md">
+          <div class="w-3 h-3 rounded-full bg-primary"></div>
+          <div class="flex-1">
+            <p class="text-xs text-on-surface-variant">Avg Protein</p>
+            <p class="font-bold">— g</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-md">
+          <div class="w-3 h-3 rounded-full bg-tertiary"></div>
+          <div class="flex-1">
+            <p class="text-xs text-on-surface-variant">Avg Carbs</p>
+            <p class="font-bold">— g</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-md">
+          <div class="w-3 h-3 rounded-full bg-secondary"></div>
+          <div class="flex-1">
+            <p class="text-xs text-on-surface-variant">Avg Fats</p>
+            <p class="font-bold">— g</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Body Measurements & Trends -->
+  <section class="grid grid-cols-1 md:grid-cols-2 gap-lg mt-xxl">
+    <!-- Weight Trend Card -->
+    <div class="bg-surface-container-lowest rounded-xl p-lg ambient-shadow space-y-md">
+      <div class="flex justify-between items-center">
+        <h3 class="font-h2 text-on-surface">Weight History</h3>
+        <span class="material-symbols-outlined text-primary">show_chart</span>
+      </div>
+      <div class="h-48 relative flex items-end">
+        <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 400 100">
+          <path d="M0,80 Q50,75 100,70 T200,72 T300,65 T400,60" fill="none" stroke="#4f378a" stroke-linecap="round" stroke-width="3"></path>
+          <circle cx="0" cy="80" fill="#4f378a" r="4"></circle>
+          <circle cx="100" cy="70" fill="#4f378a" r="4"></circle>
+          <circle cx="200" cy="72" fill="#4f378a" r="4"></circle>
+          <circle cx="300" cy="65" fill="#4f378a" r="4"></circle>
+          <circle cx="400" cy="60" fill="#4f378a" r="4"></circle>
+        </svg>
+      </div>
+      <div class="flex justify-between text-xs text-on-surface-variant pt-sm">
+        <span>{% if profile.current_weight_kg %}{{ profile.current_weight_kg }} kg (Current){% else %}No data{% endif %}</span>
+        <span class="text-primary font-bold">Start logging to see trend</span>
+      </div>
+    </div>
+
+    <!-- Body Fat / BMI Card -->
+    <div class="bg-surface-container-lowest rounded-xl p-lg ambient-shadow space-y-md">
+      <div class="flex justify-between items-center">
+        <h3 class="font-h2 text-on-surface">Body Composition</h3>
+        <span class="material-symbols-outlined text-secondary">donut_large</span>
+      </div>
+      <div class="grid grid-cols-2 gap-lg h-48">
+        <div class="flex flex-col justify-center space-y-xs">
+          {% if calorie_data %}
+            <p class="text-display font-display text-primary">{{ calorie_data.bmi }}</p>
+            <p class="text-on-surface-variant">{{ calorie_data.bmi_status }}</p>
+          {% else %}
+            <p class="text-display font-display text-primary">—</p>
+            <p class="text-on-surface-variant">Enter your metrics to see BMI</p>
+          {% endif %}
+        </div>
+        <div class="relative flex items-center justify-center">
+          <div class="w-32 h-32 rounded-full bg-cover bg-center border-4 border-surface-container opacity-80"
+               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFutAJTQ9RFXolvJRN3UUoVIAIUPYJvvIsxvux1SzeOhhmyIscselnercYZ7xpLJayR8DODL3YSdOV9v3moePYAT10bC53rEAizL6ANmYHWX56LVxgyl8ig0senqTl5z9KGXOvhfajy_LBzWfQWOBgQSLdQKUtOQTb0raS2iQyXuORPvH3j56HtIaBHFHHq14KG9pM5HiEcNlPVxucB-RRUJt0Uau1ICT663UtLA1XpCjOLa539AM5tBZqFx8Q8uZHpwYlsDn7aJR_');">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Personal Achievement / Goal Grid (keep as motivational placeholders) -->
+  <section class="space-y-md mt-xxl">
+    <h2 class="font-h2 text-h2 text-on-surface">Milestones</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+      <div class="p-lg bg-tertiary-container text-on-tertiary-container rounded-xl flex flex-col items-center gap-sm">
+        <span class="material-symbols-outlined text-[40px]">workspace_premium</span>
+        <p class="font-bold text-center">30 Day Streak</p>
+      </div>
+      <div class="p-lg bg-surface-container-high rounded-xl flex flex-col items-center gap-sm">
+        <span class="material-symbols-outlined text-[40px] text-outline">fitness_center</span>
+        <p class="font-bold text-center text-on-surface-variant">Heavy Hitter</p>
+      </div>
+      <div class="p-lg bg-surface-container-high rounded-xl flex flex-col items-center gap-sm">
+        <span class="material-symbols-outlined text-[40px] text-outline">local_fire_department</span>
+        <p class="font-bold text-center text-on-surface-variant">Calorie Burner</p>
+      </div>
+      <div class="p-lg bg-surface-container-high rounded-xl flex flex-col items-center gap-sm">
+        <span class="material-symbols-outlined text-[40px] text-outline">timer</span>
+        <p class="font-bold text-center text-on-surface-variant">Early Bird</p>
+      </div>
+    </div>
+  </section>
+</main>

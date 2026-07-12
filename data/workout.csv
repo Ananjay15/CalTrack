@@ -1,0 +1,52 @@
+name,description,duration_minutes,calories_burned_per_minute,goal_slug,level_slug,home_gym,youtube_link
+Burpees Blast,Full-body HIIT cardio,15,14.2,weight_loss,intermediate,home,https://youtu.be/dZgVxmf6jkA
+Jump Rope Intervals,Fat burning jump rope,20,12.5,weight_loss,beginner,home,https://www.youtube.com/watch?v=1BZM2Vre5oc
+Mountain Climbers,Core & cardio,10,13,weight_loss,intermediate,home,
+Bodyweight Squats,Lower body strength,15,9.5,general_fitness,beginner,home,
+Push-Up Circuit,"Chest, shoulders, triceps",12,10,muscle_gain,beginner,home,
+Lunges & Kickbacks,Leg day at home,20,8.8,general_fitness,intermediate,home,
+Plank Challenge,Core endurance,10,5,general_fitness,beginner,home,
+High Knees,Cardio warm-up,10,11,weight_loss,beginner,home,
+Shadow Boxing,Cardio & coordination,20,13.5,weight_loss,intermediate,home,
+Kettlebell Swings,Full-body power,15,15,muscle_gain,advanced,gym,https://youtu.be/YSxHifyI6s8
+Deadlifts,Strength – posterior chain,20,9,muscle_gain,intermediate,gym,https://youtu.be/op9kVnSso6Q
+Bench Press,Chest strength,20,8.5,muscle_gain,intermediate,gym,
+Bent-Over Rows,Back & biceps,20,9.2,muscle_gain,intermediate,gym,
+Squat Rack,Barbell squats,25,10,muscle_gain,advanced,gym,
+Lat Pulldowns,Back width,20,8.3,muscle_gain,intermediate,gym,
+Leg Press,Quadriceps focus,20,9.5,muscle_gain,beginner,gym,
+Dumbbell Shoulder Press,Deltoids,15,7.8,muscle_gain,intermediate,gym,
+Barbell Curls,Biceps isolation,10,6.5,muscle_gain,beginner,gym,
+Tricep Dips,Arms & chest,12,7,muscle_gain,intermediate,home,
+Box Jumps,Explosive power,10,16,general_fitness,advanced,gym,https://youtu.be/52r_Ul5k03g
+Battle Ropes,Cardio & arms,15,14.5,weight_loss,advanced,gym,https://youtu.be/YX7fFbItFbY
+Rowing Machine,Full-body cardio,20,11,weight_loss,beginner,gym,
+Spin Bike Intervals,Cycling cardio,30,12,weight_loss,intermediate,gym,
+Treadmill Sprints,HIIT running,20,16,weight_loss,advanced,gym,
+Stair Climber,Glute & cardio,25,10.5,weight_loss,intermediate,gym,
+Yoga Sculpt,Yoga with weights,30,7,general_fitness,intermediate,both,https://youtu.be/4pKly2JojMw
+Pilates Core,Mat core work,20,5.5,general_fitness,beginner,home,
+Resistance Band Legs,Glutes & thighs,15,6.8,general_fitness,beginner,home,
+Full-Body Dumbbell,Total body strength,25,9,muscle_gain,intermediate,gym,
+Medicine Ball Slams,Power & cardio,10,13,weight_loss,intermediate,gym,
+TRX Suspension,Functional strength,20,8,general_fitness,intermediate,gym,
+Step Aerobics,Cardio steps,30,10,weight_loss,beginner,home,https://youtu.be/QK6A7W0Zj2k
+Walking (Brisk),Low-impact cardio,30,5.5,general_fitness,beginner,home,
+Cycling Outdoors,Outdoor biking,45,9,general_fitness,beginner,home,
+Swimming Laps,Full-body low impact,30,11.5,weight_loss,beginner,gym,
+Jumping Jacks,Simple cardio,5,10,weight_loss,beginner,home,
+Climbing Stairs,Leg & cardio,15,12,weight_loss,beginner,both,
+Zumba Dance,Dance cardio,30,10.5,weight_loss,beginner,both,https://youtu.be/FP0wgVhUC9w
+CrossFit WOD,High intensity mixed,20,16,weight_loss,advanced,gym,
+HIIT Abs,Core HIIT,15,13,weight_loss,intermediate,home,
+Glute Bridge Circuit,Booty workout,15,7.5,muscle_gain,beginner,home,
+Resistance Band Pulls,Back & posture,10,4.5,general_fitness,beginner,home,
+Chair Dips,Triceps at home,8,6,muscle_gain,beginner,home,
+Wall Sit,Isometric leg hold,5,6.5,general_fitness,beginner,home,
+Side Plank Hip Lifts,Oblique strength,10,5.8,general_fitness,intermediate,home,
+Donkey Kicks,Glute isolation,10,5,general_fitness,beginner,home,
+Bear Crawls,Full-body mobility,10,9,general_fitness,intermediate,home,
+Agility Ladder,Foot speed & cardio,15,10,weight_loss,intermediate,both,
+Kickboxing Bag,Cardio & strikes,20,14,weight_loss,intermediate,gym,
+Tai Chi,Slow mindful movement,30,4,general_fitness,beginner,both,
+Stretching Routine,Flexibility & cool down,15,3.5,general_fitness,beginner,both,

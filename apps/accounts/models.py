@@ -1,8 +1,31 @@
 from django.db import models
 from django.contrib.auth.models import User
-from main.models import Goal, Level
+from apps.main.models import Goal, Level
 
 class Profile(models.Model):
+    
+    HOME_GYM_CHOICES = [
+        ('home', 'Home'),
+        ('gym', 'Gym'),
+    ]
+    DIET_CHOICES = [
+        ('veg', 'Vegetarian'),
+        ('non-veg', 'Non-Vegetarian'),
+        ('both', 'Both'),
+    ]
+    GENDER_CHOICES = [
+        ('male', 'Male'),
+        ('female', 'Female'),
+    ]
+    ACTIVITY_CHOICES = [
+        (1.2, 'Sedentary (little or no exercise)'),
+        (1.375, 'Lightly active (1-3 days/week)'),
+        (1.55, 'Moderately active (3-5 days/week)'),
+        (1.725, 'Very active (6-7 days/week)'),
+        (1.9, 'Super active (physical job/twice daily)'),
+    ]
+    
+    
     user = models.OneToOneField(
         User, 
         on_delete=models.CASCADE,
@@ -38,17 +61,43 @@ class Profile(models.Model):
     
     home_gym_preference = models.CharField(
         max_length=10,
-        choices=[('home','Home'),('gym','Gym')],
+        choices=HOME_GYM_CHOICES,
         blank=True, null=True,
         help_text = "Preferred workout location"
     )
     
     diet_preference = models.CharField(
         max_length=10,
-        choices=[('veg', 'Vegetarian'), ('non-veg', 'Non-Vegetarian'), ('both', 'Both')],
+        choices=DIET_CHOICES,
         default='both',
         help_text="Dietary preference"
     )
+    
+    current_weight_kg = models.FloatField(
+        null=True, blank=True
+        )
+    
+    height_cm = models.FloatField(
+        null=True, blank=True
+        )
+    
+    age = models.PositiveIntegerField(
+        null=True, blank=True
+        )
+    
+    gender = models.CharField(
+        max_length=10,
+        choices=GENDER_CHOICES,
+        blank=True, null=True
+        )
+    
+    activity_level = models.FloatField(
+        choices=ACTIVITY_CHOICES,
+        null=True, blank=True
+        )
+
+    
+    
     class Meta:
         ordering = ['id']
 
