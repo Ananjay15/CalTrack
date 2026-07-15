@@ -8,12 +8,33 @@ from apps.accounts.models import Profile
 from apps.main.models import Goal
 from apps.main.services.helpers import calculate_calories
 from django.urls import reverse
+from rest_framework_simplejwt.tokens import RefreshToken
+from django.http import JsonResponse
 
 # Create your views here.
+
+def set_jwt_cookies(response, user):
+    refresh = RefreshToken.for_user(user)
+    response.set_cookies(
+        key='access_token',
+        values=str(refresh.access_token),
+        httponly=True,
+        secure=False,   #True in Production
+        samesite='Lax'
+    )
+    response.set_cookie(
+        key='refresh_token',
+        value=str(refresh),
+        httponly=True,
+        secure=False,
+        samesite='Lax',
+    )
+    return response
+
+
 def signup_view(request):
     goals = Goal.objects.all()
     
-    print("METHOD:", request.method)
     if request.method == "POST":
         username = request.POST.get("username")
         email = request.POST.get("email")
@@ -62,9 +83,10 @@ def signup_view(request):
             user=user,
             goal=selected_goal
         )
-        
-        login(request,user)
-        return redirect("main:home")
+        response = redirect("main:home")
+        response = set_jwt_cookies(response,user)
+        messages.success(request, f"Welcome, {username}! Your account has been created.")
+        return response
         
     return render(request, 'signup.html', {'goals': goals})
 
@@ -84,21 +106,24 @@ def login_view(request):
             password=password
         )
         if user:
-            login(request,user)
-            return redirect("main:home")
-        
-        return render(
-            request,
-            'login.html',
-            {"error":"Invalid Email or Password"}
-        )
+            # --- JWT cookies on login ---
+            response = redirect("dashboard:dashboard")
+            response = set_jwt_cookies(response, user)
+            messages.success(request, f"Welcome back, {user.username}!")
+            return response
+        else:
+            messages.error(request, "Invalid email/username or password.")
+            return render(request, 'login.html')
             
     return render(request, 'login.html')
  
 def logout_view(request):
+    response = redirect('accounts:login')
+    response.delete_cookie('access_token')
+    response.delete_cookie('refresh_token')
     logout(request)
     messages.info(request, "You have been logged out.")
-    return redirect('accounts:login')
+    return response
 
 @login_required
 def profile_view(request):
