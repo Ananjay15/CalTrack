@@ -5,4 +5,5 @@ djangorestframework
 djangorestframework-simplejwt
 PyJWT
 requests
-mysqlclient          # only if you’re using MySQL
+mysqlclient      
+pillow    # only if you’re using MySQL
