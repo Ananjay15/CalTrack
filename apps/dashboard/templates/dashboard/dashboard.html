@@ -128,7 +128,10 @@
     <div class="font-h1 text-h1 font-black text-primary mb-lg">CalTrack</div>
     <div class="flex flex-wrap items-center gap-md mb-xl p-sm">
         <div class="w-20 h-20 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container">
-            <span class="material-symbols-outlined text-3xl">person</span>
+            <img id="avatar-preview-img"
+                  class="w-full h-full object-cover rounded-full"
+                  src="{% if profile.avatar %}{{ profile.avatar.url }}{% else %}https://img.magnific.com/free-vector/user-circles-set_78370-4704.jpg?semt=ais_hybrid&w=740&q=80{% endif %}"
+                  alt="Profile photo">
         </div>
         <div>
             <p class="font-body-md font-bold">{{ user.username }}</p>
@@ -239,6 +242,28 @@
                 }
             });
         });
+
+        // ---------- NEW: hash‑based navigation ----------
+        function handleHash() {
+            const hash = window.location.hash.substring(1);   // remove '#'
+            // If the hash is "settings-edit", we still want to show the Settings section.
+            // The settings page itself will show the edit form if it sees that hash.
+            if (hash === 'settings' || hash === 'settings-edit') {
+                switchTab('settings');
+            } else if (hash === 'profile') {
+                switchTab('profile');
+            } else if (hash === 'diet') {
+                switchTab('diet');
+            } else if (hash === 'fitness') {
+                switchTab('fitness');
+            }
+        }
+
+        // Run on page load
+        handleHash();
+
+        // Listen for hash changes (when the user clicks back/forward or if we update it)
+        window.addEventListener('hashchange', handleHash);
     });
 </script>
 

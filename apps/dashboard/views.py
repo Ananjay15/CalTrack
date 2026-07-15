@@ -1,17 +1,15 @@
 import random
 from datetime import date
-
+from apps.main.models import Goal, Level
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from apps.main.services.workout import recommend_workout
-from apps.main.services.yoga import recommend_yoga
+from apps.main.models import Workout, Yoga, Food
 from apps.main.services.helpers import (
     calculate_calories,
     split_meal_calories,
     calculate_macros,
     get_goal_from_string,
 )
-from apps.main.models import Food
 
 
 @login_required
@@ -23,11 +21,18 @@ def dashboard(request):
             'error': 'Please complete your profile first.'
         })
 
-    # 1. Workout & Yoga recommendations
-    workout_data = recommend_workout(profile)
-    yoga_data = recommend_yoga(profile)
 
-    # 2. Calorie data (for profile section)
+    def _safe_thumbnail(field):
+        """Return the image URL from CloudinaryField, ImageField, or plain string."""
+        if field is None:
+            return None
+        if hasattr(field, 'url'):
+            return field.url
+        if isinstance(field, str):
+            return field
+        return None
+    
+    # 1. Calorie data (for profile section)
     calorie_data = None
     if (profile.age and profile.gender and profile.height_cm and
         profile.current_weight_kg and profile.activity_level and profile.goal):
@@ -40,21 +45,19 @@ def dashboard(request):
             goal=profile.goal
         )
 
-    # 3. Deterministic daily diet plan (same all day)
+    # 2. Deterministic daily diet plan (same all day)
     goal_obj = profile.goal if profile.goal else get_goal_from_string('General Fitness')
     target_daily = calorie_data['target_calories'] if calorie_data else (profile.target_calories or 2000)
     diet_pref = getattr(profile, 'diet_preference', 'both') or 'both'
     meal_budgets = split_meal_calories(target_daily)
 
-    # Use today's date as seed to make the plan stable all day
     today = date.today()
-    random.seed(today.toordinal())   # same seed → same "random" choices all day
+    random.seed(today.toordinal())   # same seed → same plan all day
 
     diet_plan = {}
     total_macros = {'protein_g': 0, 'carbs_g': 0, 'fats_g': 0, 'calories': 0}
 
     for meal_type, target_cal in meal_budgets.items():
-        # Filter foods matching goal + meal type + diet preference
         foods = Food.objects.filter(goal=goal_obj, meal_type__slug=meal_type)
         if diet_pref in ('veg', 'non-veg'):
             foods = foods.filter(category=diet_pref)
@@ -64,7 +67,6 @@ def dashboard(request):
             if diet_pref in ('veg', 'non-veg'):
                 foods = foods.filter(category=diet_pref)
 
-        # Deterministic pick: sort by id, then use random.sample (seeded) to get 2 items
         foods_list = list(foods.order_by('id'))
         selected_foods = random.sample(foods_list, min(2, len(foods_list))) if foods_list else []
 
@@ -79,6 +81,7 @@ def dashboard(request):
                 'carbs_g': f.carbs_g,
                 'fats_g': f.fats_g,
                 'category': f.category,
+                'thumbnail':_safe_thumbnail(f.thumbnail),
                 'youtube_link': f.youtube_link,
             } for f in selected_foods],
             'macros': meal_macros,
@@ -87,34 +90,86 @@ def dashboard(request):
             total_macros[key] += meal_macros.get(key, 0)
 
     diet_plan['daily_macros'] = total_macros
-
-    # 4. Protein target (from calorie target – 30% of calories / 4)
     protein_target = round((target_daily * 0.3) / 4, 1) if target_daily else 0
 
-    # 5. Balanced fitness data (interleave workouts and yoga)
-    workouts = workout_data.get('workouts', [])
-    yogas = yoga_data.get('yoga', [])
+    # 3. Fitness sections (Home Workouts, Gym Workouts, Yoga) – up to 4 each
+    level_slug = profile.level.slug if profile.level else 'beginner'
 
-    combined_fitness = []
-    max_len = max(len(workouts), len(yogas))
-    for i in range(max_len):
-        if i < len(workouts):
-            combined_fitness.append({'type': 'workout', 'data': workouts[i]})
-        if i < len(yogas):
-            combined_fitness.append({'type': 'yoga', 'data': yogas[i]})
+    def _get_intensity(cal_per_min):
+        if cal_per_min < 5:
+            return 'Low'
+        elif cal_per_min < 10:
+            return 'Medium'
+        elif cal_per_min < 15:
+            return 'High'
+        else:
+            return 'Ultra'
 
-    fitness_data = {
-        'combined': combined_fitness,
-        'workout_count': len(workouts),
-        'yoga_count': len(yogas),
-    }
+    # Home Workouts
+    home_qs = Workout.objects.filter(
+        goal=goal_obj, level__slug=level_slug, home_gym__in=['home', 'both']
+    )
+    if not home_qs.exists():
+        home_qs = Workout.objects.filter(goal=goal_obj, home_gym__in=['home', 'both'])
+    if not home_qs.exists():
+        home_qs = Workout.objects.filter(home_gym__in=['home', 'both'])
+    home_workouts = list(home_qs.order_by('?')[:4])
+
+    # Gym Workouts
+    gym_qs = Workout.objects.filter(
+        goal=goal_obj, level__slug=level_slug, home_gym__in=['gym', 'both']
+    )
+    if not gym_qs.exists():
+        gym_qs = Workout.objects.filter(goal=goal_obj, home_gym__in=['gym', 'both'])
+    if not gym_qs.exists():
+        gym_qs = Workout.objects.filter(home_gym__in=['gym', 'both'])
+    gym_workouts = list(gym_qs.order_by('?')[:4])
+
+    # Yoga
+    yoga_qs = Yoga.objects.filter(goal=goal_obj, level__slug=level_slug)
+    if not yoga_qs.exists():
+        yoga_qs = Yoga.objects.filter(goal=goal_obj)
+    if not yoga_qs.exists():
+        yoga_qs = Yoga.objects.all()
+    yoga_sessions = list(yoga_qs.order_by('?')[:4])
+
+    # Convert to template-friendly dicts
+    def workout_to_card(w):
+        return {
+            'name': w.name,
+            'description': w.description,
+            'duration_minutes': w.duration_minutes,
+            'intensity': _get_intensity(w.calories_burned_per_minute),
+            'thumbnail': _safe_thumbnail(w.thumbnail),
+            'youtube_link': w.youtube_link,
+        }
+
+    def yoga_to_card(y):
+        return {
+            'name': y.name,
+            'description': y.description,
+            'duration_minutes': y.duration_minutes,
+            'intensity': _get_intensity(y.calories_burned_per_minute),
+            'thumbnail': _safe_thumbnail(y.thumbnail),
+            'youtube_link': y.youtube_link,
+        }
+
+    home_workouts = [workout_to_card(w) for w in home_workouts]
+    gym_workouts = [workout_to_card(w) for w in gym_workouts]
+    yoga_sessions = [yoga_to_card(y) for y in yoga_sessions]
+    goals = Goal.objects.all()
+    levels = Level.objects.all()
 
     context = {
         'profile': profile,
-        'fitness_data': fitness_data,       # use this in the fitness tab
         'diet_data': diet_plan,
         'calorie_data': calorie_data,
         'protein_target': protein_target,
         'today': today,
+        'home_workouts': home_workouts,
+        'gym_workouts': gym_workouts,
+        'yoga_sessions': yoga_sessions,
+        'goals': goals,
+        'levels': levels,
     }
     return render(request, 'dashboard/dashboard.html', context)

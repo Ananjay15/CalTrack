@@ -129,8 +129,8 @@
               {% if food %}
                 <div class="bg-white rounded-xl p-sm shadow-sm border border-outline-variant/10 flex flex-col">
                   <div class="aspect-video rounded-lg overflow-hidden mb-sm bg-surface-container flex items-center justify-center">
-                    {% if food.thumbnail_url %}
-                      <img src="{{ food.thumbnail_url }}" alt="{{ food.name }}" class="w-full h-full object-cover">
+                    {% if food.thumbnail %}
+                      <img src="{{ food.thumbnail }}" alt="{{ food.name }}" class="w-full h-full object-cover">
                     {% else %}
                       <span class="material-symbols-outlined text-outline opacity-30 text-display">image</span>
                     {% endif %}

@@ -7,6 +7,7 @@ from apps.accounts.forms import ProfileForm
 from apps.accounts.models import Profile
 from apps.main.models import Goal
 from apps.main.services.helpers import calculate_calories
+from django.urls import reverse
 
 # Create your views here.
 def signup_view(request):
@@ -126,13 +127,30 @@ def profile_view(request):
 def update_profile(request):
     profile = request.user.profile
     if request.method == 'POST':
-        form = ProfileForm(request.POST, instance=profile)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Profile updated successfully!")
-            return redirect('dashboard:dashboard')
-        else:
-            messages.error(request, "Please correct the errors below.")
-    else:
-        form = ProfileForm(instance=profile)
-    return render(request, 'accounts/edit_profile.html', {'form': form})
+        # Update fields manually from the custom form
+        profile.goal_id = request.POST.get('goal') or profile.goal_id
+        profile.level_id = request.POST.get('level') or profile.level_id
+        profile.yoga_level_id = request.POST.get('yoga_level') or profile.yoga_level_id
+        profile.home_gym_preference = request.POST.get('home_gym_preference') or profile.home_gym_preference
+        profile.diet_preference = request.POST.get('diet_preference') or profile.diet_preference
+        profile.age = request.POST.get('age') or None
+        profile.gender = request.POST.get('gender') or None
+        profile.height_cm = request.POST.get('height_cm') or None
+        profile.current_weight_kg = request.POST.get('current_weight_kg') or None
+        profile.activity_level = request.POST.get('activity_level') or None
+        if 'avatar' in request.FILES:
+            profile.avatar = request.FILES['avatar']
+
+        profile.save()
+
+        messages.success(request, "Profile updated successfully!")
+
+        # Redirect back to dashboard with hash for settings tab
+        redirect_hash = request.POST.get('redirect_hash', '')
+        url = reverse('dashboard:dashboard')
+        if redirect_hash:
+            url += f'#{redirect_hash}'
+        return redirect(url)
+
+    # GET request – not used since we never leave the dashboard
+    return redirect('dashboard:dashboard')

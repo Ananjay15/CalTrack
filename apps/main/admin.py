@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Goal, Level, YogaStyle, MealType, Workout, Yoga, Food
+from .models import Goal, Level, MealType, Workout, Yoga, Food
 
 @admin.register(Goal)
 class GoalAdmin(admin.ModelAdmin):
@@ -8,11 +8,6 @@ class GoalAdmin(admin.ModelAdmin):
 
 @admin.register(Level)
 class LevelAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
-    prepopulated_fields = {'slug': ('name',)}
-
-@admin.register(YogaStyle)
-class YogaStyleAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
     prepopulated_fields = {'slug': ('name',)}
 
@@ -29,8 +24,15 @@ class WorkoutAdmin(admin.ModelAdmin):
 
 @admin.register(Yoga)
 class YogaAdmin(admin.ModelAdmin):
-    list_display = ['name', 'goal', 'level', 'style', 'duration_minutes']
-    list_filter = ['goal', 'level', 'style']
+    list_display = ['name', 'sanskrit_name', 'pose_type', 'goal', 'level', 'duration_minutes']
+    list_filter = ['goal', 'level', 'pose_type']
+    search_fields = ['name', 'sanskrit_name', 'description']
+    fieldsets = (
+        ('Basic Info', {'fields': ('name', 'sanskrit_name', 'pose_type', 'description')}),
+        ('Metrics', {'fields': ('duration_minutes', 'calories_burned_per_minute')}),
+        ('Classification', {'fields': ('goal', 'level')}),
+        ('Media', {'fields': ('thumbnail', 'youtube_link')}),
+    )
 
 @admin.register(Food)
 class FoodAdmin(admin.ModelAdmin):

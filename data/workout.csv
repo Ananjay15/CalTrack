@@ -1,52 +1,76 @@
-name,description,duration_minutes,calories_burned_per_minute,goal_slug,level_slug,home_gym,youtube_link
-Burpees Blast,Full-body HIIT cardio,15,14.2,weight_loss,intermediate,home,https://youtu.be/dZgVxmf6jkA
-Jump Rope Intervals,Fat burning jump rope,20,12.5,weight_loss,beginner,home,https://www.youtube.com/watch?v=1BZM2Vre5oc
-Mountain Climbers,Core & cardio,10,13,weight_loss,intermediate,home,
-Bodyweight Squats,Lower body strength,15,9.5,general_fitness,beginner,home,
-Push-Up Circuit,"Chest, shoulders, triceps",12,10,muscle_gain,beginner,home,
-Lunges & Kickbacks,Leg day at home,20,8.8,general_fitness,intermediate,home,
-Plank Challenge,Core endurance,10,5,general_fitness,beginner,home,
-High Knees,Cardio warm-up,10,11,weight_loss,beginner,home,
-Shadow Boxing,Cardio & coordination,20,13.5,weight_loss,intermediate,home,
-Kettlebell Swings,Full-body power,15,15,muscle_gain,advanced,gym,https://youtu.be/YSxHifyI6s8
-Deadlifts,Strength – posterior chain,20,9,muscle_gain,intermediate,gym,https://youtu.be/op9kVnSso6Q
-Bench Press,Chest strength,20,8.5,muscle_gain,intermediate,gym,
-Bent-Over Rows,Back & biceps,20,9.2,muscle_gain,intermediate,gym,
-Squat Rack,Barbell squats,25,10,muscle_gain,advanced,gym,
-Lat Pulldowns,Back width,20,8.3,muscle_gain,intermediate,gym,
-Leg Press,Quadriceps focus,20,9.5,muscle_gain,beginner,gym,
-Dumbbell Shoulder Press,Deltoids,15,7.8,muscle_gain,intermediate,gym,
-Barbell Curls,Biceps isolation,10,6.5,muscle_gain,beginner,gym,
-Tricep Dips,Arms & chest,12,7,muscle_gain,intermediate,home,
-Box Jumps,Explosive power,10,16,general_fitness,advanced,gym,https://youtu.be/52r_Ul5k03g
-Battle Ropes,Cardio & arms,15,14.5,weight_loss,advanced,gym,https://youtu.be/YX7fFbItFbY
-Rowing Machine,Full-body cardio,20,11,weight_loss,beginner,gym,
-Spin Bike Intervals,Cycling cardio,30,12,weight_loss,intermediate,gym,
-Treadmill Sprints,HIIT running,20,16,weight_loss,advanced,gym,
-Stair Climber,Glute & cardio,25,10.5,weight_loss,intermediate,gym,
-Yoga Sculpt,Yoga with weights,30,7,general_fitness,intermediate,both,https://youtu.be/4pKly2JojMw
-Pilates Core,Mat core work,20,5.5,general_fitness,beginner,home,
-Resistance Band Legs,Glutes & thighs,15,6.8,general_fitness,beginner,home,
-Full-Body Dumbbell,Total body strength,25,9,muscle_gain,intermediate,gym,
-Medicine Ball Slams,Power & cardio,10,13,weight_loss,intermediate,gym,
-TRX Suspension,Functional strength,20,8,general_fitness,intermediate,gym,
-Step Aerobics,Cardio steps,30,10,weight_loss,beginner,home,https://youtu.be/QK6A7W0Zj2k
-Walking (Brisk),Low-impact cardio,30,5.5,general_fitness,beginner,home,
-Cycling Outdoors,Outdoor biking,45,9,general_fitness,beginner,home,
-Swimming Laps,Full-body low impact,30,11.5,weight_loss,beginner,gym,
-Jumping Jacks,Simple cardio,5,10,weight_loss,beginner,home,
-Climbing Stairs,Leg & cardio,15,12,weight_loss,beginner,both,
-Zumba Dance,Dance cardio,30,10.5,weight_loss,beginner,both,https://youtu.be/FP0wgVhUC9w
-CrossFit WOD,High intensity mixed,20,16,weight_loss,advanced,gym,
-HIIT Abs,Core HIIT,15,13,weight_loss,intermediate,home,
-Glute Bridge Circuit,Booty workout,15,7.5,muscle_gain,beginner,home,
-Resistance Band Pulls,Back & posture,10,4.5,general_fitness,beginner,home,
-Chair Dips,Triceps at home,8,6,muscle_gain,beginner,home,
-Wall Sit,Isometric leg hold,5,6.5,general_fitness,beginner,home,
-Side Plank Hip Lifts,Oblique strength,10,5.8,general_fitness,intermediate,home,
-Donkey Kicks,Glute isolation,10,5,general_fitness,beginner,home,
-Bear Crawls,Full-body mobility,10,9,general_fitness,intermediate,home,
-Agility Ladder,Foot speed & cardio,15,10,weight_loss,intermediate,both,
-Kickboxing Bag,Cardio & strikes,20,14,weight_loss,intermediate,gym,
-Tai Chi,Slow mindful movement,30,4,general_fitness,beginner,both,
-Stretching Routine,Flexibility & cool down,15,3.5,general_fitness,beginner,both,
+name,description,duration_minutes,calories_burned_per_minute,goal_slug,level_slug,home_gym,youtube_link,thumbnail
+Advanced HIIT Ladder,"High-intensity intervals with burpees, sprints, and jump squats",18,15,weight_loss,advanced,both,https://www.youtube.com/results?search_query=Advanced+HIIT+ladder+workout+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f742e5f2299ca97834183977aa46c42610261a06.jpg
+Agility Ladder,Foot speed & cardio,15,10,weight_loss,intermediate,both,https://www.youtube.com/results?search_query=Agility+Ladder+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2b826162c89d63b958fd253b9ef5013db6cac1e6.jpg
+Barbell Curls,Biceps isolation,10,6.5,muscle_gain,beginner,gym,https://www.youtube.com/results?search_query=Barbell+Curls+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/be67fd4fe75d17425ddb78ffc549221c4b7b3a74.jpg
+Battle Ropes,Cardio & arms,15,14.5,weight_loss,advanced,gym,https://youtu.be/YX7fFbItFbY,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d97bf82b16aadb80027e7423aa7712a7fb2f63d3.jpg
+Bear Crawls,Full-body mobility,10,9,general_fitness,intermediate,home,https://www.youtube.com/results?search_query=Bear+Crawls+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/ee1084b4f5704931332411ba7ce5f3a89d0894e7.jpg
+Beginner Home Cardio Circuit,"Mix of jumping jacks, high knees, and walking in place",20,10,weight_loss,beginner,home,https://www.youtube.com/results?search_query=Beginner+home+cardio+circuit+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/edf2bf298e6bd0e8ad55259f9d63d9145f15ce64.jpg
+Bench Press,Chest strength,20,8.5,muscle_gain,intermediate,gym,https://www.youtube.com/results?search_query=Bench+Press+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/421d702747a34d94580f86c85bbd9077f1160e73.jpg
+Bent-Over Rows,Back & biceps,20,9.2,muscle_gain,intermediate,gym,https://www.youtube.com/results?search_query=Bent-Over+Rows+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e1649ae81e79cda4c745f26401ed84a73f990b50.jpg
+Bodyweight Squats,Lower body strength,15,9.5,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Bodyweight+Squats+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f5a7dc1de9e15540e294874517e92a12516cb47c.jpg
+Box Jumps,Explosive power,10,16,general_fitness,advanced,gym,https://youtu.be/52r_Ul5k03g,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4d6082bc9dcf102cad2eb9216c9aceabbca9fbd5.jpg
+Burpees Blast,Full-body HIIT cardio,15,14.2,weight_loss,intermediate,home,https://youtu.be/dZgVxmf6jkA,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/0f8ade2c8333e83782dd6777309d357da91ce3b8.jpg
+Cardio Kick Session,"Punches, knees, and kicks in sequence",20,11.5,weight_loss,intermediate,both,https://www.youtube.com/results?search_query=Cardio+Kick+Session+%235+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6b089b595788c4f4fd1fa2e154b5ac8ffa4a4f21.jpg
+Cardio Kick Session ,"Punches, knees, and kicks in sequence",20,11.5,weight_loss,intermediate,both,https://www.youtube.com/results?search_query=Cardio+Kick+Session+%2315+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6b089b595788c4f4fd1fa2e154b5ac8ffa4a4f21.jpg
+Chair Dips,Triceps at home,8,6,muscle_gain,beginner,home,https://www.youtube.com/results?search_query=Chair+Dips+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7f6357a26f1f32e31d8de71f22a0eee5ea78193e.jpg
+Climbing Stairs,Leg & cardio,15,12,weight_loss,beginner,both,https://www.youtube.com/results?search_query=Climbing+Stairs+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f9f55cdba315c8561922af388224569e5809c96d.jpg
+Core & Glutes Focus,"Glute bridges, donkey kicks, and plank variations",20,7,general_fitness,intermediate,home,https://www.youtube.com/results?search_query=Core+and+glutes+workout+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/bb699ab216c240dc15c853acc0fe4a2d61a52e18.jpg
+Core Stability Flow,"Planks, dead bugs, and bird-dogs",14,6,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Core+Stability+Flow+%234+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4c98a3757a2c1a199d0fc0573b3c573a5de06b80.jpg
+Core Stability Flow ,"Planks, dead bugs, and bird-dogs",14,6,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Core+Stability+Flow+%2324+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/4c98a3757a2c1a199d0fc0573b3c573a5de06b80.jpg
+CrossFit WOD,High intensity mixed,20,16,weight_loss,advanced,gym,https://www.youtube.com/results?search_query=CrossFit+WOD+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1c2ccfb187f33d32441ba10853da3698b7936440.jpg
+Cycling Outdoors,Outdoor biking,45,9,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Cycling+Outdoors+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/70e9b6e24cc2008624f5461fdc7724df2bf7854d.jpg
+Deadlifts,Strength – posterior chain,20,9,muscle_gain,intermediate,gym,https://youtu.be/op9kVnSso6Q,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6a554a841d2931a578dbce8923601793a3ad427e.jpg
+Desk Break Mobility,Short mobility routine for sitting relief,10,4.2,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Desk+Break+Mobility+%237+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/430342378ea588fe72e8d4a40d032021e826ef4b.jpg
+Desk Break Mobility ,Short mobility routine for sitting relief,10,4.2,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Desk+Break+Mobility+%2317+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/430342378ea588fe72e8d4a40d032021e826ef4b.jpg
+Donkey Kicks,Glute isolation,10,5,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Donkey+Kicks+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2f54d8d70fbd2df4104c276a8014fa0d6ebdd9a0.jpg
+Dumbbell Shoulder Press,Deltoids,15,7.8,muscle_gain,intermediate,gym,https://www.youtube.com/results?search_query=Dumbbell+Shoulder+Press+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2af5531d30f33ed48301d3eed75ae498c2548309.jpg
+Evening Relax Yoga,Gentle yoga flow to unwind,25,4.5,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Evening+Relax+Yoga+%238+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3e404201a58bcdbd7976fe14909640058e67b4fd.jpg
+Evening Relax Yoga ,Gentle yoga flow to unwind,25,4.5,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Evening+Relax+Yoga+%2328+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3e404201a58bcdbd7976fe14909640058e67b4fd.jpg
+Full-Body Dumbbell,Total body strength,25,9,muscle_gain,intermediate,gym,https://www.youtube.com/results?search_query=Full-Body+Dumbbell+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/e8f8cc1874340230511d304498521c835e21b5ef.jpg
+Full-Body Tabata,Timed high-intensity intervals for full body,16,14,weight_loss,advanced,both,https://www.youtube.com/results?search_query=Full-Body+Tabata+%233+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f58246c7bc8486441458799c771b9715f5ca9691.jpg
+Full-Body Tabata #43,Timed high-intensity intervals for full body,16,14,weight_loss,advanced,both,https://www.youtube.com/results?search_query=Full-Body+Tabata+%2343+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/95089cad370a368d32da068ac032dc56a32a72e7.jpg
+Glute Bridge Circuit,Booty workout,15,7.5,muscle_gain,beginner,home,https://www.youtube.com/results?search_query=Glute+Bridge+Circuit+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1f90af497fd1dd427601f0c52ef0b481a61d31e7.jpg
+High Knees,Cardio warm-up,10,11,weight_loss,beginner,home,https://www.youtube.com/results?search_query=High+Knees+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d89c83fd0c5cf31ba13169a304538bf3edb44430.jpg
+HIIT Abs,Core HIIT,15,13,weight_loss,intermediate,home,https://www.youtube.com/results?search_query=HIIT+Abs+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1e0fef7b588f0a61d0044d91ee0f599788571ed8.jpg
+Intermediate Full-Body Strength,"Combination of squats, push-ups, and dumbbell rows",25,9.5,muscle_gain,intermediate,gym,https://www.youtube.com/results?search_query=Intermediate+full+body+strength+workout+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/6687cb7ad0561014d154f77e8b396d3d15df2e25.jpg
+Jump Rope Intervals,Fat burning jump rope,20,12.5,weight_loss,beginner,home,https://www.youtube.com/watch?v=1BZM2Vre5oc,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a540111657dc1860f2a3124e25e65a5f0187b1d7.jpg
+Jumping Jacks,Simple cardio,5,10,weight_loss,beginner,home,https://www.youtube.com/results?search_query=Jumping+Jacks+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/75a1b148a523c955be96ff5e62a03757fd6f30e3.jpg
+Kettlebell Swings,Full-body power,15,15,muscle_gain,advanced,gym,https://youtu.be/YSxHifyI6s8,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/5aac34b6c96af0a2f4a0ca9dda77c96937c4798a.jpg
+Kickboxing Bag,Cardio & strikes,20,14,weight_loss,intermediate,gym,https://www.youtube.com/results?search_query=Kickboxing+Bag+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a650a7ac853208247faf1a97d3543f0b14b22d77.jpg
+Lat Pulldowns,Back width,20,8.3,muscle_gain,intermediate,gym,https://www.youtube.com/results?search_query=Lat+Pulldowns+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/faaf136879f99732e1e501435110cca61e408526.jpg
+Leg Press,Quadriceps focus,20,9.5,muscle_gain,beginner,gym,https://www.youtube.com/results?search_query=Leg+Press+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/5bfa256414d2582b10ae5ad65d5c96d4a3bc2426.jpg
+LISS Treadmill Walk,Low-intensity steady-state walking,30,6,general_fitness,beginner,gym,https://www.youtube.com/results?search_query=LISS+Treadmill+Walk+%239+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/68b74f00bf72457867eb4ac98f798095a9b2220c.jpg
+LISS Treadmill Walk ,Low-intensity steady-state walking,30,6,general_fitness,beginner,gym,https://www.youtube.com/results?search_query=LISS+Treadmill+Walk+%2319+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/68b74f00bf72457867eb4ac98f798095a9b2220c.jpg
+Lower Body Burner,"Lunges, squats, and calf raises",22,8.8,muscle_gain,beginner,home,https://www.youtube.com/results?search_query=Lower+Body+Burner+%232+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7c5426690632c8f141c3521f440c970643ec0076.jpg
+Lower Body Burner ,"Lunges, squats, and calf raises",22,8.8,muscle_gain,beginner,home,https://www.youtube.com/results?search_query=Lower+Body+Burner+%2312+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7c5426690632c8f141c3521f440c970643ec0076.jpg
+Lunges & Kickbacks,Leg day at home,20,8.8,general_fitness,intermediate,home,https://www.youtube.com/results?search_query=Lunges+%26+Kickbacks+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b6b028d156e96c0a1239c6b7224becf0daf37131.jpg
+Medicine Ball Slams,Power & cardio,10,13,weight_loss,intermediate,gym,https://www.youtube.com/results?search_query=Medicine+Ball+Slams+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/bb5d709dce28df8e53c147224fc5f89bf60ffac3.jpg
+Morning Mobility Routine,Gentle dynamic stretches for full-body mobility,15,4,general_fitness,beginner,both,https://www.youtube.com/results?search_query=Morning+mobility+routine+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/72abd5f3be35d83495356daa92002b45cf626f57.jpg
+Mountain Climbers,Core & cardio,10,13,weight_loss,intermediate,home,https://www.youtube.com/results?search_query=Mountain+Climbers+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/b60ec70c7e1fe81e5995a597ccecdfa1e3e30817.jpg
+Pilates Core,Mat core work,20,5.5,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Pilates+Core+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/5b54ec34828b1a5b68a144277d347ec356cd0cc8.jpg
+Plank Challenge,Core endurance,10,5,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Plank+Challenge+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/9f971d5af5faae2a9e6f43896088446441dbcdf4.jpg
+Push-Up Circuit,"Chest, shoulders, triceps",12,10,muscle_gain,beginner,home,https://www.youtube.com/results?search_query=Push-Up+Circuit+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1cdacc0017f42eab3ca6cef90986f48b0d524fc9.jpg
+Resistance Band Legs,Glutes & thighs,15,6.8,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Resistance+Band+Legs+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/bf16cb512dae1c1a11d04751b55e526a215ba312.jpg
+Resistance Band Pulls,Back & posture,10,4.5,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Resistance+Band+Pulls+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/215908520bca79e5d8901fd9a5416708282cd250.jpg
+Rowing Machine,Full-body cardio,20,11,weight_loss,beginner,gym,https://www.youtube.com/results?search_query=Rowing+Machine+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/9800fdb66445c2b05e5a33fb5bef5da19d363e9f.jpg
+Shadow Boxing,Cardio & coordination,20,13.5,weight_loss,intermediate,home,https://www.youtube.com/results?search_query=Shadow+Boxing+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/659b4f0d106597d1bd4cdfe170012dd700e17b6f.jpg
+Side Plank Hip Lifts,Oblique strength,10,5.8,general_fitness,intermediate,home,https://www.youtube.com/results?search_query=Side+Plank+Hip+Lifts+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/df8b1d2d5a58106160bf323dcfd1a05fb57c7b9f.jpg
+Spin Bike Intervals,Cycling cardio,30,12,weight_loss,intermediate,gym,https://www.youtube.com/results?search_query=Spin+Bike+Intervals+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/f5c4253c07f1426fceef2fb5be8c7ecb40230e8b.jpg
+Squat Rack,Barbell squats,25,10,muscle_gain,advanced,gym,https://www.youtube.com/results?search_query=Squat+Rack+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/500ee6ee2f82f4d395354a2565e0aad4014b7db5.jpg
+Stadium Stairs Run,Running stairs for intense cardio,15,13.5,weight_loss,advanced,both,https://www.youtube.com/results?search_query=Stadium+Stairs+Run+%2310+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/98451ee654ad8fdadc8fa6884145d71061743e16.jpg
+Stair Climber,Glute & cardio,25,10.5,weight_loss,intermediate,gym,https://www.youtube.com/results?search_query=Stair+Climber+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/7522b6424e5a435bf0570c55f75ed8c83b407068.jpg
+Step Aerobics,Cardio steps,30,10,weight_loss,beginner,home,https://youtu.be/QK6A7W0Zj2k,https://upload.wikimedia.org/wikipedia/commons/3/3d/Aerobic_exercise_-public_demonstration07.jpg
+Strength Endurance Circuit,Alternating upper and lower strength moves,24,9,muscle_gain,intermediate,gym,https://www.youtube.com/results?search_query=Strength+Endurance+Circuit+%236+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3f12a24f4ccbfb1734c0db557c31f96b40827258.jpg
+Strength Endurance Circuit ,Alternating upper and lower strength moves,24,9,muscle_gain,intermediate,gym,https://www.youtube.com/results?search_query=Strength+Endurance+Circuit+%2316+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/3f12a24f4ccbfb1734c0db557c31f96b40827258.jpg
+Stretching Routine,Flexibility & cool down,15,3.5,general_fitness,beginner,both,https://www.youtube.com/results?search_query=Stretching+Routine+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/72d444c83cf293b515085c235bc6ed2279ece877.jpg
+Swimming Laps,Full-body low impact,30,11.5,weight_loss,beginner,gym,https://www.youtube.com/results?search_query=Swimming+Laps+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/c5fb5489a49adb8e4ffdc88df306d9b1aa5448ba.jpg
+Tai Chi,Slow mindful movement,30,4,general_fitness,beginner,both,https://www.youtube.com/results?search_query=Tai+Chi+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/74877130288ee3600001e5b3bf3e5d839e01ca23.jpg
+Treadmill Sprints,HIIT running,20,16,weight_loss,advanced,gym,https://www.youtube.com/results?search_query=Treadmill+Sprints+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/1a882f215be2aa7c1a2e4ec7211e11b8f577ec10.jpg
+Tricep Dips,Arms & chest,12,7,muscle_gain,intermediate,home,https://www.youtube.com/results?search_query=Tricep+Dips+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/2262a971584dfdf3a641b0ab62af729037bad576.jpg
+TRX Suspension,Functional strength,20,8,general_fitness,intermediate,gym,https://www.youtube.com/results?search_query=TRX+Suspension+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/04433aa77878b69e567f8e5e3540daacb493f548.jpg
+Upper Body Blast,"Push-ups, shoulder taps, and tricep work",18,9.5,muscle_gain,intermediate,home,https://www.youtube.com/results?search_query=Upper+Body+Blast+%231+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/0b68f3a3e703caaa64c6f2467454791da2ee937d.jpg
+Upper Body Blast ,"Push-ups, shoulder taps, and tricep work",18,9.5,muscle_gain,intermediate,home,https://www.youtube.com/results?search_query=Upper+Body+Blast+%2311+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/0b68f3a3e703caaa64c6f2467454791da2ee937d.jpg
+Walking (Brisk),Low-impact cardio,30,5.5,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Walking+%28Brisk%29+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/a9969da07e394053dda98df22a7f9e3bb74874fa.jpg
+Wall Sit,Isometric leg hold,5,6.5,general_fitness,beginner,home,https://www.youtube.com/results?search_query=Wall+Sit+workout,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/d95005b60458d52020a5f56cc41265e3dba88bf6.jpg
+Yoga Sculpt,Yoga with weights,30,7,general_fitness,intermediate,both,https://youtu.be/4pKly2JojMw,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/45b45d3ba415451c8f098c472365ad46f24ac95b.jpg
+Zumba Dance,Dance cardio,30,10.5,weight_loss,beginner,both,https://youtu.be/FP0wgVhUC9w,https://pplx-res.cloudinary.com/image/upload/pplx_search_images/94d01adacee700785d66149abfb1f4edbe3271a5.jpg

@@ -5,140 +5,328 @@
       Manage your account preferences and profile details.
     </p>
   </header>
-  <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
 
-    <!-- Profile Details Section (Read-only) -->
-    <section class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-outline-variant">
-      <div class="flex items-center gap-sm mb-lg border-b border-outline-variant pb-md">
-        <span class="material-symbols-outlined text-primary">badge</span>
-        <h2 class="font-h2 text-h2 text-on-surface">Account Overview</h2>
-      </div>
-      <div class="space-y-lg">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
-          <div>
-            <p class="text-label-caps text-on-surface-variant mb-1">EMAIL ADDRESS</p>
-            <p class="font-body-md text-on-surface">{{ user.email }}</p>
-          </div>
-          <div>
-            <p class="text-label-caps text-on-surface-variant mb-1">MEMBERSHIP STATUS</p>
-            <div class="flex items-center gap-xs">
-              <span class="w-2 h-2 rounded-full bg-green-500"></span>
-              <p class="font-body-md text-on-surface font-semibold">Active Member</p>
-            </div>
-          </div>
-          <div>
-            <p class="text-label-caps text-on-surface-variant mb-1">MEMBER SINCE</p>
-            <p class="font-body-md text-on-surface">{{ user.date_joined|date:"F Y" }}</p>
-          </div>
-          <div>
-            <p class="text-label-caps text-on-surface-variant mb-1">ACCOUNT TYPE</p>
-            <p class="font-body-md text-on-surface">Personal Fitness</p>
-          </div>
-          <div>
-            <p class="text-label-caps text-on-surface-variant mb-1">FITNESS GOAL</p>
-            <p class="font-body-md text-on-surface">{{ profile.goal.name|default:"Not set" }}</p>
-          </div>
-          <div>
-            <p class="text-label-caps text-on-surface-variant mb-1">WORKOUT LEVEL</p>
-            <p class="font-body-md text-on-surface">{{ profile.level.name|default:"Any" }}</p>
-          </div>
-          <div>
-            <p class="text-label-caps text-on-surface-variant mb-1">YOGA LEVEL</p>
-            <p class="font-body-md text-on-surface">{{ profile.yoga_level.name|default:"Any" }}</p>
-          </div>
-          <div>
-            <p class="text-label-caps text-on-surface-variant mb-1">DIET PREFERENCE</p>
-            <p class="font-body-md text-on-surface">{{ profile.get_diet_preference_display }}</p>
-          </div>
-          <div>
-            <p class="text-label-caps text-on-surface-variant mb-1">HOME / GYM</p>
-            <p class="font-body-md text-on-surface">{{ profile.get_home_gym_preference_display|default:"Not set" }}</p>
-          </div>
-          {% if profile.age or profile.gender or profile.height_cm or profile.current_weight_kg %}
-          <div class="md:col-span-2 border-t border-outline-variant pt-lg mt-lg">
-            <h3 class="font-h2 text-h2 text-on-surface mb-md">Body Metrics</h3>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-lg">
-              {% if profile.age %}
-              <div>
-                <p class="text-label-caps text-on-surface-variant mb-1">AGE</p>
-                <p class="font-body-md text-on-surface">{{ profile.age }}</p>
-              </div>
-              {% endif %}
-              {% if profile.gender %}
-              <div>
-                <p class="text-label-caps text-on-surface-variant mb-1">GENDER</p>
-                <p class="font-body-md text-on-surface">{{ profile.get_gender_display }}</p>
-              </div>
-              {% endif %}
-              {% if profile.height_cm %}
-              <div>
-                <p class="text-label-caps text-on-surface-variant mb-1">HEIGHT</p>
-                <p class="font-body-md text-on-surface">{{ profile.height_cm }} cm</p>
-              </div>
-              {% endif %}
-              {% if profile.current_weight_kg %}
-              <div>
-                <p class="text-label-caps text-on-surface-variant mb-1">WEIGHT</p>
-                <p class="font-body-md text-on-surface">{{ profile.current_weight_kg }} kg</p>
-              </div>
-              {% endif %}
-              {% if profile.activity_level %}
-              <div>
-                <p class="text-label-caps text-on-surface-variant mb-1">ACTIVITY</p>
-                <p class="font-body-md text-on-surface">{{ profile.get_activity_level_display }}</p>
-              </div>
-              {% endif %}
-            </div>
-          </div>
-          {% endif %}
+  <!-- ========== READ‑ONLY VIEW (always visible by default) ========== -->
+  <div id="settings-readonly">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+
+      <!-- Profile Details Section (Read-only) -->
+      <section class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-outline-variant">
+        <div class="flex items-center gap-sm mb-lg border-b border-outline-variant pb-md">
+          <span class="material-symbols-outlined text-primary">badge</span>
+          <h2 class="font-h2 text-h2 text-on-surface">Account Overview</h2>
         </div>
-        <div class="pt-lg border-t border-outline-variant flex flex-wrap gap-md">
-          <a href="{% url 'accounts:edit_profile' %}" class="text-primary font-bold flex items-center gap-xs hover:underline">
-            <span class="material-symbols-outlined text-[18px]">edit</span>
-            <span>Edit Profile</span>
-          </a>
-          <button class="text-primary font-bold flex items-center gap-xs hover:underline">
-            <span class="material-symbols-outlined text-[18px]">lock</span>
-            <span>Change Password</span>
+        <div class="space-y-lg">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+            <div>
+              <p class="text-label-caps text-on-surface-variant mb-1">EMAIL ADDRESS</p>
+              <p class="font-body-md text-on-surface">{{ user.email }}</p>
+            </div>
+            <div>
+              <p class="text-label-caps text-on-surface-variant mb-1">MEMBERSHIP STATUS</p>
+              <div class="flex items-center gap-xs">
+                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                <p class="font-body-md text-on-surface font-semibold">Active Member</p>
+              </div>
+            </div>
+            <div>
+              <p class="text-label-caps text-on-surface-variant mb-1">MEMBER SINCE</p>
+              <p class="font-body-md text-on-surface">{{ user.date_joined|date:"F Y" }}</p>
+            </div>
+            <div>
+              <p class="text-label-caps text-on-surface-variant mb-1">ACCOUNT TYPE</p>
+              <p class="font-body-md text-on-surface">Personal Fitness</p>
+            </div>
+            <div>
+              <p class="text-label-caps text-on-surface-variant mb-1">FITNESS GOAL</p>
+              <p class="font-body-md text-on-surface">{{ profile.goal.name|default:"Not set" }}</p>
+            </div>
+            <div>
+              <p class="text-label-caps text-on-surface-variant mb-1">WORKOUT LEVEL</p>
+              <p class="font-body-md text-on-surface">{{ profile.level.name|default:"Any" }}</p>
+            </div>
+            <div>
+              <p class="text-label-caps text-on-surface-variant mb-1">YOGA LEVEL</p>
+              <p class="font-body-md text-on-surface">{{ profile.yoga_level.name|default:"Any" }}</p>
+            </div>
+            <div>
+              <p class="text-label-caps text-on-surface-variant mb-1">DIET PREFERENCE</p>
+              <p class="font-body-md text-on-surface">{{ profile.get_diet_preference_display }}</p>
+            </div>
+            <div>
+              <p class="text-label-caps text-on-surface-variant mb-1">HOME / GYM</p>
+              <p class="font-body-md text-on-surface">{{ profile.get_home_gym_preference_display|default:"Not set" }}</p>
+            </div>
+            {% if profile.age or profile.gender or profile.height_cm or profile.current_weight_kg %}
+            <div class="md:col-span-2 border-t border-outline-variant pt-lg mt-lg">
+              <h3 class="font-h2 text-h2 text-on-surface mb-md">Body Metrics</h3>
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-lg">
+                {% if profile.age %}
+                <div>
+                  <p class="text-label-caps text-on-surface-variant mb-1">AGE</p>
+                  <p class="font-body-md text-on-surface">{{ profile.age }}</p>
+                </div>
+                {% endif %}
+                {% if profile.gender %}
+                <div>
+                  <p class="text-label-caps text-on-surface-variant mb-1">GENDER</p>
+                  <p class="font-body-md text-on-surface">{{ profile.get_gender_display }}</p>
+                </div>
+                {% endif %}
+                {% if profile.height_cm %}
+                <div>
+                  <p class="text-label-caps text-on-surface-variant mb-1">HEIGHT</p>
+                  <p class="font-body-md text-on-surface">{{ profile.height_cm }} cm</p>
+                </div>
+                {% endif %}
+                {% if profile.current_weight_kg %}
+                <div>
+                  <p class="text-label-caps text-on-surface-variant mb-1">WEIGHT</p>
+                  <p class="font-body-md text-on-surface">{{ profile.current_weight_kg }} kg</p>
+                </div>
+                {% endif %}
+                {% if profile.activity_level %}
+                <div>
+                  <p class="text-label-caps text-on-surface-variant mb-1">ACTIVITY</p>
+                  <p class="font-body-md text-on-surface">{{ profile.get_activity_level_display }}</p>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          <div class="pt-lg border-t border-outline-variant flex flex-wrap gap-md">
+            <button id="show-edit-form-btn" class="text-primary font-bold flex items-center gap-xs hover:underline">
+              <span class="material-symbols-outlined text-[18px]">edit</span>
+              <span>Edit Profile</span>
+            </button>
+            <button class="text-primary font-bold flex items-center gap-xs hover:underline">
+              <span class="material-symbols-outlined text-[18px]">lock</span>
+              <span>Change Password</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Actions (also triggers edit) -->
+      <section class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-outline-variant">
+        <div class="flex items-center gap-sm mb-lg border-b border-outline-variant pb-md">
+          <span class="material-symbols-outlined text-primary">edit_square</span>
+          <h2 class="font-h2 text-h2 text-on-surface">Quick Actions</h2>
+        </div>
+        <div class="space-y-lg">
+          <p class="text-on-surface-variant">Update your fitness goal, level, body metrics, or dietary preferences.</p>
+          <button id="show-edit-form-btn-2" class="inline-block w-full bg-primary text-on-primary py-md rounded-xl font-bold shadow-md hover:opacity-90 transition-all active:scale-[0.98] text-center">
+            Edit Profile Details
           </button>
+          <div class="pt-lg border-t border-outline-variant">
+            <p class="text-label-caps text-on-surface-variant mb-sm">Need help?</p>
+            <a href="#" class="text-primary font-bold text-sm hover:underline">Contact Support</a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Quick Edit Shortcut (Optional) -->
-    <section class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-lg shadow-sm border border-outline-variant">
-      <div class="flex items-center gap-sm mb-lg border-b border-outline-variant pb-md">
-        <span class="material-symbols-outlined text-primary">edit_square</span>
-        <h2 class="font-h2 text-h2 text-on-surface">Quick Actions</h2>
-      </div>
-      <div class="space-y-lg">
-        <p class="text-on-surface-variant">Update your fitness goal, level, body metrics, or dietary preferences.</p>
-        <a href="{% url 'accounts:edit_profile' %}" class="inline-block w-full bg-primary text-on-primary py-md rounded-xl font-bold shadow-md hover:opacity-90 transition-all active:scale-[0.98] text-center">
-          Edit Profile Details
-        </a>
-        <div class="pt-lg border-t border-outline-variant">
-          <p class="text-label-caps text-on-surface-variant mb-sm">Need help?</p>
-          <a href="#" class="text-primary font-bold text-sm hover:underline">Contact Support</a>
+      <!-- Security Actions -->
+      <section class="lg:col-span-12 flex justify-start pt-md">
+        <button class="text-error font-bold flex items-center gap-xs hover:bg-error-container/20 px-md py-sm rounded-lg transition-colors">
+          <span class="material-symbols-outlined text-[18px]">delete_forever</span>
+          <span>Delete Account Permanently</span>
+        </button>
+      </section>
+
+      <!-- Support & Legal Footer -->
+      <section class="lg:col-span-12 flex flex-col md:flex-row justify-between items-center pt-xl border-t border-outline-variant text-on-surface-variant text-sm">
+        <div class="flex gap-lg mb-md md:mb-0">
+          <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+          <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+          <a class="hover:text-primary transition-colors" href="#">Contact Support</a>
         </div>
-      </div>
-    </section>
+        <p>© 2024 CalTrack Precision Systems. v4.2.1-stable</p>
+      </section>
+    </div>
+  </div>
 
-    <!-- Security Actions -->
-    <section class="lg:col-span-12 flex justify-start pt-md">
-      <button class="text-error font-bold flex items-center gap-xs hover:bg-error-container/20 px-md py-sm rounded-lg transition-colors">
-        <span class="material-symbols-outlined text-[18px]">delete_forever</span>
-        <span>Delete Account Permanently</span>
-      </button>
-    </section>
+  <!-- ========== EDIT FORM (hidden by default) ========== -->
+  <div id="settings-edit-form" style="display: none;">
+    <div class="flex-1 p-lg md:p-xl flex justify-center items-start bg-background">
+      <div class="w-full max-w-2xl bg-surface-container-lowest rounded-xl shadow-sm">
+        <!-- Photo Section (now functional) -->
+        <div class="p-xl border-b border-surface-variant flex flex-col items-center gap-md relative overflow-hidden">
+          <div class="relative group cursor-pointer" id="avatar-preview-wrapper">
+            <div class="w-32 h-32 rounded-full border-4 border-primary-container p-1 overflow-hidden shadow-md">
+              <img id="avatar-preview-img"
+                  class="w-full h-full object-cover rounded-full"
+                  src="{% if profile.avatar %}{{ profile.avatar.url }}{% else %}https://img.magnific.com/free-vector/user-circles-set_78370-4704.jpg?semt=ais_hybrid&w=740&q=80{% endif %}"
+                  alt="Profile photo">
+            </div>
+            <div class="absolute bottom-1 right-1 bg-primary text-on-primary p-xs rounded-full shadow-lg"
+                onclick="document.getElementById('avatar-upload').click()">
+              <span class="material-symbols-outlined text-sm">edit</span>
+            </div>
+          </div>
 
-    <!-- Support & Legal Footer -->
-    <section class="lg:col-span-12 flex flex-col md:flex-row justify-between items-center pt-xl border-t border-outline-variant text-on-surface-variant text-sm">
-      <div class="flex gap-lg mb-md md:mb-0">
-        <a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
-        <a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
-        <a class="hover:text-primary transition-colors" href="#">Contact Support</a>
+          <!-- Hidden file input -->
+          <input type="file" id="avatar-upload" name="avatar" accept="image/*" style="display: none;"
+                onchange="previewAvatar(event)">
+
+          <!-- Trigger button -->
+          <button type="button"
+                  class="text-primary font-bold hover:underline text-body-md"
+                  onclick="document.getElementById('avatar-upload').click()">
+            Change Photo
+          </button>
+          <p class="text-on-surface-variant text-xs mt-xs">JPG, GIF or PNG. Max size 2MB</p>
+        </div>
+
+        <!-- Actual Form -->
+        <form id="profile-edit-form" class="p-xl flex flex-col gap-xl" action="{% url 'accounts:edit_profile' %}" method="POST" enctype="multipart/form-data" >
+          {% csrf_token %}
+          <input type="hidden" name="redirect_hash" value="settings">
+
+          <!-- Personal Info -->
+          <section class="space-y-lg">
+            <div class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-primary text-lg">badge</span>
+              <h3 class="font-h2 text-lg text-on-surface">Personal Information</h3>
+            </div>
+            <div class="grid grid-cols-1 gap-lg">
+              <div class="flex flex-col gap-xs">
+                <label class="text-label-caps font-label-caps text-outline ml-base">Username</label>
+                <input class="w-full px-lg py-md bg-surface-container-highest border border-outline-variant rounded-lg text-on-surface-variant font-body-md cursor-not-allowed" readonly value="{{ user.username }}">
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label class="text-label-caps font-label-caps text-outline ml-base">Email Address</label>
+                <input class="w-full px-lg py-md bg-surface-container-highest border border-outline-variant rounded-lg text-on-surface-variant font-body-md cursor-not-allowed" readonly value="{{ user.email }}">
+              </div>
+            </div>
+          </section>
+
+          <!-- Physical Metrics -->
+          <section class="space-y-lg">
+            <div class="flex items-center gap-sm">
+              <span class="material-symbols-outlined text-primary text-lg">monitor_weight</span>
+              <h3 class="font-h2 text-lg text-on-surface">Physical Metrics</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+              <div class="flex flex-col gap-xs">
+                <label class="text-label-caps font-label-caps text-outline ml-base">Weight (kg)</label>
+                <input name="current_weight_kg" class="w-full px-lg py-md bg-surface-container-low border border-outline-variant rounded-lg text-on-surface font-body-md" step="0.1" type="number" value="{{ profile.current_weight_kg|default:'' }}">
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label class="text-label-caps font-label-caps text-outline ml-base">Height (cm)</label>
+                <input name="height_cm" class="w-full px-lg py-md bg-surface-container-low border border-outline-variant rounded-lg text-on-surface font-body-md" type="number" value="{{ profile.height_cm|default:'' }}">
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label class="text-label-caps font-label-caps text-outline ml-base">Age</label>
+                <input name="age" class="w-full px-lg py-md bg-surface-container-low border border-outline-variant rounded-lg text-on-surface font-body-md" type="number" value="{{ profile.age|default:'' }}">
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label class="text-label-caps font-label-caps text-outline ml-base">Gender</label>
+                <select name="gender" class="w-full px-lg py-md bg-surface-container-low border border-outline-variant rounded-lg text-on-surface font-body-md">
+                  <option value="">--</option>
+                  <option value="male" {% if profile.gender == 'male' %}selected{% endif %}>Male</option>
+                  <option value="female" {% if profile.gender == 'female' %}selected{% endif %}>Female</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label class="text-label-caps font-label-caps text-outline ml-base">Activity Level</label>
+                <select name="activity_level" class="w-full px-lg py-md bg-surface-container-low border border-outline-variant rounded-lg text-on-surface font-body-md">
+                  {% for value, label in profile.ACTIVITY_CHOICES %}
+                    <option value="{{ value }}" {% if profile.activity_level == value %}selected{% endif %}>{{ label }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label class="text-label-caps font-label-caps text-outline ml-base">Fitness Goal</label>
+                <select name="goal" class="w-full px-lg py-md bg-surface-container-low border border-outline-variant rounded-lg text-on-surface font-body-md">
+                  {% for goal in goals %}
+                    <option value="{{ goal.id }}" {% if profile.goal_id == goal.id %}selected{% endif %}>{{ goal.name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label class="text-label-caps font-label-caps text-outline ml-base">Workout Level</label>
+                <select name="level" class="w-full px-lg py-md bg-surface-container-low border border-outline-variant rounded-lg text-on-surface font-body-md">
+                  <option value="">--</option>
+                  {% for level in levels %}
+                    <option value="{{ level.id }}" {% if profile.level_id == level.id %}selected{% endif %}>{{ level.name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label class="text-label-caps font-label-caps text-outline ml-base">Yoga Level</label>
+                <select name="yoga_level" class="w-full px-lg py-md bg-surface-container-low border border-outline-variant rounded-lg text-on-surface font-body-md">
+                  <option value="">--</option>
+                  {% for level in levels %}
+                    <option value="{{ level.id }}" {% if profile.yoga_level_id == level.id %}selected{% endif %}>{{ level.name }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label class="text-label-caps font-label-caps text-outline ml-base">Home / Gym Preference</label>
+                <select name="home_gym_preference" class="w-full px-lg py-md bg-surface-container-low border border-outline-variant rounded-lg text-on-surface font-body-md">
+                  <option value="">--</option>
+                  <option value="home" {% if profile.home_gym_preference == 'home' %}selected{% endif %}>Home</option>
+                  <option value="gym" {% if profile.home_gym_preference == 'gym' %}selected{% endif %}>Gym</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label class="text-label-caps font-label-caps text-outline ml-base">Diet Preference</label>
+                <select name="diet_preference" class="w-full px-lg py-md bg-surface-container-low border border-outline-variant rounded-lg text-on-surface font-body-md">
+                  <option value="both" {% if profile.diet_preference == 'both' %}selected{% endif %}>Both</option>
+                  <option value="veg" {% if profile.diet_preference == 'veg' %}selected{% endif %}>Veg</option>
+                  <option value="non-veg" {% if profile.diet_preference == 'non-veg' %}selected{% endif %}>Non-Veg</option>
+                </select>
+              </div>
+            </div>
+          </section>
+
+          <!-- Actions -->
+          <div class="pt-xl flex flex-col sm:flex-row gap-md border-t border-surface-variant">
+            <button type="submit" class="flex-1 py-md px-xxl bg-primary text-on-primary rounded-xl font-bold shadow-md hover:opacity-95 active:scale-[0.98] transition-all flex items-center justify-center gap-md">
+              <span class="material-symbols-outlined text-md">save</span>
+              Save Changes
+            </button>
+            <button type="button" id="cancel-edit-btn" class="px-xl py-md text-on-surface-variant font-medium border border-outline-variant rounded-xl hover:bg-surface-container transition-colors active:scale-[0.98]">
+              Cancel
+            </button>
+          </div>
+        </form>
       </div>
-      <p>© 2024 CalTrack Precision Systems. v4.2.1-stable</p>
-    </section>
+    </div>
   </div>
 </main>
+
+<script>
+  const readonlyDiv = document.getElementById('settings-readonly');
+  const editFormDiv = document.getElementById('settings-edit-form');
+  const showBtns = document.querySelectorAll('#show-edit-form-btn, #show-edit-form-btn-2');
+  const cancelBtn = document.getElementById('cancel-edit-btn');
+
+  function showEditForm() {
+    readonlyDiv.style.display = 'none';
+    editFormDiv.style.display = 'block';
+  }
+  function showReadonly() {
+    editFormDiv.style.display = 'none';
+    readonlyDiv.style.display = 'block';
+  }
+  function previewAvatar(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        document.getElementById('avatar-preview-img').src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  showBtns.forEach(btn => btn.addEventListener('click', showEditForm));
+  cancelBtn.addEventListener('click', showReadonly);
+
+  // If the URL hash is #settings-edit, automatically show edit form on load
+  if (window.location.hash === '#settings-edit') {
+    showEditForm();
+  }
+</script>

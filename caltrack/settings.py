@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-import os
+import os, cloudinary
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,7 +41,23 @@ INSTALLED_APPS = [
     'apps.main.apps.MainConfig',
     'apps.accounts.apps.AccountsConfig',
     'apps.dashboard.apps.DashboardConfig',
+    'cloudinary',
+    'cloudinary_storage',
 ]
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dalrbwtiz',
+    'API_KEY': '645498311929342',
+    'API_SECRET': 'DDzvuT8jD_DxeR0O9yWImsD48j0',
+}
+
+cloudinary.config(
+    cloud_name=CLOUDINARY_STORAGE['CLOUD_NAME'],
+    api_key=CLOUDINARY_STORAGE['API_KEY'],
+    api_secret=CLOUDINARY_STORAGE['API_SECRET'],
+    secure=True,
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

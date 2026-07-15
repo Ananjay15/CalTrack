@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Goal(models.Model):
@@ -23,16 +24,6 @@ class Level(models.Model):
     def __str__(self):
         return self.name
     
-class YogaStyle(models.Model):
-    name = models.CharField(max_length=50, unique=True)
-    slug = models.SlugField(max_length=50, unique=True)
-
-    class Meta:
-        verbose_name = "Yoga Style"
-        verbose_name_plural = "Yoga Styles"
-
-    def __str__(self):
-        return self.name
 
 class MealType(models.Model):
     name = models.CharField(max_length=50, unique=True)
@@ -62,7 +53,7 @@ class Workout(models.Model):
     goal = models.ForeignKey(Goal, on_delete=models.CASCADE)
     level = models.ForeignKey(Level, on_delete=models.CASCADE)
     home_gym = models.CharField(max_length=10, choices=HOME_GYM_CHOICES, default='both' )
-    thumbnail = models.ImageField(upload_to='workouts/thumbnails/', blank=True, null=True)
+    thumbnail = CloudinaryField('images', blank=True, null=True)
     youtube_link = models.URLField(blank=True, null=True)
     
     class Meta:
@@ -73,27 +64,40 @@ class Workout(models.Model):
         return self.name
     
 class Yoga(models.Model):
+    TYPE_CHOICES = [
+        ('seated','Seated'),
+        ('standing','Standing'),
+        ('forward-bend','Forward-bend'),
+        ('back-bend','Back-bend'),
+        ('twist','Twist'),
+        ('inversion','Inversion'),
+        ('arm-balance','Arm-balance'),
+        ('Restorative','Restorative'),
+        ('Preparatory','Preparatory')
+    ]
+    
     name = models.CharField(max_length=120)
+    sanskrit_name = models.CharField(max_length=120, blank=True, help_text="Sanskrit name of yoga poses")
     description = models.TextField(blank=True)
     duration_minutes = models.PositiveIntegerField()
     calories_burned_per_minute = models.FloatField()
+    pose_type = models.CharField(max_length=20, choices=TYPE_CHOICES, default='')
     goal = models.ForeignKey(Goal, on_delete=models.CASCADE)
     level = models.ForeignKey(Level, on_delete=models.CASCADE)
-    style = models.ForeignKey(YogaStyle, on_delete=models.SET_NULL, null=True, blank=True)
-    thumbnail = models.ImageField(upload_to='yoga/thumbnails/', blank=True, null=True)
+    thumbnail = models.URLField(blank=True, null=True)
     youtube_link = models.URLField(blank=True, null=True)
 
     class Meta:
-        verbose_name = "Yoga Session"
-        verbose_name_plural = "Yoga Sessions"
+        verbose_name = "Yoga Pose"
+        verbose_name_plural = "Yoga Poses"
 
     def __str__(self):
         return self.name
     
 class Food(models.Model):
     CATEGORY_CHOICES = [
-        ('veg', 'Vegitarian'),
-        ('nonn-veg', 'Non-Vegitarian '),
+        ('veg', 'Veg'),
+        ('non-veg', 'Non-Veg '),
     ]  
     
     name = models.CharField(max_length=120)
@@ -104,8 +108,8 @@ class Food(models.Model):
     fats_g = models.FloatField(default=0)
     goal = models.ForeignKey(Goal, on_delete=models.CASCADE)
     meal_type = models.ForeignKey(MealType, on_delete=models.CASCADE)
-    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES, default='veg')
-    thumbnail = models.ImageField(upload_to='food/thumbnails/', blank=True, null=True)
+    category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
+    thumbnail = models.URLField(blank=True, null=True)
     youtube_link = models.URLField(blank=True, null=True, help_text="Recipe video link")
 
     class Meta:

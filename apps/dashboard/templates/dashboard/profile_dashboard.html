@@ -170,25 +170,53 @@
     </div>
   </section>
 
-  <!-- Personal Achievement / Goal Grid (keep as motivational placeholders) -->
-  <section class="space-y-md mt-xxl">
-    <h2 class="font-h2 text-h2 text-on-surface">Milestones</h2>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-md">
-      <div class="p-lg bg-tertiary-container text-on-tertiary-container rounded-xl flex flex-col items-center gap-sm">
-        <span class="material-symbols-outlined text-[40px]">workspace_premium</span>
-        <p class="font-bold text-center">30 Day Streak</p>
+  <!-- Personal Achievement / Goal Grid -->
+  <section class="space-y-md">
+    <h2 class="font-h2 text-h2 text-on-surface">AI Wellness Assistant</h2>
+    <div
+      class="bg-surface-container-lowest rounded-xl p-lg ambient-shadow flex flex-col h-[400px]"
+    >
+      <!-- Chat History Area -->
+      <div class="flex-1 overflow-y-auto space-y-md mb-lg pr-sm">
+        <div class="flex items-start gap-md">
+          <div
+            class="w-8 h-8 rounded-full bg-primary flex items-center justify-center flex-shrink-0"
+          >
+            <span
+              class="material-symbols-outlined text-on-primary text-sm"
+              >smart_toy</span
+            >
+          </div>
+          <div
+            class="bg-surface-container p-md rounded-xl rounded-tl-none max-w-[80%]"
+          >
+            <p class="text-sm font-bold text-primary mb-xs">
+              CalTrack AI
+            </p>
+            <p class="text-body-md text-on-surface">
+              Hello! I've analyzed your recent nutrition trends. You're
+              doing great with your protein intake! How can I help you
+              optimize your workout today?
+            </p>
+          </div>
+        </div>
       </div>
-      <div class="p-lg bg-surface-container-high rounded-xl flex flex-col items-center gap-sm">
-        <span class="material-symbols-outlined text-[40px] text-outline">fitness_center</span>
-        <p class="font-bold text-center text-on-surface-variant">Heavy Hitter</p>
-      </div>
-      <div class="p-lg bg-surface-container-high rounded-xl flex flex-col items-center gap-sm">
-        <span class="material-symbols-outlined text-[40px] text-outline">local_fire_department</span>
-        <p class="font-bold text-center text-on-surface-variant">Calorie Burner</p>
-      </div>
-      <div class="p-lg bg-surface-container-high rounded-xl flex flex-col items-center gap-sm">
-        <span class="material-symbols-outlined text-[40px] text-outline">timer</span>
-        <p class="font-bold text-center text-on-surface-variant">Early Bird</p>
+      <!-- Input Area -->
+      <div
+        class="flex items-center gap-sm border-t border-surface-container pt-lg"
+      >
+        <div class="flex-1 relative">
+          <input
+            class="w-full bg-surface-container border-none rounded-full px-lg py-sm text-body-md focus:ring-2 focus:ring-primary outline-none"
+            placeholder="Ask CalTrack AI..."
+            type="text"
+          />
+        </div>
+        <button
+          class="w-10 h-10 bg-primary text-on-primary rounded-full flex items-center justify-center hover:opacity-90 transition-all active:scale-95"
+        >
+          <span class="material-symbols-outlined">send</span>
+        </button>
       </div>
     </div>
   </section>

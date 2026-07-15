@@ -9,9 +9,9 @@ class Profile(models.Model):
         ('gym', 'Gym'),
     ]
     DIET_CHOICES = [
-        ('veg', 'Vegetarian'),
-        ('non-veg', 'Non-Vegetarian'),
-        ('both', 'Both'),
+        ('veg', 'Veg'),
+        ('non-veg', 'Non-Veg'),
+        ('Mix', 'Mix'),
     ]
     GENDER_CHOICES = [
         ('male', 'Male'),
@@ -31,6 +31,7 @@ class Profile(models.Model):
         on_delete=models.CASCADE,
         related_name='profile'
     )
+    
     
     goal = models.ForeignKey(
         Goal,
@@ -95,7 +96,10 @@ class Profile(models.Model):
         choices=ACTIVITY_CHOICES,
         null=True, blank=True
         )
-
+    avatar = models.ImageField(
+        upload_to='avatars/',
+        blank=True, null=True
+        )
     
     
     class Meta:
