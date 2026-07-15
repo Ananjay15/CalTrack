@@ -1,0 +1,8 @@
+django
+cloudinary
+django-cloudinary-storage
+djangorestframework
+djangorestframework-simplejwt
+PyJWT
+requests
+mysqlclient          # only if you’re using MySQL
